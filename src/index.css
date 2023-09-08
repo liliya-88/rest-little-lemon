@@ -3009,7 +3009,28 @@ text-shadow: var(--textShadowTitle);
   opacity: 1;
   color:var(--primaryColor) !important;
 }
+/* notValid message */
+.not_valid{
+  color:var(--whiteMain);
+  text-shadow: var(--textColor);
+  display:none;
+  justify-content: center;
+  align-items: center;
+  bottom: 9vh;
+  position:absolute;
+ z-index: 5;
+ left: 0;
+ right: 0;
+ margin: 0 auto;
+ background-color: rgb(255, 0, 0,0.7);
+ font-size: 85%;
+ width: fit-content;
 
+}
+.not_valid.show{
+ display:flex;
+}
+/* ============= */
 /* Mark the steps that are finished and valid: */
 .step.finish {
   background-color: #04AA6D;

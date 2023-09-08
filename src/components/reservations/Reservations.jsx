@@ -1,39 +1,71 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image1 from '../../assets/about/interior-of-the-restaurant.jpg'
 import Image2 from '../../assets/about/restaurant-chefs.jpg'
 
 const Reservations = () => {
-  const [inputV, setInputV] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone: '',
+  const ls = typeof window !== 'undefined' ? window.localStorage : null
+
+  const [inputV, setInputV] = useState(() => {
+    const formData = ls ? JSON.parse(ls.getItem('formData')) : null
+    return {
+      first_name: formData ? formData.first_name || '' : '',
+      last_name: formData ? formData.last_name || '' : '',
+      email: formData ? formData.email || '' : '',
+      phone: formData ? formData.phone || '' : '',
+      username: formData ? formData.username || '' : '',
+      password: formData ? formData.password || '' : '',
+      confirm_password: formData ? formData.confirm_password || '' : '',
+      date: formData ? formData.date || '' : '',
+      time: formData ? formData.time || '' : '',
+      number_of_diners: formData ? formData.number_of_diners || '' : '',
+      occasion: formData ? formData.occasion || '' : '',
+      special_request: formData ? formData.special_request || '' : '',
+    }
+  })
+  console.log(inputV)
+  /*  const [inputV, setInputV] = useState({
+    first_name: '' || ls.getItem('formData'),
+    last_name: '' || ls.getItem('formData'),
+    email: '' || ls.getItem('formData'),
+    phone: '' || ls.getItem('formData'),
     username: '',
     password: '',
+    confirm_password: '',
     date: '',
-    time: '',
+    time: '' || ls.getItem('formData'),
     number_of_diners: '',
     occasion: '',
     special_request: '',
-  })
+  }) */
   const [showPassword, setShowPassword] = useState(false)
   const [currentTab, setCurrentTab] = useState(0)
   const [submit, setSubmit] = useState(false)
   const [hide, setHide] = useState(false)
+  const [notValid, setNotValid] = useState(true)
+  /* +++ */
+  const [errors, setErrors] = useState({})
+  /* +++ */
   let number = 1
+  let startAgain = 0
 
   /* ----------- */
-  function handleNext() {
-    setCurrentTab(currentTab + number)
 
-    if (currentTab > 1) {
-      setSubmit(true)
-    } else {
-      setSubmit(false)
+  /* useEffects */
+  useEffect(() => {
+    if (inputV && ls) {
+      localStorage.setItem('formData', JSON.stringify(inputV))
     }
-    if (currentTab < number) setHide(true)
-  }
+  }, [inputV, ls])
+
+  useEffect(() => {
+    if (ls && ls.getItem('formData')) {
+      setInputV(JSON.parse(ls.getItem('formData')))
+    }
+  }, [ls])
+
+  /* end of useEffects */
   function handlePrev() {
     setCurrentTab(currentTab - number)
     if (currentTab < number) {
@@ -42,15 +74,89 @@ const Reservations = () => {
       setHide(false)
     }
   }
+  /* for validation email and phane */
+
+  /* ======================================================= */
+  /* setInputV({ ...inputV, email: e.target.value } */
+
   function handleSubmit(e) {
-    e.preventDefault()
-    if (inputV.password === inputV.confirm_password) {
-      confirm('Thanks for signing up!')
-    } else {
-      alert('Please enter a correct password')
+    /* validation of the first section */
+    if (
+      currentTab === 0 &&
+      inputV.data !== '' &&
+      inputV.time !== '' &&
+      inputV.number_of_diners !== '' &&
+      inputV.occasion !== ''
+    ) {
+      setNotValid(false)
+      setCurrentTab(currentTab + number)
+      if (currentTab > 1) {
+        setSubmit(true)
+      } else {
+        setSubmit(false)
+      }
+      if (currentTab < number) setHide(true)
+      return
+    }
+    /* validation of the second section */
+    if (
+      currentTab === 1 &&
+      inputV.name !== '' &&
+      inputV.last_name !== '' &&
+      inputV.email !== '' &&
+      inputV.phone !== ''
+    ) {
+      setNotValid(false)
+      setCurrentTab(currentTab + number)
+
+      if (currentTab > 1) {
+        setSubmit(true)
+      } else {
+        setSubmit(false)
+      }
+      if (currentTab < number) setHide(true)
+    }
+    /* validation of the second section - last step before submitting */
+    if (
+      currentTab === 2 &&
+      inputV.username !== '' &&
+      inputV.password !== '' &&
+      inputV.confirm_password !== ''
+    ) {
+      e.preventDefault()
+      if (inputV.password !== inputV.confirm_password) {
+        alert(
+          'The password and the confirmation password are not the same.Please try again.'
+        )
+        return
+      } else {
+        alert('Thanks for signing up!')
+        setTimeout(() => {
+          // Reset the form
+          setInputV({
+            first_name: '',
+            last_name: '',
+            email: '',
+            phone: '',
+            username: '',
+            password: '',
+            confirm_password: '',
+            date: '',
+            time: '',
+            number_of_diners: '',
+            occasion: '',
+            special_request: '',
+          })
+          return setCurrentTab(startAgain)
+        }, 2000)
+      }
+
+      //Clear localStorage after form submission
+      localStorage.removeItem('formData')
+      // Reset the form
     }
   }
-  /* ------------------- */
+
   return (
     <>
       <section className='main_wrapper_form pt-4'>
@@ -63,7 +169,7 @@ const Reservations = () => {
         </div>
 
         <div className='form_container' onSubmit={handleSubmit}>
-          <form action='' id='regForm' method='POST'>
+          <form id='regForm'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
@@ -156,6 +262,12 @@ const Reservations = () => {
             <div
               className='tab mt-0'
               style={{ display: currentTab === 0 ? 'grid' : 'none' }}>
+              <p
+                className={
+                  currentTab === 0 && notValid ? 'not_valid show' : 'not_valid'
+                }>
+                {/* Please fill in all the fields correctly */}
+              </p>
               <p>
                 <label htmlFor='number_of_diners'>
                   <sup>*</sup>Number of diners: <br />
@@ -165,7 +277,10 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='number_of_diners'
                     onChange={(e) =>
-                      setInputV({ ...inputV, number_of_diners: e.target.value })
+                      setInputV({
+                        ...inputV,
+                        number_of_diners: e.target.value,
+                      })
                     }
                     required>
                     <option value='' disabled>
@@ -310,6 +425,7 @@ const Reservations = () => {
                     onChange={(e) =>
                       setInputV({ ...inputV, email: e.target.value })
                     }
+                    autoCapitalize='true'
                     required
                   />
                 </label>
@@ -323,6 +439,16 @@ const Reservations = () => {
                   X
                 </span>
               </p>
+              {errors.email && (
+                <p
+                  className={
+                    currentTab === 0 && notValid
+                      ? 'not_valid show'
+                      : 'not_valid'
+                  }>
+                  Please enter a valid email address
+                </p>
+              )}
               <p>
                 <label htmlFor='phone'>
                   <sup>*</sup>Phone <br />
@@ -331,10 +457,12 @@ const Reservations = () => {
                     value={inputV.phone}
                     className='form_input'
                     name='phone'
-                    placeholder='905427730224'
+                    pattern='[0-9]{1,2}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}'
+                    placeholder='+X(910)-XXX-XXXX'
                     onChange={(e) =>
                       setInputV({ ...inputV, phone: e.target.value })
                     }
+                    autoCapitalize='true'
                     required
                   />
                 </label>
@@ -348,6 +476,7 @@ const Reservations = () => {
                   X
                 </span>
               </p>
+              {errors.phone && <p>{errors.phone}</p>}
             </div>
             {/* END OF ONE BLOCK WITH 4 INPUTS */}
 
@@ -368,6 +497,7 @@ const Reservations = () => {
                     onChange={(e) =>
                       setInputV({ ...inputV, username: e.target.value })
                     }
+                    autoCapitalize='true'
                     required
                   />
                 </label>
@@ -397,6 +527,7 @@ const Reservations = () => {
                     onChange={(e) =>
                       setInputV({ ...inputV, password: e.target.value })
                     }
+                    autoCapitalize='true'
                     required
                   />
                 </label>
@@ -440,8 +571,13 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='confirm password'
                     onChange={(e) =>
-                      setInputV({ ...inputV, confirm_password: e.target.value })
+                      setInputV({
+                        ...inputV,
+                        confirm_password: e.target.value,
+                      })
                     }
+                    autoCapitalize='true'
+                    required
                   />
                 </label>
 
@@ -481,9 +617,11 @@ const Reservations = () => {
                     name='text'
                     placeholder='Add a special request (optional)'
                     onChange={(e) =>
-                      setInputV({ ...inputV, special_request: e.target.value })
-                    }
-                    required></textarea>
+                      setInputV({
+                        ...inputV,
+                        special_request: e.target.value,
+                      })
+                    }></textarea>
                 </label>
                 <span
                   className='clear_input'
@@ -519,10 +657,10 @@ const Reservations = () => {
                   </button>
                 ) : (
                   <button
-                    type='button'
+                    type='submit'
                     id='nextBtn'
                     className='btn'
-                    onClick={handleNext}>
+                    onClick={handleSubmit}>
                     Next →
                   </button>
                 )}
