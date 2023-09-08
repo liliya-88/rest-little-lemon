@@ -42,7 +42,8 @@ const Reservations = () => {
       setHide(false)
     }
   }
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault()
     if (inputV.password === inputV.confirm_password) {
       confirm('Thanks for signing up!')
     } else {
