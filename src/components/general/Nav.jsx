@@ -6,7 +6,7 @@ import Logo from '../../assets/svg-logo.svg'
 
 const Nav = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
-  const [activeLink, setActiveLink] = useState(1)
+  const [activeLink, setActiveLink] = useState(0)
   const Desktop = useMediaQuery('(min-width: 930px)')
   /*    className={`!Desktop && mobileNavActive ? (nav_container show): `}> */
   /* className={activeLink?'a_link odd active'} : 'a_link'} */
@@ -49,8 +49,8 @@ const Nav = () => {
                   }}>
                   <li className='odd'>home</li>
                 </Link>
-                <ReactScroll
-                  to='about'
+                <Link
+                  to='/about'
                   smooth={true}
                   duration={500}
                   title='know us better'
@@ -60,7 +60,7 @@ const Nav = () => {
                     handleLinkClick(2)
                   }}>
                   <li className='odd others'>about </li>
-                </ReactScroll>
+                </Link>
 
                 <Link
                   to={'/menu'}
@@ -68,7 +68,7 @@ const Nav = () => {
                   id='dropdown_title_link'
                   onClick={() => {
                     setMobileNavActive(false)
-                    handleLinkClick(1)
+                    handleLinkClick(3)
                     window.scrollTo(0, 0)
                   }}>
                   <li className='odd others'>menu </li>
@@ -80,7 +80,7 @@ const Nav = () => {
                   title='reserve a table'
                   onClick={() => {
                     setMobileNavActive(false)
-                    handleLinkClick(1)
+                    handleLinkClick(4)
                     window.scrollTo(0, 0)
                   }}>
                   <li className='odd others'>reservations</li>
@@ -90,7 +90,7 @@ const Nav = () => {
                   className={activeLink === 5 ? 'a_link odd active' : 'a_link'}
                   onClick={() => {
                     setMobileNavActive(false)
-                    handleLinkClick(1)
+                    handleLinkClick(5)
                     window.scrollTo(0, 0)
                   }}>
                   <li className='odd'>
@@ -102,7 +102,7 @@ const Nav = () => {
                   className={activeLink === 6 ? 'a_link odd active' : 'a_link'}
                   onClick={() => {
                     setMobileNavActive(false)
-                    handleLinkClick(1)
+                    handleLinkClick(6)
                     window.scrollTo(0, 0)
                   }}>
                   <li className='odd'>login</li>

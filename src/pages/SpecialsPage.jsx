@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Footer from '../components/general/Footer'
 import ArrowPhantom from '../hooks/ArrowPhantom'
-import NavSpecials from '../components/specials/NavSpecials'
+import Nav from '../components/general/Nav'
 import MainContainerSpecials from '../components/specials/MainContainerSpecials'
 
 function SpecialsPage() {
@@ -11,7 +11,7 @@ function SpecialsPage() {
   return (
     <>
       <>
-        <NavSpecials />
+        <Nav />
         <main className='main pt-6 flashIn'>
           <MainContainerSpecials />
         </main>

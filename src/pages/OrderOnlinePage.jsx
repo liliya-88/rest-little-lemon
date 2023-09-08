@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Footer from '../components/general/Footer'
 
-import NavOrderOnline from '../components/order-online/NavOrderOnline'
+import Nav from '../components/general/Nav'
 import ArrowPhantom from '../hooks/ArrowPhantom'
 
 function OrderOnlinePage() {
@@ -10,7 +10,7 @@ function OrderOnlinePage() {
   },[])
   return (
     <>
-      <NavOrderOnline />
+      <Nav />
       <section className='grid_wrapper flashIn'>
         <div className='item1'>Item one</div>
         <div className='item2'>Item two</div>

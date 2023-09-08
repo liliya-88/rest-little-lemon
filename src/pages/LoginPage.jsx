@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import Footer from '../components/general/Footer'
 
-import NavLogin from '../components/login/NavLogin'
+import Nav from '../components/general/Nav'
 import Footer from '../components/general/Footer'
 
 function LoginPage() {
@@ -19,7 +19,7 @@ function LoginPage() {
   }, [])
   return (
     <>
-      <NavLogin />
+      <Nav/>
       <section className='grid_wrapper_login flashIn'>
         <article
           style={{
