@@ -268,7 +268,7 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='last_name'>
-                  <sup>*</sup>Surname
+                  <sup>*</sup>Last Name
                   <br />
                   <input
                     type='text'
@@ -277,7 +277,7 @@ const Reservations = () => {
                     name='last_name'
                     placeholder='Doe'
                     onChange={(e) =>
-                      setInputV({ ...inputV, lastt_name: e.target.value })
+                      setInputV({ ...inputV, last_name: e.target.value })
                     }
                     required
                   />
