@@ -531,7 +531,7 @@ const Reservations = () => {
             {/* ++++++ */}
             {/*  */}
             {/* circles which indicates the steps of the form */}
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center' }} className='steps'>
               <span
                 className={currentTab === 0 ? 'step active' : 'step'}></span>
               <span

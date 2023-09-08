@@ -2846,7 +2846,7 @@ figure figcaption {
   max-width: 100%;
   background: rgb(0, 0, 0, 0.4) url('./assets/menu/bg-green.jpg') center/cover no-repeat fixed;
   background-blend-mode: overlay;
- min-height: 100vh;
+min-height: 100vh ;
   overflow: hidden !important;
   overflow-x: hidden !important;
 }
@@ -3001,7 +3001,9 @@ text-shadow: var(--textShadowTitle);
   display: inline-block;
   opacity: 0.5;
 }
-
+.steps{
+  margin-bottom: 1.5rem;
+}
 /* Mark the active step: */
 .step.active {
   opacity: 1;
@@ -3013,10 +3015,11 @@ text-shadow: var(--textShadowTitle);
   background-color: #04AA6D;
 }
 .btns_form_container{
-margin: 1vh auto 3vh;
+margin: 1vh auto 1vh;
 display: flex;
 justify-content: space-around;
 }
+
 .sign{
   margin: 25vh auto 0 !important;
 
@@ -3051,6 +3054,7 @@ select.form_input option{
 
   /* text-align: center; */
 }
+
 .sign{
   margin: 23vh auto 0 !important;
 
@@ -3111,6 +3115,15 @@ select.form_input option{
     flex-flow: row wrap;
     /* text-align: center; */
   }
+  .main_container_reservations {
+  margin-top: -1rem;
+  max-width: 100%;
+  background: rgb(0, 0, 0, 0.4) url('./assets/menu/bg-green.jpg') center/cover no-repeat fixed;
+  background-blend-mode: overlay;
+height: 105vh ;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+}
 }
 
 /* ===================== */
