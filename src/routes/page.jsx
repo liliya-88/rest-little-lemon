@@ -1,4 +1,4 @@
-import Nav from '../components/general/Nav'
+/* import Nav from '../components/general/Nav'
 import { Outlet, Link } from 'react-router-dom'
 
 const Page = () => {
@@ -28,3 +28,4 @@ const Page = () => {
 }
 
 export default Page
+ */
