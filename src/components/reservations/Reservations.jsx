@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image1 from '../../assets/about/interior-of-the-restaurant.jpg'
 import Image2 from '../../assets/about/restaurant-chefs.jpg'
 
+
 const Reservations = () => {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
 
@@ -66,6 +67,14 @@ const Reservations = () => {
   }, [ls])
 
   /* end of useEffects */
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setInputV((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+  console.log(inputV.time)
   function handlePrev() {
     setCurrentTab(currentTab - number)
     if (currentTab < number) {
@@ -203,10 +212,9 @@ const Reservations = () => {
                     value={inputV.date}
                     name='date'
                     className='form_input'
-                    // placeholder='username'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, date: e.target.value })
-                    }
+                    placeholder='username'
+                    onChange={handleChange}
+                    autoCapitalize='true'
                     required
                   />
                 </label>
@@ -228,9 +236,7 @@ const Reservations = () => {
                     name='time'
                     value={inputV.time}
                     className='form_input'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, time: e.target.value })
-                    }
+                    onChange={handleChange}
                     required>
                     <option value='' disabled>
                       Time
@@ -262,12 +268,6 @@ const Reservations = () => {
             <div
               className='tab mt-0'
               style={{ display: currentTab === 0 ? 'grid' : 'none' }}>
-              <p
-                className={
-                  currentTab === 0 && notValid ? 'not_valid show' : 'not_valid'
-                }>
-                {/* Please fill in all the fields correctly */}
-              </p>
               <p>
                 <label htmlFor='number_of_diners'>
                   <sup>*</sup>Number of diners: <br />
@@ -276,12 +276,7 @@ const Reservations = () => {
                     name='number_of_diners'
                     className='form_input'
                     placeholder='number_of_diners'
-                    onChange={(e) =>
-                      setInputV({
-                        ...inputV,
-                        number_of_diners: e.target.value,
-                      })
-                    }
+                    onChange={handleChange}
                     required>
                     <option value='' disabled>
                       Number of diners
@@ -318,9 +313,7 @@ const Reservations = () => {
                     value={inputV.occasion}
                     className='form_input'
                     name='occasion'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, occasion: e.target.value })
-                    }
+                    onChange={handleChange}
                     required>
                     <option value='' disabled>
                       Occasion
@@ -365,9 +358,8 @@ const Reservations = () => {
                     name='first_name'
                     className='form_input'
                     placeholder='John'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, first_name: e.target.value })
-                    }
+                    onChange={handleChange}
+                    autoComplete='true'
                     required
                   />
                 </label>
@@ -391,9 +383,8 @@ const Reservations = () => {
                     className='form_input'
                     name='last_name'
                     placeholder='Doe'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, last_name: e.target.value })
-                    }
+                    onChange={handleChange}
+                    autoComplete='true'
                     required
                   />
                 </label>
@@ -422,9 +413,7 @@ const Reservations = () => {
                     className='form_input'
                     name='email'
                     placeholder='example@gmail.com'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, email: e.target.value })
-                    }
+                    onChange={handleChange}
                     autoCapitalize='true'
                     required
                   />
@@ -439,16 +428,6 @@ const Reservations = () => {
                   X
                 </span>
               </p>
-              {errors.email && (
-                <p
-                  className={
-                    currentTab === 0 && notValid
-                      ? 'not_valid show'
-                      : 'not_valid'
-                  }>
-                  Please enter a valid email address
-                </p>
-              )}
               <p>
                 <label htmlFor='phone'>
                   <sup>*</sup>Phone <br />
@@ -459,9 +438,7 @@ const Reservations = () => {
                     name='phone'
                     pattern='[0-9]{1,2}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}'
                     placeholder='+X(910)-XXX-XXXX'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, phone: e.target.value })
-                    }
+                    onChange={handleChange}
                     autoCapitalize='true'
                     required
                   />
@@ -476,7 +453,6 @@ const Reservations = () => {
                   X
                 </span>
               </p>
-              {errors.phone && <p>{errors.phone}</p>}
             </div>
             {/* END OF ONE BLOCK WITH 4 INPUTS */}
 
@@ -494,9 +470,7 @@ const Reservations = () => {
                     name='username'
                     className='form_input'
                     placeholder='username'
-                    onChange={(e) =>
-                      setInputV({ ...inputV, username: e.target.value })
-                    }
+                    onChange={handleChange}
                     autoCapitalize='true'
                     required
                   />
@@ -524,9 +498,7 @@ const Reservations = () => {
                     placeholder='********'
                     minLength={6}
                     maxLength={12}
-                    onChange={(e) =>
-                      setInputV({ ...inputV, password: e.target.value })
-                    }
+                    onChange={handleChange}
                     autoCapitalize='true'
                     required
                   />
@@ -544,7 +516,8 @@ const Reservations = () => {
                   style={{
                     marginTop: '1vh',
                     display: 'block',
-                    fontSize: '70%',
+                    paddingTop: '0.7vh',
+                    fontSize: '80%',
                     lineHeight: '1.2',
                   }}>
                   <input
@@ -570,13 +543,7 @@ const Reservations = () => {
                     name='confirm_password'
                     className='form_input'
                     placeholder='confirm password'
-                    onChange={(e) =>
-                      setInputV({
-                        ...inputV,
-                        confirm_password: e.target.value,
-                      })
-                    }
-                    autoCapitalize='true'
+                    onChange={handleChange}
                     required
                   />
                 </label>
@@ -594,7 +561,8 @@ const Reservations = () => {
                   style={{
                     marginTop: '1vh',
                     display: 'block',
-                    fontSize: '70%',
+                    paddingTop: '0.7vh',
+                    fontSize: '80%',
                     lineHeight: '1.2',
                   }}>
                   <input
@@ -616,12 +584,7 @@ const Reservations = () => {
                     className='form_input resizable'
                     name='text'
                     placeholder='Add a special request (optional)'
-                    onChange={(e) =>
-                      setInputV({
-                        ...inputV,
-                        special_request: e.target.value,
-                      })
-                    }></textarea>
+                    onChange={handleChange}></textarea>
                 </label>
                 <span
                   className='clear_input'
