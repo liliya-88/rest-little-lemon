@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Link as ReactScroll } from 'react-scroll'
+// import { Link as ReactScroll } from 'react-scroll'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import Logo from '../../assets/svg-logo.svg'
 
 const Nav = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
-  const [activeLink, setActiveLink] = useState(0)
+  const [activeLink, setActiveLink] = useState(1)
   const Desktop = useMediaQuery('(min-width: 930px)')
   /*    className={`!Desktop && mobileNavActive ? (nav_container show): `}> */
   /* className={activeLink?'a_link odd active'} : 'a_link'} */
@@ -19,8 +19,8 @@ const Nav = () => {
       <header className='header' id='home'>
         <nav className='nav' id='top'>
           <div className='nav_to_open'>
-            <ReactScroll
-              to='contact'
+            <Link
+              to={'/'}
               smooth={true}
               duration={500}
               className={activeLink === 0 ? 'a_logo active' : 'a_logo'}
@@ -31,7 +31,7 @@ const Nav = () => {
               }}>
               <img src={Logo} alt='logo' className='a_link logo' />
               &nbsp;Little Lemon
-            </ReactScroll>
+            </Link>
             <div
               className={
                 !Desktop && mobileNavActive
@@ -93,9 +93,7 @@ const Nav = () => {
                     handleLinkClick(5)
                     window.scrollTo(0, 0)
                   }}>
-                  <li className='odd'>
-                  order online
-                  </li>
+                  <li className='odd'>order online</li>
                 </Link>
                 <Link
                   to={'/login'}
