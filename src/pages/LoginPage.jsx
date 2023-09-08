@@ -20,7 +20,6 @@ function LoginPage() {
   return (
     <>
       <NavLogin />
-
       <section className='grid_wrapper_login flashIn'>
         <article
           style={{

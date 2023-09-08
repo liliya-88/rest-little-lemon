@@ -13,7 +13,7 @@ function AboutPage() {
     <>
       <NavAbout />
       <main className='main pt-5'>
-        <MainContainerAbout className='flashIn'/>
+        <MainContainerAbout className='flashIn' />
       </main>
       <Footer />
       <ArrowPhantom />
