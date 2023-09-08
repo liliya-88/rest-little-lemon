@@ -526,21 +526,18 @@ const Reservations = () => {
                     Next →
                   </button>
                 )}
-                {/*     <button
-                  type='button'
-                  id='nextBtn'
-                  className='btn'
-                  onClick={handleNext}>
-                  Next →
-                </button> */}
               </div>
             </div>
             {/* ++++++ */}
+            {/*  */}
             {/* circles which indicates the steps of the form */}
             <div style={{ textAlign: 'center' }}>
-              <span className='step'></span>
-              <span className='step'></span>
-              <span className='step'></span>
+              <span
+                className={currentTab === 0 ? 'step active' : 'step'}></span>
+              <span
+                className={currentTab === 1 ? 'step active' : 'step'}></span>
+              <span
+                className={currentTab === 2 ? 'step active' : 'step'}></span>
             </div>
             {/* +++++++ */}
           </form>
