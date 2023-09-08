@@ -6,7 +6,7 @@ import Logo from '../../assets/svg-logo.svg'
 
 const NavSpecials = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
-  const [activeLink, setActiveLink] = useState(3)
+  const [activeLink, setActiveLink] = useState(2)
   const Desktop = useMediaQuery('(min-width: 930px)')
 
   const handleLinkClick = (linkId) => {

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Footer from '../components/general/Footer'
 import MainContainerMenu from '../components/menu/MainContainerMenu'
 import ArrowPhantom from '../hooks/ArrowPhantom'
-import Nav from '../components/general/Nav'
+import NavMenu from '../components/menu/NavMenu'
 
 function Menupage() {
   useEffect(() => {
@@ -10,7 +10,7 @@ function Menupage() {
   }, [])
   return (
     <>
-      <Nav />
+      <NavMenu />
       <main className='main pt-6 flashIn'>
         <MainContainerMenu />
       </main>

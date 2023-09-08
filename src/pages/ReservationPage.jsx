@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Footer from '../components/general/Footer'
-import Nav from '../components/general/Nav'
+import NavReservations from '../components/reservations/NavReservations'
 import ArrowPhantom from '../hooks/ArrowPhantom'
 import MainContainerReservations from '../components/reservations/MainContainerReservations'
 
@@ -10,7 +10,7 @@ function ReservationPage() {
    }, [])
   return (
     <>
-      <Nav/>
+      <NavReservations />
       <main className='main pt-6 flashIn'>
         <MainContainerReservations />
       </main>
