@@ -104,9 +104,52 @@ const Reservations = () => {
       setHide(false)
     }
   }
+  /* config file */
 
   /* ======================================================= */
+  /* setInputV({ ...inputV, email: e.target.value } */
 
+  /*  const submitHandler = async(e) => {
+    e.preventDefault()
+   
+    const config = {
+      SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
+      To: 'rest-little-lemon@yopmail.com',
+      From: inputV.email,
+      Subject: 'This is the reservation request',
+      Body: `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`,
+    }
+    if (window.Email) {
+      await window.Email.send(config).then
+    }
+  } */
+  /*  const recipient = '888liliya66@gmail.com'
+  const subject = 'Reservation request'
+  const body = `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`
+
+  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`
+
+  window.location.href = mailtoLink */
   async function handleSubmit(e) {
     /* validation of the first section */
     if (
@@ -175,6 +218,24 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         /* some functionality */
+        const recipient = '888liliya66@gmail.com'
+        const subject = 'Reservation request'
+        const body = `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`
+
+        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
+
+        window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
@@ -224,7 +285,8 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             action='/reservations'
-            data-netlify='true'>
+            data-netlify='true'
+            encType='text/plain'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
