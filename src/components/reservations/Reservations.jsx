@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Image1 from '../../assets/about/interior-of-the-restaurant.jpg'
 import Image2 from '../../assets/about/restaurant-chefs.jpg'
-
 
 const Reservations = () => {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
@@ -25,7 +24,7 @@ const Reservations = () => {
       special_request: formData ? formData.special_request || '' : '',
     }
   })
-  console.log(inputV)
+
   /*  const [inputV, setInputV] = useState({
     first_name: '' || ls.getItem('formData'),
     last_name: '' || ls.getItem('formData'),
@@ -46,13 +45,16 @@ const Reservations = () => {
   const [hide, setHide] = useState(false)
   const [notValid, setNotValid] = useState(true)
   /* +++ */
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState(false)
+  const [errors1, setErrors1] = useState(false)
+  const [errors2, setErrors2] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [preloader, setPreloader] = useState(false)
   /* +++ */
   let number = 1
   let startAgain = 0
 
   /* ----------- */
-
   /* useEffects */
   useEffect(() => {
     if (inputV && ls) {
@@ -67,6 +69,7 @@ const Reservations = () => {
   }, [ls])
 
   /* end of useEffects */
+
   const handleChange = (event) => {
     const { name, value } = event.target
     setInputV((prevState) => ({
@@ -74,7 +77,25 @@ const Reservations = () => {
       [name]: value,
     }))
   }
-  console.log(inputV.time)
+  console.log(inputV)
+
+  const handleInputBlur = useCallback(() => {
+    setInputV((prevState) => ({
+      ...prevState,
+      date: prevState.date,
+      time: prevState.time,
+      number_of_diners: prevState.number_of_diners,
+      occasion: prevState.occasion,
+      first_name: prevState.first_name,
+      last_name: prevState.last_name,
+      email: prevState.email,
+      phone: prevState.phone,
+      username: prevState.username,
+      password: prevState.password,
+      confirm_password: prevState.confirm_password,
+      special_request: prevState.special_request,
+    }))
+  }, [])
   function handlePrev() {
     setCurrentTab(currentTab - number)
     if (currentTab < number) {
@@ -108,6 +129,7 @@ const Reservations = () => {
       return
     }
     /* validation of the second section */
+
     if (
       currentTab === 1 &&
       inputV.name !== '' &&
@@ -115,15 +137,37 @@ const Reservations = () => {
       inputV.email !== '' &&
       inputV.phone !== ''
     ) {
-      setNotValid(false)
-      setCurrentTab(currentTab + number)
+      const reEmail =
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 
-      if (currentTab > 1) {
+      if (reEmail.test(inputV.email)) {
+        setNotValid(false)
+        setCurrentTab(currentTab + number)
+        if (currentTab > 1) {
+          setSubmit(true)
+        } else {
+          setSubmit(false)
+        }
+        if (currentTab < number) setHide(true)
+      } else {
+        setErrors(true)
+        setTimeout(() => {
+          setErrors(false)
+    /*       setInputV((prev) => {
+            return { ...prev, email: '' }
+          }) */
+        }, 2000)
+        return
+      }
+      /*  setNotValid(false)
+      setCurrentTab(currentTab + number) */
+
+      /*  if (currentTab > 1) {
         setSubmit(true)
       } else {
         setSubmit(false)
       }
-      if (currentTab < number) setHide(true)
+      if (currentTab < number) setHide(true) */
     }
     /* validation of the second section - last step before submitting */
     if (
@@ -134,14 +178,19 @@ const Reservations = () => {
     ) {
       e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
-        alert(
-          'The password and the confirmation password are not the same.Please try again.'
-        )
+        setErrors1(true)
+        setTimeout(() => {
+          setErrors1(false)
+        }, 2000)
         return
       } else {
-        alert('Thanks for signing up!')
+        setPreloader(true)
         setTimeout(() => {
-          // Reset the form
+          setPreloader(false)
+          setSuccess(true)
+        }, 2000)
+        setTimeout(() => {
+          setSuccess(false)
           setInputV({
             first_name: '',
             last_name: '',
@@ -157,7 +206,7 @@ const Reservations = () => {
             special_request: '',
           })
           return setCurrentTab(startAgain)
-        }, 2000)
+        }, 4500)
       }
 
       //Clear localStorage after form submission
@@ -165,7 +214,9 @@ const Reservations = () => {
       // Reset the form
     }
   }
+  /* ---------------------- */
 
+  /* ----------------------- */
   return (
     <>
       <section className='main_wrapper_form pt-4'>
@@ -214,6 +265,7 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='username'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoCapitalize='true'
                     required
                   />
@@ -237,6 +289,7 @@ const Reservations = () => {
                     value={inputV.time}
                     className='form_input'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     required>
                     <option value='' disabled>
                       Time
@@ -277,6 +330,7 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='number_of_diners'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     required>
                     <option value='' disabled>
                       Number of diners
@@ -314,6 +368,7 @@ const Reservations = () => {
                     className='form_input'
                     name='occasion'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     required>
                     <option value='' disabled>
                       Occasion
@@ -359,6 +414,7 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='John'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoComplete='true'
                     required
                   />
@@ -384,6 +440,7 @@ const Reservations = () => {
                     name='last_name'
                     placeholder='Doe'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoComplete='true'
                     required
                   />
@@ -414,6 +471,7 @@ const Reservations = () => {
                     name='email'
                     placeholder='example@gmail.com'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoCapitalize='true'
                     required
                   />
@@ -436,9 +494,10 @@ const Reservations = () => {
                     value={inputV.phone}
                     className='form_input'
                     name='phone'
-                    pattern='[0-9]{1,2}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}'
-                    placeholder='+X(910)-XXX-XXXX'
+                    pattern='[0-9]{1,2}[0-9]{3}[0-9]{3}[0-9]{4}'
+                    placeholder='X(910)-XXX-XXXX'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoCapitalize='true'
                     required
                   />
@@ -471,6 +530,7 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='username'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoCapitalize='true'
                     required
                   />
@@ -499,6 +559,7 @@ const Reservations = () => {
                     minLength={6}
                     maxLength={12}
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     autoCapitalize='true'
                     required
                   />
@@ -544,6 +605,7 @@ const Reservations = () => {
                     className='form_input'
                     placeholder='confirm password'
                     onChange={handleChange}
+                    onBlur={handleInputBlur}
                     required
                   />
                 </label>
@@ -584,7 +646,13 @@ const Reservations = () => {
                     className='form_input resizable'
                     name='text'
                     placeholder='Add a special request (optional)'
-                    onChange={handleChange}></textarea>
+                    onChange={(e) =>
+                      setInputV((prev) => ({
+                        ...prev,
+                        special_request: e.target.value || 'No special request',
+                      }))
+                    }
+                    onBlur={handleInputBlur}></textarea>
                 </label>
                 <span
                   className='clear_input'
@@ -642,6 +710,58 @@ const Reservations = () => {
             </div>
             {/* +++++++ */}
           </form>
+
+          {errors && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p className='error'>
+                  You forgot to give me a valid email address. Please fix that
+                  and try again!
+                </p>
+              </div>
+            </div>
+          )}
+          {errors1 && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p className='error'>
+                  The password and the confirmation password are not the
+                  same.Please try again.
+                </p>
+              </div>
+            </div>
+          )}
+          {errors2 && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p>
+                  All the fields are reqired, that&apos;s how we know who you
+                  are. Please fix that and try again!
+                </p>
+              </div>
+            </div>
+          )}
+          {success && (
+            <div id='message' className='show-message'>
+              <div className='success'>
+                <h3>Thanks!</h3>
+                <p>
+                  Your reservation has been successfully submitted, and we will
+                  reach out to you soon.
+                </p>
+              </div>
+            </div>
+          )}
+          {preloader && (
+            <div id='message' className='show-message '>
+              <div className='preloader'>
+                <div className='loading-dot'></div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>

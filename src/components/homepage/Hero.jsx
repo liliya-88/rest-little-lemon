@@ -123,6 +123,7 @@ const Hero = () => {
   const [isDown, setIsDown] = useState(false)
   const [scrollX, setScrollX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
+  // eslint-disable-next-line no-unused-vars
 
   const scroll = useRef(null)
   const handleMouseUp = () => {
