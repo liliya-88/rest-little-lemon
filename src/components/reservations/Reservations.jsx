@@ -267,7 +267,11 @@ const Reservations = () => {
           </div>
         </div>
 
-        <div className='form_container' onSubmit={handleSubmit}>
+        <div
+          className='form_container'
+          onSubmit={handleSubmit}
+          method='POST'
+          data-netlify='true'>
           <form id='regForm'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
