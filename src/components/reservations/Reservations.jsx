@@ -104,10 +104,34 @@ const Reservations = () => {
       setHide(false)
     }
   }
-  /* for validation email and phane */
+  /* config file */
 
   /* ======================================================= */
   /* setInputV({ ...inputV, email: e.target.value } */
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    /* config file */
+    const config = {
+      SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
+      To: 'rest-little-lemon@yopmail.com',
+      From: inputV.email,
+      Subject: 'This is the reservation request',
+      Body: `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`,
+    }
+    if (window.Email) {
+      window.Email.send(config).then
+    }
+  }
 
   function handleSubmit(e) {
     /* validation of the first section */
@@ -153,21 +177,12 @@ const Reservations = () => {
         setErrors(true)
         setTimeout(() => {
           setErrors(false)
-    /*       setInputV((prev) => {
+          /*       setInputV((prev) => {
             return { ...prev, email: '' }
           }) */
         }, 2000)
         return
       }
-      /*  setNotValid(false)
-      setCurrentTab(currentTab + number) */
-
-      /*  if (currentTab > 1) {
-        setSubmit(true)
-      } else {
-        setSubmit(false)
-      }
-      if (currentTab < number) setHide(true) */
     }
     /* validation of the second section - last step before submitting */
     if (
@@ -185,28 +200,52 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
-        setTimeout(() => {
-          setPreloader(false)
-          setSuccess(true)
-        }, 2000)
-        setTimeout(() => {
-          setSuccess(false)
-          setInputV({
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            username: '',
-            password: '',
-            confirm_password: '',
-            date: '',
-            time: '',
-            number_of_diners: '',
-            occasion: '',
-            special_request: '',
-          })
-          return setCurrentTab(startAgain)
-        }, 4500)
+        const config = {
+          SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
+          To: 'rest-little-lemon@yopmail.com',
+          From: inputV.email,
+          Subject: 'This is the reservation request',
+          Body: `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`,
+        }
+        if (window.Email) {
+          window.Email.send(config)
+            .then(() => {
+              setTimeout(() => {
+                setPreloader(false)
+                setSuccess(true)
+              }, 2000)
+              setTimeout(() => {
+                setSuccess(false)
+                setInputV({
+                  first_name: '',
+                  last_name: '',
+                  email: '',
+                  phone: '',
+                  username: '',
+                  password: '',
+                  confirm_password: '',
+                  date: '',
+                  time: '',
+                  number_of_diners: '',
+                  occasion: '',
+                  special_request: '',
+                })
+                return setCurrentTab(startAgain)
+              }, 4500)
+            })
+            .catch((err) => {
+              'error' in err
+            })
+        }
       }
 
       //Clear localStorage after form submission
