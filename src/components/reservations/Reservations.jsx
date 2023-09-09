@@ -104,34 +104,8 @@ const Reservations = () => {
       setHide(false)
     }
   }
-  /* config file */
 
   /* ======================================================= */
-  /* setInputV({ ...inputV, email: e.target.value } */
-
-  /*  const submitHandler = async(e) => {
-    e.preventDefault()
-   
-    const config = {
-      SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
-      To: 'rest-little-lemon@yopmail.com',
-      From: inputV.email,
-      Subject: 'This is the reservation request',
-      Body: `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`,
-    }
-    if (window.Email) {
-      await window.Email.send(config).then
-    }
-  } */
 
   async function handleSubmit(e) {
     /* validation of the first section */
@@ -200,52 +174,30 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
-        const config = {
-          SecureToken: '9ec79fd7-1576-492f-b234-1ce02912a23e',
-          To: 'Liliya.contactonline@gmail.com',
-          From: inputV.email,
-          Subject: 'This is the reservation request',
-          Body: `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`,
-        }
-        if (window.Email) {
-          await window.Email.send(config)
-            .then(() => {
-              setTimeout(() => {
-                setPreloader(false)
-                setSuccess(true)
-              }, 2500)
-              setTimeout(() => {
-                setSuccess(false)
-                setInputV({
-                  first_name: '',
-                  last_name: '',
-                  email: '',
-                  phone: '',
-                  username: '',
-                  password: '',
-                  confirm_password: '',
-                  date: '',
-                  time: '',
-                  number_of_diners: '',
-                  occasion: '',
-                  special_request: '',
-                })
-                return setCurrentTab(startAgain)
-              }, 5000)
-            })
-            .catch((err) => err.message)
-        }
+        /* some functionality */
+        setTimeout(() => {
+          setPreloader(false)
+          setSuccess(true)
+        }, 2500)
+        setTimeout(() => {
+          setSuccess(false)
+          setInputV({
+            first_name: '',
+            last_name: '',
+            email: '',
+            phone: '',
+            username: '',
+            password: '',
+            confirm_password: '',
+            date: '',
+            time: '',
+            number_of_diners: '',
+            occasion: '',
+            special_request: '',
+          })
+          return setCurrentTab(startAgain)
+        }, 5000)
       }
-
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
