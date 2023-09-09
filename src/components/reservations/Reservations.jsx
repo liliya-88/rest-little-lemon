@@ -284,6 +284,7 @@ const Reservations = () => {
             name='reservation'
             onSubmit={handleSubmit}
             method='POST'
+            action='mailto:888liliya66@gmail.com'
             data-netlify='true'
             encType='text/plain'>
             <h1 className='form_title'>Find a table for any occasion</h1>
