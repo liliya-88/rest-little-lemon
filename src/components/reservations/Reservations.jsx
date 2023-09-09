@@ -201,12 +201,8 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         const config = {
-          Host: 'smtp.elasticemail.com',
-          Usernme: 'Liliya.contactonline@gmail.com',
-          Password: '1A66021B6C625BBBC5C409A0A751C1FC2275',
-          Port: '2525',
+          SecureToken: '9ec79fd7-1576-492f-b234-1ce02912a23e',
           To: 'Liliya.contactonline@gmail.com',
-          // SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
           From: inputV.email,
           Subject: 'This is the reservation request',
           Body: `Name:${inputV.first_name} ${inputV.last_name},
