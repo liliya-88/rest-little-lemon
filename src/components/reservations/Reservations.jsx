@@ -267,12 +267,13 @@ const Reservations = () => {
           </div>
         </div>
 
-        <div
-          className='form_container'
-          onSubmit={handleSubmit}
-          method='POST'
-          data-netlify='true'>
-          <form id='regForm'>
+        <div className='form_container'>
+          <form
+            id='regForm'
+            name='reservation'
+            onSubmit={handleSubmit}
+            method='POST'
+            data-netlify='true'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
@@ -752,6 +753,13 @@ const Reservations = () => {
                 className={currentTab === 2 ? 'step active' : 'step'}></span>
             </div>
             {/* +++++++ */}
+            <input type='hidden' name='reservation' value='reservation' />
+            <input
+              type='hidden'
+              name='reservation'
+              className='input_hidden'
+              value='name_of_my_form'
+            />
           </form>
 
           {errors && (
