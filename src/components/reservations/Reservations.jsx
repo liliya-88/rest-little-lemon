@@ -284,7 +284,6 @@ const Reservations = () => {
             name='reservation'
             onSubmit={handleSubmit}
             method='POST'
-            action='/reservations'
             data-netlify='true'
             encType='text/plain'>
             <h1 className='form_title'>Find a table for any occasion</h1>
@@ -766,13 +765,13 @@ const Reservations = () => {
                 className={currentTab === 2 ? 'step active' : 'step'}></span>
             </div>
             {/* +++++++ */}
-            <input type='hidden' name='reservation' value='reservation' />
+            {/*     <input type='hidden' name='reservation' value='reservation' />
             <input
               type='hidden'
               name='reservation'
               className='input_hidden'
               value='name_of_my_form'
-            />
+            /> */}
           </form>
 
           {errors && (
