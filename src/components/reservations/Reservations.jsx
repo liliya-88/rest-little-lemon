@@ -109,9 +109,9 @@ const Reservations = () => {
   /* ======================================================= */
   /* setInputV({ ...inputV, email: e.target.value } */
 
-  const submitHandler = (e) => {
+  /*  const submitHandler = async(e) => {
     e.preventDefault()
-    /* config file */
+   
     const config = {
       SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
       To: 'rest-little-lemon@yopmail.com',
@@ -129,11 +129,11 @@ const Reservations = () => {
       Password: ${inputV.password}`,
     }
     if (window.Email) {
-      window.Email.send(config).then
+      await window.Email.send(config).then
     }
-  }
+  } */
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     /* validation of the first section */
     if (
       currentTab === 0 &&
@@ -217,12 +217,12 @@ const Reservations = () => {
       Password: ${inputV.password}`,
         }
         if (window.Email) {
-          window.Email.send(config)
+          await window.Email.send(config)
             .then(() => {
               setTimeout(() => {
                 setPreloader(false)
                 setSuccess(true)
-              }, 2000)
+              }, 2500)
               setTimeout(() => {
                 setSuccess(false)
                 setInputV({
@@ -240,11 +240,9 @@ const Reservations = () => {
                   special_request: '',
                 })
                 return setCurrentTab(startAgain)
-              }, 4500)
+              }, 5000)
             })
-            .catch((err) => {
-              'error' in err
-            })
+            .catch((err) => err.message)
         }
       }
 
