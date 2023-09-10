@@ -39,7 +39,7 @@ const Reservations = () => {
   const [errors2, setErrors2] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
-  const [notValidPassword, setNotValidPassword] = useState(false)
+  const [validPassword, setValidPassword] = useState(false)
   const [finish, setFinish] = useState(false)
   /* +++ */
   let number = 1
@@ -200,14 +200,14 @@ const Reservations = () => {
       inputV.confirm_password !== ''
     ) {
       // e.preventDefault()
-      if (inputV.password !== inputV.confirm_password) {
+      if (inputV.confirm_password !== inputV.password) {
         setErrors1(true)
         setTimeout(() => {
           setErrors1(false)
         }, 2000)
         return
       } else {
-        setNotValidPassword(false)
+        setValidPassword(true)
         setFinish(true)
         setPreloader(true)
         //sending the message
@@ -732,11 +732,10 @@ const Reservations = () => {
                 )}
                 {currentTab >= 2 ? (
                   <button
-                    type={!notValidPassword && finish ? 'submit' : 'button'}
+                    type={validPassword && finish ? 'submit' : 'button'}
                     id='nextBtn'
                     className='btn'
-                    onClick={handleSubmit}
-                    disabled>
+                    onClick={handleSubmit}>
                     Submit
                   </button>
                 ) : (
@@ -793,7 +792,7 @@ const Reservations = () => {
               </div>
             </div>
           )}
-          {notValidPassword && !finish && (
+          {!validPassword && !finish && (
             <div id='message' className='show-message'>
               <div className='error'>
                 <h3>Ooops!</h3>
