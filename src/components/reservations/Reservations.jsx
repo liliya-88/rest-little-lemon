@@ -223,8 +223,8 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
-        const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-         window.location.href = mailtoLink 
+      /*   const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+         window.location.href = mailtoLink  */
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
