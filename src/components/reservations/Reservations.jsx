@@ -276,8 +276,9 @@ const Reservations = () => {
             action='./reservations'
             data-netlify='true'
             encType='multipart/form-data'
-            netlify>
+            data-netlify-honeypot='bot-field'>
             <input type='hidden' name='form-name' value='reservation' />
+            <input type='hidden' name='bot-field' />
 
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
