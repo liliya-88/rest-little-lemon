@@ -254,7 +254,9 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-            encType='multipart/form-data'>
+            encType='multipart/form-data'
+            target='_blank'
+            rel='noreferrer'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
             <input type='hidden' name='bot-field' /> */}
 
