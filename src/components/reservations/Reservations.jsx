@@ -141,18 +141,7 @@ const Reservations = () => {
   )}&body=${encodeURIComponent(body)}`
 
   window.location.href = mailtoLink  */
-  function handlePassword() {
-    if (inputV.password !== inputV.confirm_password) {
-      setErrors1(true)
-      setTimeout(() => {
-        setErrors1(false)
-      }, 2000)
-      return
-    } else {
-      setNotValidPassword(false)
-      setFinish(true)
-    }
-  }
+
   async function handleSubmit(e) {
     /* validation of the first section */
     if (
@@ -292,9 +281,9 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action={
-              validPassword && finish
-                ? 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-                : ''
+              validPassword &&
+              finish &&
+              'https://formsubmit.co/lipro.ecommerce@gmail.com'
             }
             encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
