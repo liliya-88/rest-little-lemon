@@ -811,7 +811,7 @@ const Reservations = () => {
               </div>
             </div>
           )}
-          {!validPassword && !finish && (
+          {validPassword && !finish && (
             <div id='message' className='show-message'>
               <div className='error'>
                 <h3>Ooops!</h3>
