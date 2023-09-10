@@ -257,8 +257,7 @@ const Reservations = () => {
             name='reservation'
             action='mailto:lipro.ecommercegmail.com'
             data-netlify='true'
-            encType='multipart/form-data'
-            netlify>
+            encType='multipart/form-data'>
             <input type='hidden' name='form-name' value='reservation' />
 
             <h1 className='form_title'>Find a table for any occasion</h1>
