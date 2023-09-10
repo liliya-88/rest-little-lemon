@@ -1,9 +1,12 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react'
 import Image1 from '../../assets/about/interior-of-the-restaurant.jpg'
 import Image2 from '../../assets/about/restaurant-chefs.jpg'
+// const nodemailer = require('nodemail')
 
+/* zlbqrmpaptgcpsna */
 const Reservations = () => {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
 
@@ -25,20 +28,6 @@ const Reservations = () => {
     }
   })
 
-  /*  const [inputV, setInputV] = useState({
-    first_name: '' || ls.getItem('formData'),
-    last_name: '' || ls.getItem('formData'),
-    email: '' || ls.getItem('formData'),
-    phone: '' || ls.getItem('formData'),
-    username: '',
-    password: '',
-    confirm_password: '',
-    date: '',
-    time: '' || ls.getItem('formData'),
-    number_of_diners: '',
-    occasion: '',
-    special_request: '',
-  }) */
   const [showPassword, setShowPassword] = useState(false)
   const [currentTab, setCurrentTab] = useState(0)
   const [submit, setSubmit] = useState(false)
@@ -208,7 +197,7 @@ const Reservations = () => {
       inputV.password !== '' &&
       inputV.confirm_password !== ''
     ) {
-      e.preventDefault()
+      // e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
@@ -281,12 +270,12 @@ const Reservations = () => {
         <div className='form_container'>
           <form
             id='regForm'
-            name='reservation'
             onSubmit={handleSubmit}
             method='POST'
-            action='mailto:888liliya66@gmail.com'
+            action='/reservations'
             data-netlify='true'
-            encType='text/plain'>
+            encType='multipart/form-data'
+            netlify>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
