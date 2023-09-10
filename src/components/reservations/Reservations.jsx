@@ -126,16 +126,9 @@ const Reservations = () => {
     ) {
       const reEmail =
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
-
-      if (reEmail.test(inputV.email)) {
+      const phoneNumberRegex = /^\d{11,13}$/
+      if (phoneNumberRegex.test(inputV.phone)) {
         setNotValid(false)
-        setCurrentTab(currentTab + number)
-        if (currentTab > 1) {
-          setSubmit(true)
-        } else {
-          setSubmit(false)
-        }
-        if (currentTab < number) setHide(true)
       } else {
         setErrors(true)
         setTimeout(() => {
@@ -146,6 +139,25 @@ const Reservations = () => {
         }, 2000)
         return
       }
+      if (reEmail.test(inputV.email)) {
+        setNotValid(false)
+      } else {
+        setErrors(true)
+        setTimeout(() => {
+          setErrors(false)
+          /*       setInputV((prev) => {
+            return { ...prev, email: '' }
+          }) */
+        }, 2000)
+        return
+      }
+      setCurrentTab(currentTab + number)
+      if (currentTab > 1) {
+        setSubmit(true)
+      } else {
+        setSubmit(false)
+      }
+      if (currentTab < number) setHide(true)
     }
     /* validation of the second section - last step before submitting */
     if (
@@ -153,6 +165,7 @@ const Reservations = () => {
       inputV.username !== '' &&
       inputV.password !== '' &&
       inputV.confirm_password !== '' &&
+      inputV.password.length >= 6 &&
       inputV.password === inputV.confirm_password
     ) {
       setPreloader(true)
