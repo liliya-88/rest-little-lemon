@@ -116,7 +116,7 @@ const Reservations = () => {
       return
     }
     /* validation of the second section */
-
+    e.preventDefault()
     if (
       currentTab === 1 &&
       inputV.name !== '' &&
