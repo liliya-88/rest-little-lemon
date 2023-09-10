@@ -152,16 +152,10 @@ const Reservations = () => {
       currentTab === 2 &&
       inputV.username !== '' &&
       inputV.password !== '' &&
-      inputV.confirm_password !== ''
+      inputV.confirm_password !== '' &&
+      inputV.password === inputV.confirm_password
     ) {
-      e.preventDefault()
-      if (inputV.password !== inputV.confirm_password) {
-        setErrors1(true)
-        setTimeout(() => {
-          setErrors1(false)
-        }, 2000)
-        return
-      } else {
+    
         setPreloader(true)
         //sending the message
         /*     const user = 'lipro.ecommerce@gmail.com'
@@ -204,11 +198,17 @@ const Reservations = () => {
           })
           return setCurrentTab(startAgain)
         }, 5000)
-      }
+      
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
-    }
+    } else{
+        setErrors1(true)
+        setTimeout(() => {
+          setErrors1(false)
+        }, 2000)
+        return
+      }
   }
   /* ---------------------- */
 
