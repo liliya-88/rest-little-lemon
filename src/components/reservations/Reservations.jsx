@@ -208,7 +208,6 @@ const Reservations = () => {
         setPreloader(true)
         /* some functionality */
         const user = 'lipro.ecommerce@gmail.com'
-        const pass = 'zlbqrmpaptgcpsna'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -221,9 +220,7 @@ const Reservations = () => {
       Username: ${inputV.username},
       Password: ${inputV.password}`
 
-        const mailtoLink = `mailto:${user}password:${encodeURIComponent(
-          pass
-        )}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
           body
         )}`
 
