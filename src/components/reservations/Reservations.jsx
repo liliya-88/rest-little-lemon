@@ -283,9 +283,9 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action={
-              validPassword &&
-              finish &&
-              'https://formsubmit.co/lipro.ecommerce@gmail.com'
+              validPassword && finish
+                ? 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+                : './reservations'
             }
             encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
