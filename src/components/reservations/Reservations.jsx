@@ -39,8 +39,6 @@ const Reservations = () => {
   const [errors2, setErrors2] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
-  const [validPassword, setvalidPassword] = useState(false)
-  const [finish, setFinish] = useState(false)
   /* +++ */
   let number = 1
   let startAgain = 0
@@ -95,52 +93,8 @@ const Reservations = () => {
       setHide(false)
     }
   }
-  /* config file */
 
   /* ======================================================= */
-  /* setInputV({ ...inputV, email: e.target.value } */
-
-  /*  const submitHandler = async(e) => {
-    e.preventDefault()
-   
-    const config = {
-      SecureToken: 'fba65de7-8d24-4f09-9bd8-b159a34c0cc1',
-      To: 'rest-little-lemon@yopmail.com',
-      From: inputV.email,
-      Subject: 'This is the reservation request',
-      Body: `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`,
-    }
-    if (window.Email) {
-      await window.Email.send(config).then
-    }
-  } */
-  /* const user = 'lipro.ecommerce@gmail.com'
-  const subject = 'Reservation request'
-  const body = `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`
-
-  const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`
-
-  window.location.href = mailtoLink  */
 
   async function handleSubmit(e) {
     /* validation of the first section */
@@ -198,9 +152,9 @@ const Reservations = () => {
       currentTab === 2 &&
       inputV.username !== '' &&
       inputV.password !== '' &&
-      inputV.confirm_password !== ''
+      inputV.confirm_password !== '' 
     ) {
-      e.preventDefault()
+      // e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
@@ -209,35 +163,31 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
-        setvalidPassword(true)
         //sending the message
         /*     const user = 'lipro.ecommerce@gmail.com'
-           const subject = 'Reservation request'
-           const body = `Name:${inputV.first_name} ${inputV.last_name},
-         Email: ${inputV.email},
-         Phone: ${inputV.phone},
-         Date for reservation: ${inputV.date},
-         Time for reservation: ${inputV.time},
-         Number of diners: ${inputV.number_of_diners},
-         Occasion: ${inputV.occasion},
-         Special Request: ${inputV.special_request},`
-   
-           const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
-             subject
-           )}&body=${encodeURIComponent(body)}`
-   
-           window.location.href = mailtoLink */
+        const subject = 'Reservation request'
+        const body = `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},`
+
+        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
+
+        window.location.href = mailtoLink */
         // const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
         // window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
-          setFinish(true)
           setSuccess(true)
         }, 2500)
         setTimeout(() => {
           setSuccess(false)
-          setFinish(false)
-          setvalidPassword(false)
           setInputV({
             first_name: '',
             last_name: '',
@@ -255,9 +205,7 @@ const Reservations = () => {
           return setCurrentTab(startAgain)
         }, 5000)
       }
-
       //Clear localStorage after form submission
-
       localStorage.removeItem('formData')
       // Reset the form
     }
@@ -787,17 +735,6 @@ const Reservations = () => {
             </div>
           )}
           {errors1 && (
-            <div id='message' className='show-message'>
-              <div className='error'>
-                <h3>Ooops!</h3>
-                <p className='error'>
-                  The password and the confirmation password are not the
-                  same.Please try again.
-                </p>
-              </div>
-            </div>
-          )}
-          {validPassword && !finish && (
             <div id='message' className='show-message'>
               <div className='error'>
                 <h3>Ooops!</h3>
