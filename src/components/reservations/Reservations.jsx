@@ -202,17 +202,20 @@ const Reservations = () => {
       localStorage.removeItem('formData')
       // Reset the form
     } else {
-      if (inputV.password !== inputV.confirm_password) setErrors1(true)
-      setTimeout(() => {
-        setErrors1(false)
-      }, 2000)
-      return
+      if (inputV.password !== inputV.confirm_password) {
+        setErrors1(true)
+        setTimeout(() => {
+          setErrors1(false)
+        }, 2000)
+        return
+      } else {
+        setErrors2(true)
+        setTimeout(() => {
+          setErrors2(false)
+        }, 2000)
+        return
+      }
     }
-    setErrors2(true)
-    setTimeout(() => {
-      setErrors2(false)
-    }, 2000)
-    return
   }
   /* ---------------------- */
 
