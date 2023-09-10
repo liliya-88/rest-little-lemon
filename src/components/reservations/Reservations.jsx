@@ -206,7 +206,7 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
-  
+
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
@@ -255,7 +255,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='/reservations'
+            action='mailto:lipro.ecommercegmail.com'
             data-netlify='true'
             encType='multipart/form-data'
             netlify>
