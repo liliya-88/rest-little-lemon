@@ -216,9 +216,7 @@ const Reservations = () => {
       Time for reservation: ${inputV.time},
       Number of diners: ${inputV.number_of_diners},
       Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`
+      Special Request: ${inputV.special_request},`
 
         const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
           subject
