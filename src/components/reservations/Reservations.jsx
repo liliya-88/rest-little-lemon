@@ -207,7 +207,7 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         //sending the message
-    /*     const user = 'lipro.ecommerce@gmail.com'
+        /*     const user = 'lipro.ecommerce@gmail.com'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -271,10 +271,10 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='./reservations'
+            action='https://formsubmit.co/lipro.ecommerce@gmail.com'
             encType='multipart/form-data'>
-            <input type='hidden' name='form-name' value='reservation' />
-            <input type='hidden' name='bot-field' />
+            {/*   <input type='hidden' name='form-name' value='reservation' />
+            <input type='hidden' name='bot-field' /> */}
 
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
