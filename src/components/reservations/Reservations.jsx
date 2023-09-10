@@ -39,7 +39,7 @@ const Reservations = () => {
   const [errors2, setErrors2] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
-  const [validPassword, setValidPassword] = useState(false)
+  const [notValidPassword, setNotValidPassword] = useState(false)
   const [finish, setFinish] = useState(false)
   /* +++ */
   let number = 1
@@ -141,6 +141,18 @@ const Reservations = () => {
   )}&body=${encodeURIComponent(body)}`
 
   window.location.href = mailtoLink  */
+  function handlePassword() {
+    if (inputV.password !== inputV.confirm_password) {
+      setErrors1(true)
+      setTimeout(() => {
+        setErrors1(false)
+      }, 2000)
+      return
+    } else {
+      setNotValidPassword(false)
+      setFinish(true)
+    }
+  }
   async function handleSubmit(e) {
     /* validation of the first section */
     if (
@@ -200,18 +212,11 @@ const Reservations = () => {
       inputV.confirm_password !== ''
     ) {
       // e.preventDefault()
-      if (inputV.confirm_password !== inputV.password) {
-        setErrors1(true)
-        setTimeout(() => {
-          setErrors1(false)
-        }, 2000)
-        return
-      } else {
-        setValidPassword(true)
-        setFinish(true)
-        setPreloader(true)
-        //sending the message
-        /*     const user = 'lipro.ecommerce@gmail.com'
+      setNotValidPassword(false)
+      setFinish(true)
+      setPreloader(true)
+      //sending the message
+      /*     const user = 'lipro.ecommerce@gmail.com'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -227,31 +232,31 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
-        // const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-        // window.location.href = mailtoLink
-        setTimeout(() => {
-          setPreloader(false)
-          setSuccess(true)
-        }, 2500)
-        setTimeout(() => {
-          setSuccess(false)
-          setInputV({
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            username: '',
-            password: '',
-            confirm_password: '',
-            date: '',
-            time: '',
-            number_of_diners: '',
-            occasion: '',
-            special_request: '',
-          })
-          return setCurrentTab(startAgain)
-        }, 5000)
-      }
+      // const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      // window.location.href = mailtoLink
+      setTimeout(() => {
+        setPreloader(false)
+        setSuccess(true)
+      }, 2500)
+      setTimeout(() => {
+        setSuccess(false)
+        setInputV({
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          username: '',
+          password: '',
+          confirm_password: '',
+          date: '',
+          time: '',
+          number_of_diners: '',
+          occasion: '',
+          special_request: '',
+        })
+        return setCurrentTab(startAgain)
+      }, 5000)
+
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
@@ -732,10 +737,14 @@ const Reservations = () => {
                 )}
                 {currentTab >= 2 ? (
                   <button
-                    type={validPassword && finish ? 'submit' : 'button'}
+                    type={!notValidPassword && finish ? 'submit' : 'button'}
                     id='nextBtn'
                     className='btn'
-                    onClick={handleSubmit}>
+                    onClick={
+                      !notValidPassword && finish
+                        ? handleSubmit
+                        : handlePassword
+                    }>
                     Submit
                   </button>
                 ) : (
@@ -792,7 +801,7 @@ const Reservations = () => {
               </div>
             </div>
           )}
-          {!validPassword && !finish && (
+          {notValidPassword && !finish && (
             <div id='message' className='show-message'>
               <div className='error'>
                 <h3>Ooops!</h3>
