@@ -209,6 +209,7 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
+        setvalidPassword(true)
         //sending the message
         /*     const user = 'lipro.ecommerce@gmail.com'
            const subject = 'Reservation request'
@@ -230,12 +231,13 @@ const Reservations = () => {
         // window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
-          setvalidPassword(true)
           setFinish(true)
           setSuccess(true)
         }, 2500)
         setTimeout(() => {
           setSuccess(false)
+          setFinish(false)
+          setvalidPassword(false)
           setInputV({
             first_name: '',
             last_name: '',
@@ -256,7 +258,7 @@ const Reservations = () => {
 
       //Clear localStorage after form submission
 
-      if (validPassword && finish) localStorage.removeItem('formData')
+      localStorage.removeItem('formData')
       // Reset the form
     }
   }
@@ -739,7 +741,6 @@ const Reservations = () => {
                 )}
                 {currentTab >= 2 ? (
                   <button
-                    // type={validPassword && finish ? 'submit' : 'button'}
                     type='submit'
                     id='nextBtn'
                     className='btn'
