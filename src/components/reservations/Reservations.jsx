@@ -200,7 +200,7 @@ const Reservations = () => {
       inputV.password !== '' &&
       inputV.confirm_password !== ''
     ) {
-      // e.preventDefault()
+      e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
