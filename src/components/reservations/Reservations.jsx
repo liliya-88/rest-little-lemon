@@ -206,25 +206,7 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
-        /* some functionality */
-        const user = 'lipro.ecommerce@gmail.com'
-        const subject = 'Reservation request'
-        const body = `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},
-      Username: ${inputV.username},
-      Password: ${inputV.password}`
-
-        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-          body
-        )}`
-
-        window.location.href = mailtoLink
+  
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
