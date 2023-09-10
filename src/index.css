@@ -2302,7 +2302,9 @@ figure figcaption {
   cursor: pointer;
   z-index: 100;
 }
-
+.fa-arrow-up{
+  cursor: pointer;
+}
 .arrow-phantom:hover {
   opacity: 1;
   background: var(--greyDark);

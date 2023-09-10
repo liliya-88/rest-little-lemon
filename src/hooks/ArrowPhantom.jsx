@@ -15,7 +15,6 @@ function ArrowPhantom() {
   return (
     <div>
       <Link to='top'>
-        {' '}
         <span className='arrow-phantom '>
           <i className='fas fa-arrow-up'></i>
         </span>
