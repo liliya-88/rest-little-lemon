@@ -230,7 +230,6 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://formsubmit.co/lipro.ecommerce@gmail.com'
             encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
             <input type='hidden' name='bot-field' /> */}
