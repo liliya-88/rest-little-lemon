@@ -196,41 +196,62 @@ const Reservations = () => {
       inputV.username !== '' &&
       inputV.password !== '' &&
       inputV.confirm_password !== '' &&
-      inputV.password === inputV.confirm_password
+      inputV.confirm_password == inputV.password
     ) {
-      // e.preventDefault()
-      setPreloader(true)
-      setTimeout(() => {
-        setPreloader(false)
-        setSuccess(true)
-      }, 2500)
-      setTimeout(() => {
-        setSuccess(false)
-        setInputV({
-          first_name: '',
-          last_name: '',
-          email: '',
-          phone: '',
-          username: '',
-          password: '',
-          confirm_password: '',
-          date: '',
-          time: '',
-          number_of_diners: '',
-          occasion: '',
-          special_request: '',
-        })
-        return setCurrentTab(startAgain)
-      }, 5000)
+      e.preventDefault()
+      if (inputV.password !== inputV.confirm_password) {
+        setErrors1(true)
+        setTimeout(() => {
+          setErrors1(false)
+        }, 2000)
+        return
+      } else if (inputV.confirm_password == inputV.password) {
+        setPreloader(true)
+        //sending the message
+        /*     const user = 'lipro.ecommerce@gmail.com'
+        const subject = 'Reservation request'
+        const body = `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},`
+
+        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
+
+        window.location.href = mailtoLink */
+        setTimeout(() => {
+          setPreloader(false)
+          const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+          window.location.href = mailtoLink
+          setSuccess(true)
+        }, 2500)
+        setTimeout(() => {
+          setSuccess(false)
+          setInputV({
+            first_name: '',
+            last_name: '',
+            email: '',
+            phone: '',
+            username: '',
+            password: '',
+            confirm_password: '',
+            date: '',
+            time: '',
+            number_of_diners: '',
+            occasion: '',
+            special_request: '',
+          })
+          return setCurrentTab(startAgain)
+        }, 5000)
+      }
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
-    } else {
-      setErrors1(true)
-      setTimeout(() => {
-        setErrors1(false)
-      }, 2000)
-      return
     }
   }
   /* ---------------------- */
@@ -254,9 +275,7 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-            encType='multipart/form-data'
-            target='_blank'
-            rel='noreferrer'>
+            encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
             <input type='hidden' name='bot-field' /> */}
 
