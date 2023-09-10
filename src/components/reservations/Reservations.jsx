@@ -255,7 +255,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='mailto:lipro.ecommercegmail.com'
+            action='mailto:lipro.ecommerce@gmail.com'
             data-netlify='true'
             encType='multipart/form-data'>
             <input type='hidden' name='form-name' value='reservation' />
