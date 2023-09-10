@@ -207,7 +207,7 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         /* some functionality */
-        const recipient = '888liliya66@gmail.com'
+        const recipient = 'lipro.ecommerce@gmail.com'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
