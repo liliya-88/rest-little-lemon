@@ -197,7 +197,7 @@ const Reservations = () => {
       inputV.password !== '' &&
       inputV.confirm_password !== ''
     ) {
-      e.preventDefault()
+      // e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
@@ -207,7 +207,7 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         //sending the message
-        const user = 'lipro.ecommerce@gmail.com'
+    /*     const user = 'lipro.ecommerce@gmail.com'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -222,7 +222,7 @@ const Reservations = () => {
           subject
         )}&body=${encodeURIComponent(body)}`
 
-        window.location.href = mailtoLink
+        window.location.href = mailtoLink */
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
@@ -271,7 +271,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='./reservations'
+            action='mailto:lipro.ecommerse@gmail.com'
             data-netlify='true'
             encType='multipart/form-data'
             data-netlify-honeypot='bot-field'>
