@@ -191,21 +191,27 @@ const Reservations = () => {
       }
     }
     /* validation of the second section - last step before submitting */
+    if (inputV.confirm_password !== inputV.password) {
+      setErrors1(true)
+      setTimeout(() => {
+        setErrors1(false)
+      }, 2000)
+      return
+    }
     if (
       currentTab === 2 &&
       inputV.username !== '' &&
       inputV.password !== '' &&
       inputV.confirm_password !== '' &&
-      inputV.confirm_password == inputV.password
     ) {
-      e.preventDefault()
-      if (inputV.password !== inputV.confirm_password) {
+      // e.preventDefault()
+      if (inputV.confirm_password !== inputV.password) {
         setErrors1(true)
         setTimeout(() => {
           setErrors1(false)
         }, 2000)
         return
-      } else if (inputV.confirm_password == inputV.password) {
+      } else {
         setPreloader(true)
         //sending the message
         /*     const user = 'lipro.ecommerce@gmail.com'
@@ -224,10 +230,10 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
+     /*    const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        window.location.href = mailtoLink */
         setTimeout(() => {
           setPreloader(false)
-          const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-          window.location.href = mailtoLink
           setSuccess(true)
         }, 2500)
         setTimeout(() => {
