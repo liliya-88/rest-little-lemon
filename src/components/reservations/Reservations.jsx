@@ -273,7 +273,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://formsubmit.co/el/giyoju'
+            // action='https://formsubmit.co/el/giyoju'
             encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
             <input type='hidden' name='bot-field' /> */}
