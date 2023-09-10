@@ -272,10 +272,13 @@ const Reservations = () => {
             id='regForm'
             onSubmit={handleSubmit}
             method='POST'
+            name='reservation'
             action='/reservations'
             data-netlify='true'
             encType='multipart/form-data'
             netlify>
+            <input type='hidden' name='form-name' value='reservation' />
+
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
