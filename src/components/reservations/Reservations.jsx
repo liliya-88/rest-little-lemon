@@ -754,9 +754,7 @@ const Reservations = () => {
                     type='submit'
                     id='nextBtn'
                     className='btn'
-                    onClick={
-                      validPassword && finish ? handleSubmit : handlePassword
-                    }>
+                    onClick={handleSubmit}>
                     Submit
                   </button>
                 ) : (
