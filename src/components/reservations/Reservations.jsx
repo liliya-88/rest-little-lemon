@@ -121,7 +121,7 @@ const Reservations = () => {
       await window.Email.send(config).then
     }
   } */
-  /*  const recipient = '888liliya66@gmail.com'
+  /*  const user = '888liliya66@gmail.com'
   const subject = 'Reservation request'
   const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -134,7 +134,7 @@ const Reservations = () => {
       Username: ${inputV.username},
       Password: ${inputV.password}`
 
-  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
+  const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
     subject
   )}&body=${encodeURIComponent(body)}`
 
@@ -207,7 +207,8 @@ const Reservations = () => {
       } else {
         setPreloader(true)
         /* some functionality */
-        const recipient = 'lipro.ecommerce@gmail.com'
+        const user = 'lipro.ecommerce@gmail.com'
+        const pass = 'zlbqrmpaptgcpsna'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -220,9 +221,11 @@ const Reservations = () => {
       Username: ${inputV.username},
       Password: ${inputV.password}`
 
-        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(body)}`
+        const mailtoLink = `mailto:${user}password:${encodeURIComponent(
+          pass
+        )}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+          body
+        )}`
 
         window.location.href = mailtoLink
         setTimeout(() => {
