@@ -155,10 +155,9 @@ const Reservations = () => {
       inputV.confirm_password !== '' &&
       inputV.password === inputV.confirm_password
     ) {
-    
-        setPreloader(true)
-        //sending the message
-        /*     const user = 'lipro.ecommerce@gmail.com'
+      setPreloader(true)
+      //sending the message
+      /*     const user = 'lipro.ecommerce@gmail.com'
         const subject = 'Reservation request'
         const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -174,41 +173,46 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
-        setTimeout(() => {
-          const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-          window.location.href = mailtoLink
-          setPreloader(false)
-          setSuccess(true)
-        }, 2500)
-        setTimeout(() => {
-          setSuccess(false)
-          setInputV({
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            username: '',
-            password: '',
-            confirm_password: '',
-            date: '',
-            time: '',
-            number_of_diners: '',
-            occasion: '',
-            special_request: '',
-          })
-          return setCurrentTab(startAgain)
-        }, 5000)
-      
+      setTimeout(() => {
+        const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        window.location.href = mailtoLink
+        setPreloader(false)
+        setSuccess(true)
+      }, 2500)
+      setTimeout(() => {
+        setSuccess(false)
+        setInputV({
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          username: '',
+          password: '',
+          confirm_password: '',
+          date: '',
+          time: '',
+          number_of_diners: '',
+          occasion: '',
+          special_request: '',
+        })
+        return setCurrentTab(startAgain)
+      }, 5000)
+
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
-    } else{
-        setErrors1(true)
-        setTimeout(() => {
-          setErrors1(false)
-        }, 2000)
-        return
-      }
+    } else {
+      if (inputV.password !== inputV.confirm_password) setErrors1(true)
+      setTimeout(() => {
+        setErrors1(false)
+      }, 2000)
+      return
+    }
+    setErrors2(true)
+    setTimeout(() => {
+      setErrors2(false)
+    }, 2000)
+    return
   }
   /* ---------------------- */
 
