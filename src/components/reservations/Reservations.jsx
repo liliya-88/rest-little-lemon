@@ -39,6 +39,8 @@ const Reservations = () => {
   const [errors2, setErrors2] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
+  const [notValidPassword, setNotValidPassword] = useState(false)
+  const [finish, setFinish] = useState(false)
   /* +++ */
   let number = 1
   let startAgain = 0
@@ -191,27 +193,22 @@ const Reservations = () => {
       }
     }
     /* validation of the second section - last step before submitting */
-    if (inputV.confirm_password !== inputV.password) {
-      setErrors1(true)
-      setTimeout(() => {
-        setErrors1(false)
-      }, 2000)
-      return
-    }
     if (
       currentTab === 2 &&
       inputV.username !== '' &&
       inputV.password !== '' &&
-      inputV.confirm_password !== '' &&
+      inputV.confirm_password !== ''
     ) {
       // e.preventDefault()
-      if (inputV.confirm_password !== inputV.password) {
+      if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
           setErrors1(false)
         }, 2000)
         return
       } else {
+        setNotValidPassword(false)
+        setFinish(true)
         setPreloader(true)
         //sending the message
         /*     const user = 'lipro.ecommerce@gmail.com'
@@ -230,8 +227,8 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
-     /*    const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-        window.location.href = mailtoLink */
+        // const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        // window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
@@ -735,10 +732,11 @@ const Reservations = () => {
                 )}
                 {currentTab >= 2 ? (
                   <button
-                    type='submit'
+                    type={!notValidPassword && finish ? 'submit' : 'button'}
                     id='nextBtn'
                     className='btn'
-                    onClick={handleSubmit}>
+                    onClick={handleSubmit}
+                    disabled>
                     Submit
                   </button>
                 ) : (
@@ -785,6 +783,17 @@ const Reservations = () => {
             </div>
           )}
           {errors1 && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p className='error'>
+                  The password and the confirmation password are not the
+                  same.Please try again.
+                </p>
+              </div>
+            </div>
+          )}
+          {notValidPassword && !finish && (
             <div id='message' className='show-message'>
               <div className='error'>
                 <h3>Ooops!</h3>
