@@ -121,7 +121,7 @@ const Reservations = () => {
       await window.Email.send(config).then
     }
   } */
-  /*  const user = '888liliya66@gmail.com'
+  /* const user = 'lipro.ecommerce@gmail.com'
   const subject = 'Reservation request'
   const body = `Name:${inputV.first_name} ${inputV.last_name},
       Email: ${inputV.email},
@@ -138,7 +138,7 @@ const Reservations = () => {
     subject
   )}&body=${encodeURIComponent(body)}`
 
-  window.location.href = mailtoLink */
+  window.location.href = mailtoLink  */
   async function handleSubmit(e) {
     /* validation of the first section */
     if (
@@ -197,7 +197,7 @@ const Reservations = () => {
       inputV.password !== '' &&
       inputV.confirm_password !== ''
     ) {
-      // e.preventDefault()
+      e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
@@ -206,7 +206,25 @@ const Reservations = () => {
         return
       } else {
         setPreloader(true)
+        //sending the message
+        const user = 'lipro.ecommerce@gmail.com'
+        const subject = 'Reservation request'
+        const body = `Name:${inputV.first_name} ${inputV.last_name},
+      Email: ${inputV.email},
+      Phone: ${inputV.phone},
+      Date for reservation: ${inputV.date},
+      Time for reservation: ${inputV.time},
+      Number of diners: ${inputV.number_of_diners},
+      Occasion: ${inputV.occasion},
+      Special Request: ${inputV.special_request},
+      Username: ${inputV.username},
+      Password: ${inputV.password}`
 
+        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
+
+        window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
@@ -255,9 +273,10 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='mailto:lipro.ecommerce@gmail.com'
+            action='./reservations'
             data-netlify='true'
-            encType='multipart/form-data'>
+            encType='multipart/form-data'
+            netlify>
             <input type='hidden' name='form-name' value='reservation' />
 
             <h1 className='form_title'>Find a table for any occasion</h1>
