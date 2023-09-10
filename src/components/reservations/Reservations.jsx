@@ -152,9 +152,9 @@ const Reservations = () => {
       currentTab === 2 &&
       inputV.username !== '' &&
       inputV.password !== '' &&
-      inputV.confirm_password !== '' 
+      inputV.confirm_password !== ''
     ) {
-      // e.preventDefault()
+      e.preventDefault()
       if (inputV.password !== inputV.confirm_password) {
         setErrors1(true)
         setTimeout(() => {
@@ -180,8 +180,8 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
-        // const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-        // window.location.href = mailtoLink
+        const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        window.location.href = mailtoLink
         setTimeout(() => {
           setPreloader(false)
           setSuccess(true)
