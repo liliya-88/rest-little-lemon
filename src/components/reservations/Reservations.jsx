@@ -273,7 +273,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='./reservations'
+            action='/reservations'
             data-netlify='true'
             encType='multipart/form-data'
             netlify>
