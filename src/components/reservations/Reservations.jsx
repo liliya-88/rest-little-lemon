@@ -271,7 +271,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='mailto:lipro.ecommerse@gmail.com'
+     
             data-netlify='true'
             encType='multipart/form-data'
             data-netlify-honeypot='bot-field'>
