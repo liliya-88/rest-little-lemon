@@ -37,6 +37,7 @@ const Reservations = () => {
   const [errors, setErrors] = useState(false)
   const [errors1, setErrors1] = useState(false)
   const [errors2, setErrors2] = useState(false)
+  const [errors3, setErrors3] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
   /* +++ */
@@ -139,12 +140,13 @@ const Reservations = () => {
         }, 2000)
         return
       }
+
       if (reEmail.test(inputV.email)) {
         setNotValid(false)
       } else {
-        setErrors(true)
+        setErrors3(true)
         setTimeout(() => {
-          setErrors(false)
+          setErrors3(false)
           /*       setInputV((prev) => {
             return { ...prev, email: '' }
           }) */
@@ -773,6 +775,14 @@ const Reservations = () => {
                   All the fields are reqired, that&apos;s how we know who you
                   are. Please fix that and try again!
                 </p>
+              </div>
+            </div>
+          )}
+          {errors3 && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p>The phone number is not valid.Please try again.</p>
               </div>
             </div>
           )}
