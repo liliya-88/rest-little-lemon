@@ -101,7 +101,7 @@ const Reservations = () => {
     /* validation of the first section */
     if (
       currentTab === 0 &&
-      inputV.data !== '' &&
+      inputV.date !== '' &&
       inputV.time !== '' &&
       inputV.number_of_diners !== '' &&
       inputV.occasion !== ''
@@ -148,7 +148,7 @@ const Reservations = () => {
         }, 2000)
         return
       }
-      
+
       setCurrentTab(currentTab + number)
       if (currentTab > 1) {
         setSubmit(true)
