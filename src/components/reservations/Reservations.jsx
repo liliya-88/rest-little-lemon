@@ -174,28 +174,10 @@ const Reservations = () => {
         }, 2000)
         return
       }
+
       setPreloader(true)
-      setTimeout(() => {
-        setSuccess(false)
-        setInputV({
-          first_name: '',
-          last_name: '',
-          email: '',
-          phone: '',
-          username: '',
-          password: '',
-          confirm_password: '',
-          date: '',
-          time: '',
-          number_of_diners: '',
-          occasion: '',
-          special_request: '',
-        })
-        return setCurrentTab(startAgain)
-      }, 1000)
 
       setTimeout(async () => {
-        setPreloader(false)
         //sending the message to the email address
         const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
         const createMessage = async (url, data) => {
@@ -219,14 +201,36 @@ const Reservations = () => {
           Special Request: ${inputV.special_request},
           Username: ${inputV.username},
           Password: ${inputV.password}`
-
-        const createResponse = await createMessage(url, messageForm)
         /* ------------------- */
+        const createResponse = await createMessage(url, messageForm)
+      }, 2200)
+
+      setTimeout(() => {
+        setPreloader(false)
         setSuccess(true)
+      }, 2000)
+      setTimeout(() => {
+        setSuccess(false)
+        setInputV({
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          username: '',
+          password: '',
+          confirm_password: '',
+          date: '',
+          time: '',
+          number_of_diners: '',
+          occasion: '',
+          special_request: '',
+        })
+         setCurrentTab(startAgain)
         //Clear localStorage after form submission
-        localStorage.removeItem('formData')
+      return localStorage.removeItem('formData')
         // Reset the form
-      }, 4000)
+      }, 2210)
+
     }
   }
   /* ---------------------- */
