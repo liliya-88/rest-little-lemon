@@ -177,20 +177,21 @@ const Reservations = () => {
       }
       setPreloader(true)
       //sending the message
-      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-      const createMessage = async (url, data) => {
-        const response = await fetch(url, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: JSON.stringify(data),
-        })
-        setSentMessage(true)
-        return await response.json()
-      }
-      const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
+      if (preloader && currentTab === 2) {
+        const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        const createMessage = async (url, data) => {
+          const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data),
+          })
+          setSentMessage(true)
+          return await response.json()
+        }
+        const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
           Email: ${inputV.email},
           Phone: ${inputV.phone},
           Date for reservation: ${inputV.date},
@@ -201,13 +202,15 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-      const createResponse = await createMessage(url, messageForm)
+        const createResponse = await createMessage(url, messageForm)
+      }
       /* ------------------------------------- */
       setTimeout(() => {
         setPreloader(false)
         setSuccess(true)
       }, 4000)
-      setTimeout(() => {
+      setTimeout(async () => {
+        const createResponse = await createMessage(url, messageForm)
         setSuccess(false)
         setInputV({
           first_name: '',
@@ -250,11 +253,10 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='./reservations'
-            encType='multipart/form-data'
-            netlify>
-            <input type='hidden' name='form-name' value='reservation' />
-            <input type='hidden' name='bot-field' />
+            action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+            encType='multipart/form-data'>
+            {/*        <input type='hidden' name='form-name' value='reservation' />
+            <input type='hidden' name='bot-field' /> */}
 
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
