@@ -174,23 +174,23 @@ const Reservations = () => {
           setErrors1(false)
         }, 2000)
         return
-      } else {
-        setPreloader(true)
-        //sending the message
-        const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-        const createMessage = async (url, data) => {
-          const response = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: JSON.stringify(data),
-          })
-          setSentMessage(true)
-          return await response.json()
-        }
-        const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
+      }
+      setPreloader(true)
+      //sending the message
+      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      const createMessage = async (url, data) => {
+        const response = await fetch(url, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(data),
+        })
+        setSentMessage(true)
+        return await response.json()
+      }
+      const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
           Email: ${inputV.email},
           Phone: ${inputV.phone},
           Date for reservation: ${inputV.date},
@@ -201,34 +201,33 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-        const createResponse = await createMessage(url, messageForm)
-        /* ------------------------------------- */
-        setTimeout(() => {
-          setPreloader(false)
-          setSuccess(true)
-        }, 4000)
-        setTimeout(() => {
-          setSuccess(false)
-          setInputV({
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            username: '',
-            password: '',
-            confirm_password: '',
-            date: '',
-            time: '',
-            number_of_diners: '',
-            occasion: '',
-            special_request: '',
-          })
-          return setCurrentTab(startAgain)
-        }, 5000)
-        //Clear localStorage after form submission
-        localStorage.removeItem('formData')
-        // Reset the form
-      }
+      const createResponse = await createMessage(url, messageForm)
+      /* ------------------------------------- */
+      setTimeout(() => {
+        setPreloader(false)
+        setSuccess(true)
+      }, 4000)
+      setTimeout(() => {
+        setSuccess(false)
+        setInputV({
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          username: '',
+          password: '',
+          confirm_password: '',
+          date: '',
+          time: '',
+          number_of_diners: '',
+          occasion: '',
+          special_request: '',
+        })
+        return setCurrentTab(startAgain)
+      }, 5000)
+      //Clear localStorage after form submission
+      localStorage.removeItem('formData')
+      // Reset the form
     }
   }
   /* ---------------------- */
@@ -251,9 +250,11 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            encType='multipart/form-data'>
-            {/*   <input type='hidden' name='form-name' value='reservation' />
-            <input type='hidden' name='bot-field' /> */}
+            action='./reservations'
+            encType='multipart/form-data'
+            netlify>
+            <input type='hidden' name='form-name' value='reservation' />
+            <input type='hidden' name='bot-field' />
 
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
