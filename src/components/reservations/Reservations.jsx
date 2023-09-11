@@ -37,6 +37,7 @@ const Reservations = () => {
   const [errors, setErrors] = useState(false)
   const [errors1, setErrors1] = useState(false)
   const [errors2, setErrors2] = useState(false)
+  const [errors3, setErrors3] = useState(false)
   const [success, setSuccess] = useState(false)
   const [preloader, setPreloader] = useState(false)
   /* +++ */
@@ -159,6 +160,14 @@ const Reservations = () => {
         setErrors1(true)
         setTimeout(() => {
           setErrors1(false)
+        }, 2000)
+        return
+      }
+      const phoneNumberRegex = /^\d{10,13}$/
+      if (phoneNumberRegex.test(inputV.phone)) {
+        setErrors3(true)
+        setTimeout(() => {
+          setErrors3(false)
         }, 2000)
         return
       }
@@ -752,6 +761,16 @@ const Reservations = () => {
                 <p>
                   All the fields are reqired, that&apos;s how we know who you
                   are. Please fix that and try again!
+                </p>
+              </div>
+            </div>
+          )}
+          {errors3 && (
+            <div id='message' className='show-message'>
+              <div className='error'>
+                <h3>Ooops!</h3>
+                <p className='error'>
+                  The phone number is not valid.Please try again.
                 </p>
               </div>
             </div>
