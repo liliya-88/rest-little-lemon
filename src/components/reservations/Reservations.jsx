@@ -174,56 +174,7 @@ const Reservations = () => {
         }, 2000)
         return
       }
-
       setPreloader(true)
-      //sending the message
-      /*     const user = 'lipro.ecommerce@gmail.com'
-        const subject = 'Reservation request'
-        const body = `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},`
-
-        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(body)}`
-
-        window.location.href = mailtoLink */
-      /*   const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-      window.location.href = mailtoLink */
-
-      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-      const createMessage = async (url, data) => {
-        const response = await fetch(url, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: JSON.stringify(data),
-        })
-        return await response.json()
-      }
-      const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
-          Email: ${inputV.email},
-          Phone: ${inputV.phone},
-          Date for reservation: ${inputV.date},
-          Time for reservation: ${inputV.time},
-          Number of diners: ${inputV.number_of_diners},
-          Occasion: ${inputV.occasion},
-          Special Request: ${inputV.special_request},
-          Username: ${inputV.username},
-          Password: ${inputV.password}`
-
-      const createResponse = await createMessage(url, messageForm)
-      setTimeout(() => {
-        setPreloader(false)
-        setSuccess(true)
-      }, 4000)
       setTimeout(() => {
         setSuccess(false)
         setInputV({
@@ -241,11 +192,41 @@ const Reservations = () => {
           special_request: '',
         })
         return setCurrentTab(startAgain)
-      }, 6000)
+      }, 1000)
 
-      //Clear localStorage after form submission
-      localStorage.removeItem('formData')
-      // Reset the form
+      setTimeout(async () => {
+        setPreloader(false)
+        //sending the message to the email address
+        const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        const createMessage = async (url, data) => {
+          const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data),
+          })
+          return await response.json()
+        }
+        const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
+          Email: ${inputV.email},
+          Phone: ${inputV.phone},
+          Date for reservation: ${inputV.date},
+          Time for reservation: ${inputV.time},
+          Number of diners: ${inputV.number_of_diners},
+          Occasion: ${inputV.occasion},
+          Special Request: ${inputV.special_request},
+          Username: ${inputV.username},
+          Password: ${inputV.password}`
+
+        const createResponse = await createMessage(url, messageForm)
+        /* ------------------- */
+        setSuccess(true)
+        //Clear localStorage after form submission
+        localStorage.removeItem('formData')
+        // Reset the form
+      }, 4000)
     }
   }
   /* ---------------------- */
@@ -269,8 +250,7 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-            encType='multipart/form-data'
-            target='_blank'>
+            encType='multipart/form-data'>
             {/*   <input type='hidden' name='form-name' value='reservation' />
             <input type='hidden' name='bot-field' /> */}
 
