@@ -193,12 +193,37 @@ const Reservations = () => {
         )}&body=${encodeURIComponent(body)}`
 
         window.location.href = mailtoLink */
+      /*   const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      window.location.href = mailtoLink */
+
+      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      const createMessage = async (url, data) => {
+        const response = await fetch(url, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(data),
+        })
+        return await response.json()
+      }
+      const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
+          Email: ${inputV.email},
+          Phone: ${inputV.phone},
+          Date for reservation: ${inputV.date},
+          Time for reservation: ${inputV.time},
+          Number of diners: ${inputV.number_of_diners},
+          Occasion: ${inputV.occasion},
+          Special Request: ${inputV.special_request},
+          Username: ${inputV.username},
+          Password: ${inputV.password}`
+
+      const createResponse = await createMessage(url, messageForm)
       setTimeout(() => {
-        const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-        window.location.href = mailtoLink
         setPreloader(false)
         setSuccess(true)
-      }, 2500)
+      }, 4000)
       setTimeout(() => {
         setSuccess(false)
         setInputV({
@@ -216,7 +241,7 @@ const Reservations = () => {
           special_request: '',
         })
         return setCurrentTab(startAgain)
-      }, 5000)
+      }, 6000)
 
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
