@@ -10,17 +10,18 @@ const Nav = () => {
   const Desktop = useMediaQuery('(min-width: 930px)')
   /*    className={`!Desktop && mobileNavActive ? (nav_container show): `}> */
   /* className={activeLink?'a_link odd active'} : 'a_link'} */
-  const [preloader, setPreloader] = useState(false)
-  
+  const [preloader, setPreloader] = useState(true)
 
-  const showPreloader = () => {
-    setPreloader(true)
+  const hidePreloader = () => {
+    setPreloader(false)
   }
   useEffect(() => {
-    window.addEventListener('load', showPreloader)
+    window.addEventListener('load', hidePreloader)
+
     return () => {
       // Cleanup: remove the event listener when the component unmounts
-      window.removeEventListener('load', showPreloader)
+      window.removeEventListener('load', hidePreloader)
+      setPreloader(false)
     }
   }, [])
 

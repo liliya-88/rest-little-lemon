@@ -1,6 +1,4 @@
-
 import App from '../App'
-
 
 function Root() {
   return (

@@ -588,7 +588,7 @@ const Reservations = () => {
                     maxLength={12}
                     onChange={handleChange}
                     onBlur={handleInputBlur}
-                    autoCapitalize='true'
+                    autoComplete='true'
                     required
                   />
                 </label>
