@@ -140,8 +140,10 @@ const Reservations = () => {
         }, 2000)
         return
       }
-      const phoneNumberRegex = /^\d{10,13}$/
+      const phoneNumberRegex = /^[0-9]{10,13}$/
       if (phoneNumberRegex.test(inputV.phone)) {
+        setNotValid(false)
+      } else {
         setErrors3(true)
         setTimeout(() => {
           setErrors3(false)
