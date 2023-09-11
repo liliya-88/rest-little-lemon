@@ -208,7 +208,7 @@ const Reservations = () => {
       setTimeout(() => {
         setPreloader(false)
         setSuccess(true)
-      }, 4000)
+      }, 3500)
       setTimeout(async () => {
         const createResponse = await createMessage(url, messageForm)
         setSuccess(false)
