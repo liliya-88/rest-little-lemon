@@ -176,39 +176,26 @@ const Reservations = () => {
       }
 
       setPreloader(true)
-      //sending the message
-      /*     const user = 'lipro.ecommerce@gmail.com'
-        const subject = 'Reservation request'
-        const body = `Name:${inputV.first_name} ${inputV.last_name},
-      Email: ${inputV.email},
-      Phone: ${inputV.phone},
-      Date for reservation: ${inputV.date},
-      Time for reservation: ${inputV.time},
-      Number of diners: ${inputV.number_of_diners},
-      Occasion: ${inputV.occasion},
-      Special Request: ${inputV.special_request},`
 
-        const mailtoLink = `mailto:${user}?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(body)}`
+      setTimeout(() => {
+        setPreloader(false)
+        setSuccess(true)
+      }, 4000)
 
-        window.location.href = mailtoLink */
-      /*   const mailtoLink = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-      window.location.href = mailtoLink */
-
-      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
-      const createMessage = async (url, data) => {
-        const response = await fetch(url, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: JSON.stringify(data),
-        })
-        return await response.json()
-      }
-      const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
+      setTimeout(async () => {
+        const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        const createMessage = async (url, data) => {
+          const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data),
+          })
+          return await response.json()
+        }
+        const messageForm = `Name:${inputV.first_name} ${inputV.last_name},
           Email: ${inputV.email},
           Phone: ${inputV.phone},
           Date for reservation: ${inputV.date},
@@ -219,12 +206,7 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-      const createResponse = await createMessage(url, messageForm)
-      setTimeout(() => {
-        setPreloader(false)
-        setSuccess(true)
-      }, 2500)
-      setTimeout(() => {
+        const createResponse = await createMessage(url, messageForm)
         setSuccess(false)
         setInputV({
           first_name: '',
@@ -241,7 +223,7 @@ const Reservations = () => {
           special_request: '',
         })
         return setCurrentTab(startAgain)
-      }, 3000)
+      }, 5500)
 
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
