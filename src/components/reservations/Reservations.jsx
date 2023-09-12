@@ -247,7 +247,7 @@ const Reservations = () => {
           </div>
         </div>
 
-        <div className='form_container'>
+        <div className='form_container flashIn'>
           <form
             id='regForm'
             onSubmit={handleSubmit}

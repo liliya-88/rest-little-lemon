@@ -8,7 +8,7 @@ function AboutP() {
       <div className='title_center' id='about'>
         <h1 className='h1_about'>About us</h1>
       </div>
-      <section className='section-center grid-2'>
+      <section className='section-center grid-2 flashIn'>
         {/* left part  */}
         <article className='part title_center'>
           <div className='title_left'>
