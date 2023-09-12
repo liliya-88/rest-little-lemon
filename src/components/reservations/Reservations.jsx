@@ -48,6 +48,9 @@ const Reservations = () => {
   /* ----------- */
   /* useEffects */
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  useEffect(() => {
     if (inputV && ls) {
       localStorage.setItem('formData', JSON.stringify(inputV))
     }
