@@ -2415,7 +2415,7 @@ figure figcaption {
 #breakfast {
   background: url('./assets/images/lemon_menu_bg_light.png') center/100% no-repeat !important;
   background-position: center;
-  background-size: 175% 111% !important;
+  background-size: 185% 111% !important;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   padding-top: 3rem;
@@ -2699,7 +2699,10 @@ tr.color4:nth-of-type(1) {
     text-align: center;
     min-width: 85vw;
   }
+#breakfast {
+  background-size: 175% 111% !important;
 
+}
   .td_img {
     width: 29vw;
     height: 37vh;
