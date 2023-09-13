@@ -23,7 +23,7 @@ function Specials() {
       id: 'sp1',
       src: `${Dish1}`,
       title: 'Chicken Parmesan',
-      price: '$12',
+      price: 12,
       pText:
         'Breaded chicken cutlets topped with marinara sauce, melted cheese, and served over spaghetti or with a side of garlic bread.',
       meal: 'filterDiv breakfast',
@@ -32,7 +32,7 @@ function Specials() {
       id: 'sp2',
       src: `${Dish2}`,
       title: 'Baked salmon',
-      price: '$18',
+      price: 18,
       pText:
         'Fresh salmon fillets seasoned with lemon, herbs, and olive oil, then baked until tender and flaky. Serve it with a side of steamed asparagus or a green salad.',
       meal: 'filterDiv breakfast',
@@ -41,7 +41,7 @@ function Specials() {
       id: 'sp3',
       src: `${Dish3}`,
       title: 'Grilled steak',
-      price: '$25',
+      price: 25,
       pText:
         'A juicy steak cooked to perfection, served with a side of roasted vegetables like potatoes, carrots, and Brussels sprouts.',
       meal: 'filterDiv breakfast',
@@ -50,7 +50,7 @@ function Specials() {
       id: 'sp4',
       src: `${Dish4}`,
       title: 'Spinach and feta',
-      price: '$15',
+      price: 15,
       pText:
         'Chicken breasts stuffed with a mixture of spinach, feta cheese, and herbs, then baked until tender and juicy.',
       meal: 'filterDiv lunch',
@@ -59,7 +59,7 @@ function Specials() {
       id: 'sp5',
       src: `${Dish5}`,
       title: 'Vegetable fry',
-      price: '$22',
+      price: 22,
       pText:
         'A colorful mix of fresh vegetables like bell peppers, broccoli, carrots, and snap peas, stir-fried in a flavorful sauce and served over rice or noodles.',
       meal: 'filterDiv lunch',
@@ -69,7 +69,7 @@ function Specials() {
       id: 'sp6',
       src: `${Dish6}`,
       title: 'Shrimp scampi',
-      price: '$27',
+      price: 27,
       pText:
         'Succulent shrimp cooked in a garlic butter sauce with white wine and lemon juice, served over pasta or with crusty bread for dipping.',
       meal: 'filterDiv lunch',
@@ -78,7 +78,7 @@ function Specials() {
       id: 'sp7',
       src: `${Dish7}`,
       title: 'Mushroom risotto',
-      price: '$18',
+      price: 18,
       pText:
         'Creamy risotto cooked with Arborio rice, mushrooms, onions, garlic, and Parmesan cheese. It makes for a comforting and satisfying dinner.',
       meal: 'filterDiv dinner',
@@ -87,7 +87,7 @@ function Specials() {
       id: 'sp8',
       src: `${Dish8}`,
       title: 'Beef & broccoli ',
-      price: '$24',
+      price: 24,
       pText:
         'Tender strips of beef stir-fried with broccoli florets, cashews, garlic, ginger, and a savory sauce. Serve it over rice or noodles.',
       meal: 'filterDiv dinner',
@@ -96,7 +96,7 @@ function Specials() {
       id: 'sp9',
       src: `${Dish9}`,
       title: 'Chicken tikka',
-      price: '$11',
+      price: 11,
       pText:
         'Marinated and grilled chicken pieces simmered in a creamy tomato-based sauce with spices like garam masala, cumin, and turmeric. Serve it over rice or with naan bread.',
       meal: 'filterDiv dinner',
@@ -105,7 +105,7 @@ function Specials() {
       id: 'sp10',
       src: `${Dish10}`,
       title: 'Glazed salmon',
-      price: '$38',
+      price: 38,
       pText:
         'Salmon fillets brushed with a sweet and tangy honey glaze, then baked alongside roasted sweet potatoes for a balanced and flavorful meal.',
       meal: 'filterDiv dinner',
@@ -114,7 +114,7 @@ function Specials() {
       id: 'sp11',
       src: `${Dish11}`,
       title: 'Coffee',
-      price: '$5',
+      price: 5,
       pText:
         'Awaken your senses with our expertly brewed coffee, made from the finest beans sourced from around the world. We have the perfect cup of coffee to satisfy your cravings',
       meal: 'filterDiv drinks',
@@ -123,7 +123,7 @@ function Specials() {
       id: 'sp12',
       src: `${Dish12}`,
       title: 'Tea',
-      price: '$3',
+      price: 3,
       pText:
         ' Immerse yourself in a world of aromatic bliss with our selection of premium teas. Each cup offers a moment of tranquility and rejuvenation.',
       meal: 'filterDiv drinks',
@@ -132,7 +132,7 @@ function Specials() {
       id: 'sp13',
       src: `${Dish13}`,
       title: 'Juice',
-      price: '$15',
+      price: 15,
       pText:
         'Quench your thirst with our refreshing selection of freshly squeezed juices. Our juices are made from the freshest fruits to provide a revitalizing and invigorating experience.',
       meal: 'filterDiv drinks',
@@ -141,7 +141,7 @@ function Specials() {
       id: 'sp14',
       src: `${Dish14}`,
       title: 'Cappuccino',
-      price: '$10',
+      price: 10,
       pText:
         'Indulge in the classic Italian favorite, a harmonious blend of rich espresso, velvety steamed milk, and a delicate layer of frothy foam. Savor the perfect balance of flavors in every sip.',
       meal: 'filterDiv drinks',

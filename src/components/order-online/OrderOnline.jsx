@@ -1,13 +1,123 @@
+/* eslint-disable no-extra-semi */
 /* eslint-disable no-unused-vars */
 
-const OrderOnline = () => {
+import { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../context/CartContext'
 
+const OrderOnline = () => {
+  const { cartProducts, addProduct, removeProduct } = useContext(CartContext)
+  const [products, setProducts] = useState([])
+  const [isSuccess, setIsSuccess] = useState(false)
+  useEffect(() => {
+    if (cartProducts.length > 0) {
+      setProducts(cartProducts)
+    } else {
+      setProducts([])
+    }
+  }, [cartProducts])
+
+  function moreOfThisProduct(id) {
+    addProduct(id)
+  }
+  function lessOfThisProduct(id) {
+    removeProduct(id)
+  }
+  let total = 0
+
+  /* total+= cartProducts.find((p)=>p.id === product.id).product.price || 0 */
   return (
     <section className='wrapper_order_online'>
-      <div className='title_center pt-1 '>
-        <h1>Your Cart</h1>
+      <div className='columns_wrapper'>
+        <div className='box'>
+          <div className='title_center order_online '>
+            <h1>Your Cart </h1>
+            {!cartProducts?.length ? (
+              <small className='small_cart'>
+                🛒 You have no items in the cart
+              </small>
+            ) : (
+              <small className='small_cart'>
+                🛒 You have {cartProducts.length} items in the cart
+              </small>
+            )}
+          </div>
+          {/* table with products */}
+          {products.length > 0 && (
+            <>
+              <table className='table_cart'>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {products.map((product) => (
+                    <tr key={product.id}>
+                      {/* console.log(product.id) */}
+                      {/* one td */}
+                      <td className='product_info_cell'>
+                        <div className='product_image_box'>
+                          <img src={product.src} alt={product.title} />
+                        </div>
+                        <p className='paragragh_title'>{product.title}</p>
+                      </td>
+                      {/* one td */}
+                      <td className='text_dark'>
+                        <button
+                          className='btn bg_dark'
+                          onClick={() => lessOfThisProduct(product)}>
+                          –
+                        </button>
+                        <span className='quantity_label'>
+                          {
+                            cartProducts.filter((id) => id.id === product.id)
+                              .length
+                          }
+                        </span>
+                        <div>
+                          <button
+                            className='btn bg_dark'
+                            onClick={() => moreOfThisProduct(product)}>
+                            +
+                          </button>
+                        </div>
+                      </td>
+                      {/* one td */}
+                      <td className='td_price_cart '>
+                        $
+                        {cartProducts.filter((id) => id.id === product.id)
+                          .length * product.price}
+                        <small
+                          style={{
+                            visibility: 'hidden',
+                            position: 'absolute',
+                            zIndex: '-10',
+                          }}>
+                          {
+                            (total += cartProducts.find(
+                              (id) => id.id === product.id
+                            ).price)
+                          }
+                        </small>
+                      </td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td className='total'>
+                      <strong>Total:</strong>${total}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </>
+          )}
+        </div>
+        <div className='box'>some other stuff</div>
       </div>
-   
     </section>
   )
 }

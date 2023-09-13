@@ -12,7 +12,7 @@ function OrderOnlinePage() {
   return (
     <>
       <NavOrderOnline />
-      <main className='main pt-6 flashIn'>
+      <main className='main pt-4 flashIn'>
         <MainContainerOrderOnline />
       </main>
       <ArrowPhantom />
