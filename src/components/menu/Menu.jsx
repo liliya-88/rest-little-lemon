@@ -347,9 +347,13 @@ const Menu = () => {
     },
   ])
   /* -------------- */
+  const [otherPage, setOtherPage] = useState(true)
+
+  /* - */
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    setOtherPage(true)
   }, [])
 
   useEffect(() => {
