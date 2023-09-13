@@ -425,7 +425,6 @@ const Menu = () => {
           id='breakfast'
           className={clicked === 1 ? 'tabcontent default_open' : 'tabcontent'}>
           <div className='table_wrapper breakfast'>
-            <hr />
             <table className='table_center flashIn'>
               <tr>
                 <th className='th'>Dish</th>
@@ -445,8 +444,7 @@ const Menu = () => {
               ? 'tabcontent default_open'
               : 'tabcontent'
           }>
-          <div className='table_wrapper'>
-            <hr />
+          <div className='table_wrapper lunch'>
             <table className='table_center flashIn'>
               <tr>
                 <th className='th'>Dish</th>
@@ -462,8 +460,7 @@ const Menu = () => {
         <div
           id='dinner'
           className={clicked === 3 ? 'tabcontent default_open' : 'tabcontent'}>
-          <div className='table_wrapper'>
-            <hr />
+          <div className='table_wrapper dinner'>
             <table className='table_center flashIn'>
               <tr className='color3'>
                 <th className='th'>Dish</th>
@@ -479,8 +476,7 @@ const Menu = () => {
         <div
           id='drinks'
           className={clicked === 4 ? 'tabcontent default_open' : 'tabcontent'}>
-          <div className='table_wrapper'>
-            <hr />
+          <div className='table_wrapper drinks'>
             <table className='table_center flashIn'>
               <tr className='color4'>
                 <th className='th'>Dish</th>
