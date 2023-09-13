@@ -2369,6 +2369,7 @@ figure figcaption {
   transition: font-weight 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: background 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: underline 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  letter-spacing: 0.1em;
   transition: var(--transition);
   background: repeating-linear-gradient(to left, var(--primaryColor-variant) 30%, var(--primaryColor-variant) 80%, var(--primaryColor)50%, var(--darkPink)10%) no-repeat;
 }
@@ -2380,8 +2381,6 @@ figure figcaption {
   -webkit-box-shadow: var(--shadow-3);
   box-shadow: var(--shadow-3);
   color: var(--whiteMain);
-  /*  background: repeating-linear-gradient(to left,var(--primaryColor-variant) 30%,var(--primaryColor-variant) 80%,var(--primaryColor)50%,var(--darkPink)10%) no-repeat; */
-  /*    background: repeating-linear-gradient(to left,var(--secondaryColor),var(--primaryColor) 100%,var(--primaryColor)30%,var(--primaryColor)100%) no-repeat; */
 }
 
 .tabcontent {
@@ -2613,9 +2612,9 @@ tr.color4:nth-of-type(1) {
 
   }
   .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2627,10 +2626,10 @@ tr.color4:nth-of-type(1) {
     text-align: center;
     min-width: 85vw;
   }
-  .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+    .table_wrapper.breakfast::before{
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2648,9 +2647,9 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
   }
     .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2667,10 +2666,10 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
-    .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+   .table_wrapper.breakfast::before{
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2691,9 +2690,9 @@ tr.color4:nth-of-type(1) {
   }
 
   .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2704,10 +2703,10 @@ tr.color4:nth-of-type(1) {
 
   }
 
-    .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+  .table_wrapper.breakfast::before{
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
@@ -2723,10 +2722,10 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
-   .table_wrapper.breakfast::before{
- 
- margin: -11.4rem auto 0;
-
+    .table_wrapper.breakfast::before{
+ margin: -11.5rem auto 0;
+  width:30vw;
+ background-color: #F7F7F7;
 }
 }
 
