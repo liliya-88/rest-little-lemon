@@ -5,21 +5,27 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const OrderOnline = () => {
-  const { cartProducts, addProduct, removeProduct } = useContext(CartContext)
+  const { cartProducts, addProduct, removeProduct, removeProduct2 } =
+    useContext(CartContext)
+  // const [productsIds, setProductsIds] = useState([])
   const [products, setProducts] = useState([])
-  const [isSuccess, setIsSuccess] = useState(false)
+  // const [isSuccess, setIsSuccess] = useState(false)
   useEffect(() => {
     if (cartProducts.length > 0) {
-      setProducts(cartProducts)
+      setTimeout(() => {
+        setProducts(cartProducts)
+      }, 500)
     } else {
       setProducts([])
     }
   }, [cartProducts])
-
+  console.log(products, 'products')
+  // console.log(productIds, 'productIds')
   function moreOfThisProduct(id) {
     addProduct(id)
   }
   function lessOfThisProduct(id) {
+    // removeProduct(id)
     removeProduct(id)
   }
   let total = 0
@@ -42,7 +48,7 @@ const OrderOnline = () => {
             )}
           </div>
           {/* table with products */}
-          {products.length > 0 && (
+          {cartProducts.length > 0 && (
             <>
               <table className='table_cart'>
                 <thead>

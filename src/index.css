@@ -4670,6 +4670,7 @@ background-color: var(--secondaryColor-500);
 .total{
    padding-top: 0.3rem;
   color: #182c5a;
+  background-color: var(--tirtiaryColor);
 }
 @media screen and (min-width: 310px) {
   .table_cart td {
