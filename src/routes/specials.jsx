@@ -1,10 +1,11 @@
-import SpecialsPage from "../pages/SpecialsPage"
 
-
+import SpecialsPage from '../pages/SpecialsPage'
 
 const Specials = () => {
   return (
-   <SpecialsPage/>
+  
+      <SpecialsPage />
+  
   )
 }
 

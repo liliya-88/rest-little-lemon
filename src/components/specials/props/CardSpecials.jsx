@@ -1,6 +1,22 @@
 /* eslint-disable react/prop-types */
+
+import { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../../context/CartContext'
+
 const CardSpecials = (props) => {
-  /* className={props.card.meal} */
+  const [clicked, setClicked] = useState(false)
+  const { cartProducts, addProduct } = useContext(CartContext)
+  const handleAddToCart = () => {
+    // props.addToCart(props.card)
+    addProduct(props.card)
+    setClicked(true)
+  }
+  useEffect(() => {
+    const clickedSet = setTimeout(() => {
+      setClicked(false)
+    }, 2000)
+    return () => clearTimeout(clickedSet)
+  }, [cartProducts])
   return (
     <div className={`${props.card.meal}`}>
       <div className='img_container'>
@@ -17,6 +33,18 @@ const CardSpecials = (props) => {
         </h4>
         <hr />
         <p className='p_specials'>{props.card.pText}</p>
+        {clicked ? (
+          <button
+            className='btn center'
+            onClick={handleAddToCart}
+            style={{ backgroundColor: 'lightgreen', color: 'black' }}>
+            ✔️Added to Cart
+          </button>
+        ) : (
+          <button className='btn center' onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   )

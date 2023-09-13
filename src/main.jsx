@@ -10,6 +10,7 @@ import Login from './routes/login'
 import OrderOnline from './routes/orderOnline'
 import Specials from './routes/specials'
 import About from './routes/about'
+import CartContextProvider from './components/context/CartContext'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/about',
-    element: <About/>,
+    element: <About />,
   },
   {
     path: '/menu',
@@ -37,20 +38,20 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />,
   },
-    {
+  {
     path: '/specials',
-    element: <Specials/>,
+    element: <Specials />,
   },
-
-
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
   </React.StrictMode>
-)
+) /* example of the nested routes */
 
- /*  {
+/*  {
     path: 'page/:pageId',
     element: <Page />,
     children: [
@@ -59,4 +60,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         element: <Post />,
       },
     ],
-  }, */ /* example of the nested routes */
+  }, */

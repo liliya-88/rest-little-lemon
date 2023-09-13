@@ -678,7 +678,6 @@ main {
   display: block;
   padding-left: 0.3rem;
 
-
 }
 
 .odd:hover {
@@ -744,7 +743,7 @@ main {
  font-size: 100% !important;
   word-wrap: nowrap !important;
 } */
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 1030px) {
   li.odd {
     display: inline-block;
     background-color: transparent;
@@ -804,10 +803,21 @@ main {
     color: var(--primaryColor);
     transition: all 0.3 linear;
   }
+   .a_logo {
+    order: 0;
+  }
 
 }
-
-@media screen and (max-width:660px) {
+/* span_cart  */
+.small_cart{
+position:relative;
+margin-right: auto;
+left:-0.1vw;
+color:var(--secondaryColor);
+top: -2vh;
+}
+/* -------------- */
+@media screen and (max-width:1030px) {
   li.odd {
     display: block;
     background-color: transparent;
@@ -815,8 +825,8 @@ main {
 
   li.odd {
     padding: 0.2rem;
-    line-height: 2.7;
-    font-size: 120%;
+    line-height: 2.5;
+    font-size: 110%;
     /* word-spacing: 0.2em; */
   }
 
@@ -859,11 +869,6 @@ main {
 
 }
 
-@media screen and (min-width: 930px) {
-  .a_logo {
-    order: 0;
-  }
-}
 
 /* additions to nav-up navbar - dropbox*/
 .dropbox {
@@ -4363,7 +4368,7 @@ select.form_input option {
 
 /* --------Order Online section -------------------------*/
 
-.main_order_online {
+/* .main_order_online {
   margin-top: -1rem;
   max-width: 100%;
   background: rgb(0, 0, 0, 0.4) url('./assets/menu/bg_menu_little_lemon.png') center/cover no-repeat fixed;
@@ -4391,9 +4396,9 @@ select.form_input option {
   opacity: 0;
   visibility: visible;
 
-}
+} */
 
-.container_order_online.show_specials {
+/* .container_order_online.show_specials {
   transform: translateX(0);
   transition: all 0.8s ease;
   left: 0;
@@ -4454,13 +4459,12 @@ select.form_input option {
 
 .img_container2:hover .img_order_online {
   opacity: 0.4;
-}
+} */
 
-.wrapper_order_online .container_order_online p.p_order_online {
+/* .wrapper_order_online .container_order_online p.p_order_online {
   color: var(--tirtiaryColor);
   width: 100%;
   margin: 0 auto 0.5rem;
-  /* height: 50% !important; */
   font-size: 90%;
   min-height: 34vh !important;
   max-height: 37.5vh !important;
@@ -4470,9 +4474,9 @@ select.form_input option {
   background-color: var(--tirtiaryColor) !important;
   background: rgba(0, 0, 0, 0.8) !important;
   text-indent: 1.4em;
-}
+} */
 
-.container_order_online p.p_order_online {
+/* .container_order_online p.p_order_online {
   display: flex;
   justify-content: stretch;
   align-items: flex-start;
@@ -4484,8 +4488,8 @@ select.form_input option {
   justify-content: stretch;
   align-items: flex-start;
   min-height: fit-content;
-}
-
+} */
+/* 
 .wrapper_order_online .container_order_online p.p_order_online::first-letter {
   color: var(--pink);
 }
@@ -4493,9 +4497,9 @@ select.form_input option {
 .wrapper_order_online .title_center {
   color: var(--primaryColor);
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 
-.wrapper_order_online .title_center {
+/* .wrapper_order_online .title_center {
   color: var(--primaryColor);
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
 }
@@ -4506,9 +4510,9 @@ select.form_input option {
   padding-bottom: 0.15rem;
   position: relative;
   text-shadow: var(--textShadowTitle);
-}
+} */
 
-.h4_title_order_online>span {
+/* .h4_title_order_online>span {
   color: var(--darkPink);
   position: relative;
   margin-left: auto;
@@ -4537,4 +4541,10 @@ select.form_input option {
 
 }
 
+.button_container{
+  margin-bottom: 0.3rem;
+} */
 /* =================== */
+/* ------------Order Online section------------------------- */
+
+/* ============================ */

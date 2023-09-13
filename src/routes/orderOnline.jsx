@@ -1,10 +1,10 @@
-import OrderOnlinePage from "../pages/OrderOnlinePage"
+import OrderOnlinePage from '../pages/OrderOnlinePage'
 
 const OrderOnline = () => {
   return (
     <>
-      <OrderOnlinePage/>
-</>
+      <OrderOnlinePage />
+    </>
   )
 }
 

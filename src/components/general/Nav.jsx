@@ -1,18 +1,19 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 // import { Link as ReactScroll } from 'react-scroll'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import Logo from '../../assets/svg-logo.svg'
+import { CartContext } from '../context/CartContext'
 
 const Nav = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
   const [activeLink, setActiveLink] = useState(1)
-  const Desktop = useMediaQuery('(min-width: 930px)')
+  const Desktop = useMediaQuery('(min-width: 1030px)')
 
   const [preloader, setPreloader] = useState(true)
   const [done, setDone] = useState(false)
-
+  const { cartProducts } = useContext(CartContext)
   function handlePreloader() {
     setPreloader(true)
     setDone(false)
@@ -117,7 +118,12 @@ const Nav = () => {
                     handleLinkClick(5)
                     window.scrollTo(0, 0)
                   }}>
-                  <li className='odd'>order online</li>
+                  <li className='odd'>
+                    order online
+                    <small className='small_cart'>
+                      🛒({cartProducts.length})
+                    </small>
+                  </li>
                 </Link>
                 <Link
                   to={'/login'}

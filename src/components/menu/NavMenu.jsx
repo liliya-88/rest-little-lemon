@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 // import {Link as ReactScroll} from 'react-scroll'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import Logo from '../../assets/svg-logo.svg'
+import { CartContext } from '../context/CartContext'
 
 const Nav = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
   const [activeLink, setActiveLink] = useState(3)
   const Desktop = useMediaQuery('(min-width: 930px)')
-
+ const { cartProducts } = useContext(CartContext)
   const handleLinkClick = (linkId) => {
     setActiveLink(linkId)
   }
@@ -85,10 +86,15 @@ const Nav = () => {
                   className={activeLink === 5 ? 'a_link odd active' : 'a_link'}
                   onClick={() => {
                     setMobileNavActive(false)
-                    handleLinkClick(1)
+                    handleLinkClick(5)
                     window.scrollTo(0, 0)
                   }}>
-                  <li className='odd'>order online</li>
+                  <li className='odd'>
+                    order online
+                    <small className='small_cart'>
+                      🛒({cartProducts.length})
+                    </small>
+                  </li>
                 </Link>
                 <Link
                   to={'/login'}
