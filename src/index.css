@@ -2469,7 +2469,7 @@ figure figcaption {
   justify-content: center;
   align-items: center;
   width:100vw;
-  background-color: #F2F2F2;
+  background-color: #F7F7F7;
   font-weight: bold;
   height:35vh;
 }
@@ -2613,21 +2613,9 @@ tr.color4:nth-of-type(1) {
 
   }
   .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
+ 
  margin: -11.4rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+
 }
 }
 
@@ -2639,22 +2627,10 @@ tr.color4:nth-of-type(1) {
     text-align: center;
     min-width: 85vw;
   }
-   .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
- margin: -9.4rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+  .table_wrapper.breakfast::before{
+ 
+ margin: -11.4rem auto 0;
+
 }
 }
 
@@ -2671,22 +2647,10 @@ tr.color4:nth-of-type(1) {
     width: 29vw;
     height: 37vh;
   }
-   .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
- margin: -9.4rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+    .table_wrapper.breakfast::before{
+ 
+ margin: -11.4rem auto 0;
+
 }
 }
 
@@ -2703,22 +2667,10 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
-  .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
+    .table_wrapper.breakfast::before{
+ 
  margin: -11.4rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+
 }
 }
 
@@ -2739,21 +2691,9 @@ tr.color4:nth-of-type(1) {
   }
 
   .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
- margin: -11.5rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+ 
+ margin: -11.4rem auto 0;
+
 }
 }
 
@@ -2764,22 +2704,10 @@ tr.color4:nth-of-type(1) {
 
   }
 
-  .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
- margin: -11.5rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+    .table_wrapper.breakfast::before{
+ 
+ margin: -11.4rem auto 0;
+
 }
 }
 
@@ -2795,22 +2723,10 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
-  .table_wrapper.breakfast::before{
-   content:'MENU';
-  position:absolute;
- margin: -11.5rem auto 0;
-  font-size: 350%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-shadow: var(--textShadowTitle);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:30vw;
-  background-color: #F2F2F2;
-  font-weight: bold;
-  height:35vh;
+   .table_wrapper.breakfast::before{
+ 
+ margin: -11.4rem auto 0;
+
 }
 }
 
