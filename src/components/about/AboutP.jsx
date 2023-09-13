@@ -3,6 +3,7 @@ import Image1 from '../../assets/about/restaurant-manager.jpg'
 import Image3 from '../../assets/about/interior-of-the-restaurant.jpg'
 
 function AboutP() {
+
   return (
     <>
       <div className='title_center' id='about'>

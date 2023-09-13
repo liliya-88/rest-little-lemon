@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import SocialMediaIcons from './SocialMediaIcons'
 import Logo from '../../assets/svg-logo.svg'
-import { Link as ReactScroll } from 'react-scroll'
 
 const Footer = () => {
   const date = new Date().getFullYear()
@@ -9,10 +8,17 @@ const Footer = () => {
     <footer className='footer' id='contact'>
       <div className='wrapper'>
         <div>
-          <ReactScroll to='top' smooth={true} duration={500} className='a_logo'>
+          <Link
+            to={'/'}
+            smooth={true}
+            duration={500}
+            className='a_logo'
+            onClick={() => {
+              window.scrollTo(0, 0)
+            }}>
             <img src={Logo} alt='logo' className='a_link logo' />
             &nbsp;Little Lemon
-          </ReactScroll>
+          </Link>
         </div>
         <div>
           <ul>

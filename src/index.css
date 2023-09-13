@@ -3496,7 +3496,28 @@ select.form_input option {
   visibility: visible;
   z-index: 999;
   transition: var(--transition);
+  opacity:1;
 
+}
+#message_before_loading_hide {
+  position: fixed;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  background: var(--blackMain);
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  z-index: 999;
+  transition: var(--transition);
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.1s ease-in-out;
+  z-index: -1;
 }
 
 /* ==================== */
