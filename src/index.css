@@ -2365,11 +2365,10 @@ figure figcaption {
   -webkit-box-shadow: var(--shadow-3);
   box-shadow: var(--shadow-3);
   color: var(--blackMain);
-  font-weight: 600;
+  font-weight: 500;
   transition: font-weight 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: background 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: underline 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  letter-spacing: 0.1em;
   transition: var(--transition);
   background: repeating-linear-gradient(to left, var(--primaryColor-variant) 30%, var(--primaryColor-variant) 80%, var(--primaryColor)50%, var(--darkPink)10%) no-repeat;
 }
