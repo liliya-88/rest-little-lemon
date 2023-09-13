@@ -2415,7 +2415,7 @@ figure figcaption {
 #breakfast {
   background: url('./assets/images/lemon_menu_bg_light.png') center/100% no-repeat !important;
   background-position: center;
-  background-size: 175% 113% !important;
+  background-size: 175% 111% !important;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   padding-top: 3rem;
@@ -2457,7 +2457,23 @@ figure figcaption {
 #drinks.no_bg {
   background: transparent !important;
 }
-
+ .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.5rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 .table_wrapper {
   color: var(--greyDark);
   font-size: 90%;
@@ -2466,7 +2482,7 @@ figure figcaption {
   margin-left: auto !important;
   margin-right: auto !important;
   color: var(--greyDark);
-  padding: 15rem 0 21rem;
+    padding: 11rem 0 16rem;
   font-size: 95%;
   text-align: center;
   min-width: 93vw;
@@ -2504,15 +2520,7 @@ td {
   justify-content: center;
   /* padding-top: 3vh; */
 }
-/* .td_img:hover{
-box-shadow: var(--boxShadowCard);
-outline:1px inset #F6F6F6;
-border-radius: 2%;
-transform:scale(1.01);
-position:relative;
-transition:border .3s linear;
-transition:scale .5s linear;
-} */
+
 .ts_small {
   font-size: 68%;
   text-transform: none;
@@ -2595,7 +2603,7 @@ tr.color4:nth-of-type(1) {
 @media screen and (min-width: 348px) {
   .table_wrapper {
     color: var(--greyDark);
-    padding: 16.5rem 0 21rem;
+    padding: 11rem 0 16rem;
     font-size: 95%;
     text-align: center;
     min-width: 85vw;
@@ -2605,22 +2613,56 @@ tr.color4:nth-of-type(1) {
     background-size: 110% 113% !important;
 
   }
+  .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.4rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 366px) {
   .table_wrapper {
     color: var(--greyDark);
-    padding: 9rem 0 21rem;
+    padding: 9rem 0 16rem;
     font-size: 95%;
     text-align: center;
     min-width: 85vw;
   }
+   .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -9.4rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 372px) {
   .table_wrapper {
     color: var(--greyDark);
-    padding: 9rem 0 21rem;
+    padding: 9rem 0 16rem;
     font-size: 95%;
     text-align: center;
     min-width: 85vw;
@@ -2630,12 +2672,29 @@ tr.color4:nth-of-type(1) {
     width: 29vw;
     height: 37vh;
   }
+   .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -9.4rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 407px) {
   .table_wrapper {
     color: var(--greyDark);
-    padding: 14.5rem 0 21rem;
+    padding: 11rem 0 16rem;
     font-size: 90%;
     text-align: center;
     min-width: 85vw;
@@ -2646,13 +2705,30 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
+  .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.4rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 489px) {
 
   .table_wrapper {
     color: var(--greyDark);
-    padding: 15.5rem 0 23rem;
+    padding: 15.5rem 0 16rem;
     font-size: 90%;
     text-align: center;
     min-width: 75vw;
@@ -2663,19 +2739,53 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
+  .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.5rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 568px) {
   .table_wrapper {
-    padding: 15rem 1rem 19rem;
+    padding: 15rem 1rem 16rem;
     min-width: 75vw;
 
   }
+  .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.5rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 668px) {
   .table_wrapper {
-    padding: 15rem 0 19rem;
+    padding: 15rem 0 16rem;
     min-width: 75vw;
 
   }
@@ -2685,12 +2795,29 @@ tr.color4:nth-of-type(1) {
     height: 37vh;
 
   }
+  .table_wrapper.breakfast::before{
+   content:'MENU';
+  position:absolute;
+ margin: -11.5rem auto 0;
+  font-size: 350%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: var(--textShadowTitle);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:30vw;
+  background-color: #F2F2F2;
+  font-weight: bold;
+  height:35vh;
+}
 }
 
 @media screen and (min-width: 768px) {
   .table_wrapper {
     color: var(--blackMain);
-    padding: 15.8rem 0 19rem;
+    padding: 14.5rem 0 16rem;
     font-size: 100%;
     max-width: 1070px;
     margin: o auto;
@@ -2704,6 +2831,7 @@ tr.color4:nth-of-type(1) {
     width: 29vw;
     height: 37vh;
   }
+
 }
 
 /* ========================= */

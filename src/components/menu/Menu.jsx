@@ -381,7 +381,7 @@ const Menu = () => {
     setDefaultTabBg(no)
     window.scrollTo(0, 0)
   }
-
+  /* #F2F2F2 */
   return (
     <>
       <div className='menu_container'>
@@ -424,7 +424,7 @@ const Menu = () => {
         <div
           id='breakfast'
           className={clicked === 1 ? 'tabcontent default_open' : 'tabcontent'}>
-          <div className='table_wrapper'>
+          <div className='table_wrapper breakfast'>
             <hr />
             <table className='table_center flashIn'>
               <tr>
