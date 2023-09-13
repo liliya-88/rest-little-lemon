@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
-import CardSpecials from './props/CardSpecials'
+/* eslint-disable no-unused-vars */
+import { useState } from 'react'
+
 import Dish1 from '../../assets/food/chicken-parmesan.jpg'
 import Dish2 from '../../assets/food/baked-salmon-with-lemon.jpg'
 import Dish3 from '../../assets/food/grilled-steak.jpg'
@@ -15,10 +15,10 @@ import Dish11 from '../../assets/menu/coffee.jpg'
 import Dish12 from '../../assets/menu/tea.jpg'
 import Dish13 from '../../assets/menu/juice.jpg'
 import Dish14 from '../../assets/menu/cappuccino.jpg'
-
-function Specials() {
-  // eslint-disable-next-line no-unused-vars
-  const [cardSpecials, setCardSpecials] = useState([
+import CardOrderOnline from './props/CardOrderOnline'
+const OrderOnline = () => {
+  const [showSpecials, setShowSpecials] = useState(false)
+  const [cardOrderOnline, setCardOrderOnline] = useState([
     {
       id: 'sp1',
       src: `${Dish1}`,
@@ -147,74 +147,25 @@ function Specials() {
       meal: 'filterDiv drinks',
     },
   ])
-
-  const [filter, setFilter] = useState('all')
-
-  useEffect(() => {
-    filterSelection(filter)
-  }, [filter])
-
-  const filterSelection = (category) => {
-    const elements = document.getElementsByClassName('filterDiv')
-    if (category === 'all') {
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.add('show_specials')
-      }
-    } else {
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.remove('show_specials')
-        if (elements[i].className.indexOf(category) > -1) {
-          elements[i].classList.add('show_specials')
-        }
-      }
-    }
-  }
-
-  const handleButtonClick = (category) => {
-    setFilter(category)
-    const current = document.getElementsByClassName('active')
-    current[0].classList.remove('active')
-    this.target.classList.add('active card_shadow')
-  }
-
   return (
-    <section className='wrapper_specials_section'>
+    <section className='wrapper_order_online'>
       <div className='title_center pt-1 '>
         <h1>Our specials</h1>
       </div>
-
-      <div id='myBtnContainer'>
+      <div className='button_container'>
         <button
-          className={`btn_specials ${filter === 'all' ? 'active' : ''}`}
-          onClick={() => handleButtonClick('all')}>
-          Show all
-        </button>
-        <button
-          className={`btn_specials ${filter === 'breakfast' ? 'active' : ''}`}
-          onClick={() => handleButtonClick('breakfast')}>
-          Breakfast
-        </button>
-        <button
-          className={`btn_specials ${filter === 'lunch' ? 'active' : ''}`}
-          onClick={() => handleButtonClick('lunch')}>
-          Lunch
-        </button>
-        <button
-          className={`btn_specials ${filter === 'dinner' ? 'active' : ''}`}
-          onClick={() => handleButtonClick('dinner')}>
-          Dinner
-        </button>
-        <button
-          className={`btn_specials ${filter === 'drinks' ? 'active' : ''}`}
-          onClick={() => handleButtonClick('drinks')}>
-          Drinks
+          className='btn'
+          onClick={() => setShowSpecials((prev) => !prev)}>
+          Show specials
         </button>
       </div>
-
-      <div className='container_specials'>
+      <div
+        className={`container_order_online ${
+          showSpecials ? 'show_specials flashIn' : 'hide_specials fadeAway'
+        }`}>
         {/* single card */}
-        {cardSpecials.map((card) => (
-          <CardSpecials card={card} key={card.id} />
+        {cardOrderOnline.map((card) => (
+          <CardOrderOnline card={card} key={card.id} />
         ))}
         {/* ******************* */}
       </div>
@@ -222,4 +173,4 @@ function Specials() {
   )
 }
 
-export default Specials
+export default OrderOnline

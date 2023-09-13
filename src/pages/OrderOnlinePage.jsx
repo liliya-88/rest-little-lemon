@@ -3,6 +3,7 @@ import Footer from '../components/general/Footer'
 
 import NavOrderOnline from '../components/order-online/NavOrderOnline'
 import ArrowPhantom from '../hooks/ArrowPhantom'
+import MainContainerOrderOnline from '../components/order-online/MainContainerOrderOnline'
 
 function OrderOnlinePage() {
   useEffect(() => {
@@ -11,12 +12,9 @@ function OrderOnlinePage() {
   return (
     <>
       <NavOrderOnline />
-      <section className='grid_wrapper flashIn'>
-        <div className='item1'>Item one</div>
-        <div className='item2'>Item two</div>
-        <div className='item3'>Item three</div>
-        <div className='item4'>Item four</div>
-      </section>
+      <main className='main pt-6 flashIn'>
+        <MainContainerOrderOnline />
+      </main>
       <ArrowPhantom />
       <Footer />
     </>
