@@ -20,7 +20,7 @@ function Specials() {
   // eslint-disable-next-line no-unused-vars
   const [cardSpecials, setCardSpecials] = useState([
     {
-      id: 1,
+      id: 'sp1',
       src: `${Dish1}`,
       title: 'Chicken Parmesan',
       price: '$12',
@@ -29,7 +29,7 @@ function Specials() {
       meal: 'filterDiv breakfast',
     },
     {
-      id: 2,
+      id: 'sp2',
       src: `${Dish2}`,
       title: 'Baked salmon',
       price: '$18',
@@ -38,7 +38,7 @@ function Specials() {
       meal: 'filterDiv breakfast',
     },
     {
-      id: 3,
+      id: 'sp3',
       src: `${Dish3}`,
       title: 'Grilled steak',
       price: '$25',
@@ -47,7 +47,7 @@ function Specials() {
       meal: 'filterDiv breakfast',
     },
     {
-      id: 4,
+      id: 'sp4',
       src: `${Dish4}`,
       title: 'Spinach and feta',
       price: '$15',
@@ -56,7 +56,7 @@ function Specials() {
       meal: 'filterDiv lunch',
     },
     {
-      id: 5,
+      id: 'sp5',
       src: `${Dish5}`,
       title: 'Vegetable fry',
       price: '$22',
@@ -66,7 +66,7 @@ function Specials() {
     },
 
     {
-      id: 6,
+      id: 'sp6',
       src: `${Dish6}`,
       title: 'Shrimp scampi',
       price: '$27',
@@ -75,7 +75,7 @@ function Specials() {
       meal: 'filterDiv lunch',
     },
     {
-      id: 7,
+      id: 'sp7',
       src: `${Dish7}`,
       title: 'Mushroom risotto',
       price: '$18',
@@ -84,7 +84,7 @@ function Specials() {
       meal: 'filterDiv dinner',
     },
     {
-      id: 8,
+      id: 'sp8',
       src: `${Dish8}`,
       title: 'Beef & broccoli ',
       price: '$24',
@@ -93,7 +93,7 @@ function Specials() {
       meal: 'filterDiv dinner',
     },
     {
-      id: 9,
+      id: 'sp9',
       src: `${Dish9}`,
       title: 'Chicken tikka',
       price: '$11',
@@ -102,7 +102,7 @@ function Specials() {
       meal: 'filterDiv dinner',
     },
     {
-      id: 10,
+      id: 'sp10',
       src: `${Dish10}`,
       title: 'Glazed salmon',
       price: '$38',
@@ -111,7 +111,7 @@ function Specials() {
       meal: 'filterDiv dinner',
     },
     {
-      id: 11,
+      id: 'sp11',
       src: `${Dish11}`,
       title: 'Coffee',
       price: '$5',
@@ -120,7 +120,7 @@ function Specials() {
       meal: 'filterDiv drinks',
     },
     {
-      id: 12,
+      id: 'sp12',
       src: `${Dish12}`,
       title: 'Tea',
       price: '$3',
@@ -129,7 +129,7 @@ function Specials() {
       meal: 'filterDiv drinks',
     },
     {
-      id: 13,
+      id: 'sp13',
       src: `${Dish13}`,
       title: 'Juice',
       price: '$15',
@@ -138,7 +138,7 @@ function Specials() {
       meal: 'filterDiv drinks',
     },
     {
-      id: 14,
+      id: 'sp14',
       src: `${Dish14}`,
       title: 'Cappuccino',
       price: '$10',
