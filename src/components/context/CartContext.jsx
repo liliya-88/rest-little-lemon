@@ -73,6 +73,11 @@ export default function CartContextProvider({ children }) {
 
       // Remove items with quantity 0
       const filteredCart = updatedCart.filter((item) => item.quantity !== 0)
+      // Update productIds by filtering out the removed product
+      const updatedProductIds = updatedCart
+        .filter((item) => item.quantity > 0)
+        .map((item) => item.id)
+      setProductIds(updatedProductIds)
 
       return filteredCart
     })
