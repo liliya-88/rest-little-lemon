@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
 import { useContext, useEffect, useState } from 'react'
@@ -6,17 +7,32 @@ import { CartContext } from '../../context/CartContext'
 const CardSpecials = (props) => {
   const [clicked, setClicked] = useState(false)
   const { cartProducts, addProduct } = useContext(CartContext)
+  const [message, setMessage] = useState(false)
+
   const handleAddToCart = () => {
-    // props.addToCart(props.card)
+    const isItemAlreadyInCart = cartProducts.some(
+      (item) => item.id === props.card.id
+    )
+    if (!isItemAlreadyInCart) {
+      addProduct(props.card)
+      setClicked(true)
+    } else {
+      setMessage(true)
+      /*   alert('You have already added this product to the cart') */
+      setClicked(false)
+    }
+  }
+  /*   const handleAddToCart = () => {
+
     addProduct(props.card)
     setClicked(true)
-  }
-  useEffect(() => {
+  } */
+ /*  useEffect(() => {
     const clickedSet = setTimeout(() => {
       setClicked(false)
     }, 2000)
     return () => clearTimeout(clickedSet)
-  }, [cartProducts])
+  }, [cartProducts]) */
   return (
     <div className={`${props.card.meal}`}>
       <div className='img_container'>
@@ -42,7 +58,7 @@ const CardSpecials = (props) => {
           </button>
         ) : (
           <button className='btn center' onClick={handleAddToCart}>
-            Add to Cart
+            {message ? 'Already in Cart' : 'Add to Cart'}
           </button>
         )}
       </div>

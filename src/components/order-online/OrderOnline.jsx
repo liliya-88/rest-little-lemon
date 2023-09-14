@@ -14,19 +14,19 @@ const OrderOnline = () => {
     clearCart,
   } = useContext(CartContext)
 
-  const [itemIds, setItemIds] = useState([])
+/*   const [itemIds, setItemIds] = useState([]) */
   // const [isSuccess, setIsSuccess] = useState(false)
-  useEffect(() => {
+ /*  useEffect(() => {
     if (productIds.length > 0) {
       setItemIds(productIds)
     } else {
       setItemIds([])
     }
-  }, [productIds])
+  }, [productIds]) */
 
   // console.log(productIds, 'productIds')
   function moreOfThisProduct(id) {
-    addProduct(id)
+    increaseQuantity(id)
   }
   function lessOfThisProduct(id) {
     // removeProduct(id)
@@ -79,7 +79,7 @@ const OrderOnline = () => {
                       <td className='text_dark'>
                         <button
                           className='btn bg_dark'
-                          onClick={() => lessOfThisProduct(product)}>
+                          onClick={() => lessOfThisProduct(product.id)}>
                           –
                         </button>
                         <span className='quantity_label'>
@@ -88,7 +88,7 @@ const OrderOnline = () => {
                         <div>
                           <button
                             className='btn bg_dark'
-                            onClick={() => moreOfThisProduct(product)}>
+                            onClick={() => moreOfThisProduct(product.id)}>
                             +
                           </button>
                         </div>

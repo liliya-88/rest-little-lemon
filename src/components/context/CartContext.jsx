@@ -7,7 +7,9 @@ export const CartContext = createContext({})
 export default function CartContextProvider({ children }) {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
   const [cartProducts, setCartProducts] = useState([])
-  const [productIds, setProductIds] = useState([])
+  const [ productIds, setProductIds ] = useState([])
+
+  
 
   useEffect(() => {
     if (cartProducts.length > 0) {
