@@ -5,21 +5,25 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const OrderOnline = () => {
-  const { cartProducts, addProduct, removeProduct, removeProduct2 } =
-    useContext(CartContext)
-  // const [productsIds, setProductsIds] = useState([])
-  const [products, setProducts] = useState([])
+  const {
+    cartProducts,
+    addProduct,
+    productIds,
+    increaseQuantity,
+    removeProduct,
+    clearCart,
+  } = useContext(CartContext)
+
+  const [itemIds, setItemIds] = useState([])
   // const [isSuccess, setIsSuccess] = useState(false)
   useEffect(() => {
-    if (cartProducts.length > 0) {
-      setTimeout(() => {
-        setProducts(cartProducts)
-      }, 500)
+    if (productIds.length > 0) {
+      setItemIds(productIds)
     } else {
-      setProducts([])
+      setItemIds([])
     }
-  }, [cartProducts])
-  console.log(products, 'products')
+  }, [productIds])
+
   // console.log(productIds, 'productIds')
   function moreOfThisProduct(id) {
     addProduct(id)
@@ -29,7 +33,11 @@ const OrderOnline = () => {
     removeProduct(id)
   }
   let total = 0
-
+  /* Object.keys() */
+ /*  for (const productId of productIds) {
+    const price = cartProducts.find((p) => p.id === productId).price
+    total += price
+  } */
   /* total+= cartProducts.find((p)=>p.id === product.id).product.price || 0 */
   return (
     <section className='wrapper_order_online'>
@@ -59,10 +67,8 @@ const OrderOnline = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => (
+                  {cartProducts.map((product) => (
                     <tr key={product.id}>
-                      {/* console.log(product.id) */}
-                      {/* one td */}
                       <td className='product_info_cell'>
                         <div className='product_image_box'>
                           <img src={product.src} alt={product.title} />
@@ -77,10 +83,7 @@ const OrderOnline = () => {
                           –
                         </button>
                         <span className='quantity_label'>
-                          {
-                            cartProducts.filter((id) => id.id === product.id)
-                              .length
-                          }
+                          {productIds.filter((id) => id === product.id).length}
                         </span>
                         <div>
                           <button
@@ -93,20 +96,8 @@ const OrderOnline = () => {
                       {/* one td */}
                       <td className='td_price_cart '>
                         $
-                        {cartProducts.filter((id) => id.id === product.id)
-                          .length * product.price}
-                        <small
-                          style={{
-                            visibility: 'hidden',
-                            position: 'absolute',
-                            zIndex: '-10',
-                          }}>
-                          {
-                            (total += cartProducts.find(
-                              (id) => id.id === product.id
-                            ).price)
-                          }
-                        </small>
+                        {productIds.filter((id) => id === product.id).length *
+                          product.price}
                       </td>
                     </tr>
                   ))}

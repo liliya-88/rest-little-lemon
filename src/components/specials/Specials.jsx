@@ -64,7 +64,6 @@ function Specials() {
         'A colorful mix of fresh vegetables like bell peppers, broccoli, carrots, and snap peas, stir-fried in a flavorful sauce and served over rice or noodles.',
       meal: 'filterDiv lunch',
     },
-
     {
       id: 'sp6',
       src: `${Dish6}`,

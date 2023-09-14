@@ -11,23 +11,52 @@ export default function CartContextProvider({ children }) {
 
   useEffect(() => {
     if (cartProducts.length > 0) {
-      ls.setItem('cart', JSON.stringify(cartProducts))
+      ls.setItem('cartProducts', JSON.stringify(cartProducts))
     }
-  }, [ls, cartProducts])
+    if (productIds.length > 0) {
+      ls.setItem('productIds', JSON.stringify(productIds))
+    }
+  }, [ls, cartProducts, productIds])
 
   useEffect(() => {
-    if (ls && ls.getItem('cart')) {
-      setCartProducts(JSON.parse(ls.getItem('cart')))
+    if (ls && ls.getItem('cartProducts')) {
+      setCartProducts(JSON.parse(ls.getItem('cartProducts')))
+    }
+    if (ls && ls.getItem('productIds')) {
+      setProductIds(JSON.parse(ls.getItem('productIds')))
     }
   }, [ls])
-
+  /* to add */
   const addProduct = (product) => {
     setCartProducts((prev) => [...prev, product])
-    /*  setProductIds((prev) => [...prev, productId]) */
+    setProductIds((prev) => [...prev, product.id])
   }
 
   console.log(cartProducts, 'cartProducts')
+  console.log(productIds, 'productIds')
+
+  /* to increase */
+  const increaseQuantity = (productId) => {
+    setCartProducts((prev) => {
+      const updatedCart = prev.map((item) => {
+        if (item.id === productId) {
+          return { ...item, quantity: item.quantity + 1 }
+        }
+        return item
+      })
+      return updatedCart
+    })
+  }
+  /* to remove */
   function removeProduct(productId) {
+    setCartProducts((prev) => {
+      const updatedCart = prev.filter((item) => item.id !== productId)
+      return updatedCart
+    })
+    setProductIds((prev) => prev.filter((id) => id !== productId))
+  }
+
+  /*   function removeProduct(productId) {
     setCartProducts((prev) => {
       const pos = prev.indexOf(productId)
       if (pos !== -1) {
@@ -35,35 +64,11 @@ export default function CartContextProvider({ children }) {
       }
       return prev
     })
-  }
-
-
-  
-  /*   function removeProduct2(productId) {
-    setCartProducts((prev) => {
-      const updatedCart = prev.filter((item) => item.id !== productId.id)
-      return updatedCart
-    })
   } */
-  function removeProduct2(productId) {
-    setCartProducts((prev) => {
-      const pos = prev.indexOf(productId)
-      /* const pos = prev.findIndex((item) => item.id === productId.id) */
-      if (pos !== -1) {
-        return prev.filter((value, index) => index !== pos)
-      }
-      const updatedCart = prev.filter((item) => item.id !== productId.id)
 
-      if (updatedCart.length === 1) {
-        // If only one item left, remove it from the cart
-        return []
-      }
-
-      return prev || updatedCart
-    })
-  }
   function clearCart() {
     setCartProducts([])
+    setProductIds([])
   }
   return (
     <CartContext.Provider
@@ -72,7 +77,9 @@ export default function CartContextProvider({ children }) {
         setCartProducts,
         addProduct,
         removeProduct,
-        removeProduct2,
+        productIds,
+        setProductIds,
+        increaseQuantity,
         clearCart,
       }}>
       {children}
