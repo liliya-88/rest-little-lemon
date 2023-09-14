@@ -34,10 +34,10 @@ const OrderOnline = () => {
   }
   let total = 0
   /* Object.keys() */
- /*  for (const productId of productIds) {
+  for (const productId of productIds) {
     const price = cartProducts.find((p) => p.id === productId).price
     total += price
-  } */
+  }
   /* total+= cartProducts.find((p)=>p.id === product.id).product.price || 0 */
   return (
     <section className='wrapper_order_online'>
