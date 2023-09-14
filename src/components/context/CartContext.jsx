@@ -7,9 +7,7 @@ export const CartContext = createContext({})
 export default function CartContextProvider({ children }) {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
   const [cartProducts, setCartProducts] = useState([])
-  const [ productIds, setProductIds ] = useState([])
-
-  
+  const [productIds, setProductIds] = useState([])
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -49,25 +47,37 @@ export default function CartContextProvider({ children }) {
       return updatedCart
     })
   }
-  /* to remove */
-  function removeProduct(productId) {
+  //to remove
+  /*   const removeProduct = (productId) => {
     setCartProducts((prev) => {
-      const updatedCart = prev.filter((item) => item.id !== productId)
+      const updatedCart = prev.map((item) => {
+        if (item.id === productId) {
+          return { ...item, quantity: item.quantity - 1 }
+        }
+        return item
+      })
+      
       return updatedCart
     })
-    setProductIds((prev) => prev.filter((id) => id !== productId))
   }
-
-  /*   function removeProduct(productId) {
+   */
+  const removeProduct = (productId) => {
     setCartProducts((prev) => {
-      const pos = prev.indexOf(productId)
-      if (pos !== -1) {
-        return prev.filter((value, index) => index !== pos)
-      }
-      return prev
-    })
-  } */
+      const updatedCart = prev.map((item) => {
+        if (item.id === productId) {
+          // Decrease quantity by 1
+          return { ...item, quantity: item.quantity - 1 }
+        }
+        return item // Return unchanged item
+      })
 
+      // Remove items with quantity 0
+      const filteredCart = updatedCart.filter((item) => item.quantity !== 0)
+
+      return filteredCart
+    })
+  }
+  /* to clear */
   function clearCart() {
     setCartProducts([])
     setProductIds([])

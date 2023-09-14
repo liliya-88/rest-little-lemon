@@ -27,6 +27,7 @@ function Specials() {
       pText:
         'Breaded chicken cutlets topped with marinara sauce, melted cheese, and served over spaghetti or with a side of garlic bread.',
       meal: 'filterDiv breakfast',
+      quantity: 1,
     },
     {
       id: 'sp2',
@@ -36,6 +37,7 @@ function Specials() {
       pText:
         'Fresh salmon fillets seasoned with lemon, herbs, and olive oil, then baked until tender and flaky. Serve it with a side of steamed asparagus or a green salad.',
       meal: 'filterDiv breakfast',
+      quantity: 1,
     },
     {
       id: 'sp3',
@@ -45,6 +47,7 @@ function Specials() {
       pText:
         'A juicy steak cooked to perfection, served with a side of roasted vegetables like potatoes, carrots, and Brussels sprouts.',
       meal: 'filterDiv breakfast',
+      quantity: 1,
     },
     {
       id: 'sp4',
@@ -54,6 +57,7 @@ function Specials() {
       pText:
         'Chicken breasts stuffed with a mixture of spinach, feta cheese, and herbs, then baked until tender and juicy.',
       meal: 'filterDiv lunch',
+      quantity: 1,
     },
     {
       id: 'sp5',
@@ -63,6 +67,7 @@ function Specials() {
       pText:
         'A colorful mix of fresh vegetables like bell peppers, broccoli, carrots, and snap peas, stir-fried in a flavorful sauce and served over rice or noodles.',
       meal: 'filterDiv lunch',
+      quantity: 1,
     },
     {
       id: 'sp6',
@@ -72,6 +77,7 @@ function Specials() {
       pText:
         'Succulent shrimp cooked in a garlic butter sauce with white wine and lemon juice, served over pasta or with crusty bread for dipping.',
       meal: 'filterDiv lunch',
+      quantity: 1,
     },
     {
       id: 'sp7',
@@ -81,6 +87,7 @@ function Specials() {
       pText:
         'Creamy risotto cooked with Arborio rice, mushrooms, onions, garlic, and Parmesan cheese. It makes for a comforting and satisfying dinner.',
       meal: 'filterDiv dinner',
+      quantity: 1,
     },
     {
       id: 'sp8',
@@ -90,6 +97,7 @@ function Specials() {
       pText:
         'Tender strips of beef stir-fried with broccoli florets, cashews, garlic, ginger, and a savory sauce. Serve it over rice or noodles.',
       meal: 'filterDiv dinner',
+      quantity: 1,
     },
     {
       id: 'sp9',
@@ -99,6 +107,7 @@ function Specials() {
       pText:
         'Marinated and grilled chicken pieces simmered in a creamy tomato-based sauce with spices like garam masala, cumin, and turmeric. Serve it over rice or with naan bread.',
       meal: 'filterDiv dinner',
+      quantity: 1,
     },
     {
       id: 'sp10',
@@ -108,6 +117,7 @@ function Specials() {
       pText:
         'Salmon fillets brushed with a sweet and tangy honey glaze, then baked alongside roasted sweet potatoes for a balanced and flavorful meal.',
       meal: 'filterDiv dinner',
+      quantity: 1,
     },
     {
       id: 'sp11',
@@ -117,6 +127,7 @@ function Specials() {
       pText:
         'Awaken your senses with our expertly brewed coffee, made from the finest beans sourced from around the world. We have the perfect cup of coffee to satisfy your cravings',
       meal: 'filterDiv drinks',
+      quantity: 1,
     },
     {
       id: 'sp12',
@@ -126,6 +137,7 @@ function Specials() {
       pText:
         ' Immerse yourself in a world of aromatic bliss with our selection of premium teas. Each cup offers a moment of tranquility and rejuvenation.',
       meal: 'filterDiv drinks',
+      quantity: 1,
     },
     {
       id: 'sp13',
@@ -135,6 +147,7 @@ function Specials() {
       pText:
         'Quench your thirst with our refreshing selection of freshly squeezed juices. Our juices are made from the freshest fruits to provide a revitalizing and invigorating experience.',
       meal: 'filterDiv drinks',
+      quantity: 1,
     },
     {
       id: 'sp14',
@@ -144,6 +157,7 @@ function Specials() {
       pText:
         'Indulge in the classic Italian favorite, a harmonious blend of rich espresso, velvety steamed milk, and a delicate layer of frothy foam. Savor the perfect balance of flavors in every sip.',
       meal: 'filterDiv drinks',
+      quantity: 1,
     },
   ])
 

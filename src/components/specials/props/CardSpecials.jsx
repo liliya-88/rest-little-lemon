@@ -22,17 +22,7 @@ const CardSpecials = (props) => {
       setClicked(false)
     }
   }
-  /*   const handleAddToCart = () => {
 
-    addProduct(props.card)
-    setClicked(true)
-  } */
- /*  useEffect(() => {
-    const clickedSet = setTimeout(() => {
-      setClicked(false)
-    }, 2000)
-    return () => clearTimeout(clickedSet)
-  }, [cartProducts]) */
   return (
     <div className={`${props.card.meal}`}>
       <div className='img_container'>

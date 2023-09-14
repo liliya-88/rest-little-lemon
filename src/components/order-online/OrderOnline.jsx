@@ -14,17 +14,6 @@ const OrderOnline = () => {
     clearCart,
   } = useContext(CartContext)
 
-/*   const [itemIds, setItemIds] = useState([]) */
-  // const [isSuccess, setIsSuccess] = useState(false)
- /*  useEffect(() => {
-    if (productIds.length > 0) {
-      setItemIds(productIds)
-    } else {
-      setItemIds([])
-    }
-  }, [productIds]) */
-
-  // console.log(productIds, 'productIds')
   function moreOfThisProduct(id) {
     increaseQuantity(id)
   }
@@ -35,8 +24,12 @@ const OrderOnline = () => {
   let total = 0
   /* Object.keys() */
   for (const productId of productIds) {
-    const price = cartProducts.find((p) => p.id === productId).price
-    total += price
+    const product = cartProducts.find((p) => p.id === productId)
+    if (product) {
+      const price = product.price || 0
+      const quantity = product.quantity
+      total += price * quantity
+    }
   }
   /* total+= cartProducts.find((p)=>p.id === product.id).product.price || 0 */
   return (
@@ -83,7 +76,11 @@ const OrderOnline = () => {
                           –
                         </button>
                         <span className='quantity_label'>
-                          {productIds.filter((id) => id === product.id).length}
+                          {/*   {productIds.filter((id) => id === product.id).length}  */}
+                          {/* {productIds.filter((id) => id === product.id).length} */}
+                          {productIds.filter((id) => id === product.id).length *
+                            product.quantity}
+                          {/*  {product.quantity} */}
                         </span>
                         <div>
                           <button
@@ -97,7 +94,8 @@ const OrderOnline = () => {
                       <td className='td_price_cart '>
                         $
                         {productIds.filter((id) => id === product.id).length *
-                          product.price}
+                          product.price *
+                          product.quantity}
                       </td>
                     </tr>
                   ))}
