@@ -473,6 +473,7 @@ const OrderOnline = () => {
                 type='hidden'
                 name='order_information'
                 value={order_information}
+                hidden
               />
               <input
                 type='date'
