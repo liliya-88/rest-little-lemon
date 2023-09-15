@@ -4393,12 +4393,11 @@ select.form_input option {
   min-height: 2.5rem;
   margin: 0 auto;
   padding: 0.2rem 0.5rem;
-  min-height: 100vh;
   max-width: 100vw;
-  background: rgb(0, 0, 0, 0.4) url('./assets/images/bg_red-flower-on-black-bg.jpg') center/cover no-repeat fixed;
+  background: rgb(0, 0, 0, 0.4) url('./assets/menu/bg-dark-yellow.jpg') center/cover no-repeat fixed;
   background-blend-mode: overlay;
   color: var(--whiteMain);
-  min-height: 100vh;
+min-height: 100vh;
   overflow: hidden !important;
   overflow-x: hidden !important;
 }
@@ -4437,8 +4436,14 @@ select.form_input option {
   padding: 1.3rem 0.2rem;
   max-width: 100%;
   overflow: hidden;
+  height: fit-content !important;
 }
-
+/* .form_container {
+  width: 100vw !important;
+  min-height: 100vw;
+  padding: 0;
+  margin: 0 auto !important;
+} */
 /* styles for table in cart */
 .table_cart {
   max-width: 100%;
