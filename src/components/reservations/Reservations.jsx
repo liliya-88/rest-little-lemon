@@ -190,7 +190,7 @@ const Reservations = () => {
       setPreloader(true)
       //sending the message
       if (preloader && currentTab === 2) {
-        const url = 'https://usebasin.com/f/6eee2fc7b10c'
+        const url = 'https://getform.io/f/90caf201-4de8-4f25-9d8a-659b55484a7d'
         const createMessage = async (url, data) => {
           const response = await fetch(url, {
             method: 'POST',
@@ -264,7 +264,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://usebasin.com/f/6eee2fc7b10c'
+            action='https://getform.io/f/90caf201-4de8-4f25-9d8a-659b55484a7d'
             encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
