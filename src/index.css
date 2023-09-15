@@ -480,12 +480,13 @@ a {
   display: block;
   margin: 0 auto;
   width: 100%;
-  color:var(--secondaryColor)
+  color: var(--secondaryColor)
 }
+
 .btn-hipster2 {
   color: var(--secondaryColor-700);
   background: var(--primaryColory-200);
-   display: block;
+  display: block;
   margin: 0 auto;
   transform: var(--transition);
   text-shadow: var(--textShadowTitle2);
@@ -494,8 +495,9 @@ a {
 .btn-hipster2:hover {
   color: var(--secondaryColor-200);
   background: var(--secondaryColor-500);
-  transform:scale(0.97);
+  transform: scale(0.97);
 }
+
 .btn-white {
   color: var(--white);
   border-color: var(--white);
@@ -3470,11 +3472,11 @@ tr.color4:nth-of-type(1) {
   max-height: 40.5vh !important;
   text-align: justify;
   line-height: 1.5;
-  padding: 0 0.25rem ;
+  padding: 0 0.25rem;
   background-color: var(--tirtiaryColor);
   background: rgba(0, 0, 0, 0.8);
   text-indent: 1.4em;
-  overflow-y:ellipsis;
+  overflow-y: ellipsis;
 }
 
 .container_specials p.p_specials {
@@ -3980,7 +3982,8 @@ select.form_input option {
 
 /* ==================== */
 /* PRELOADER ======================================================================================*/
-.form_container #message {
+.form_container #message,
+.box #message {
   position: absolute;
   top: 30vh;
   left: 0;
@@ -3995,7 +3998,9 @@ select.form_input option {
 }
 
 @media screen and (min-width: 568px) {
-  .form_container #message {
+
+  .form_container #message,
+  .box #message {
 
     top: 15;
     justify-content: center;
@@ -4004,8 +4009,9 @@ select.form_input option {
 }
 
 @media screen and (min-width: 768px) {
-  .form_container #message {
 
+  .form_container #message,
+  .box #message {
     top: 0;
     justify-content: center;
     align-items: center;
@@ -4016,19 +4022,27 @@ select.form_input option {
   background: #B51515;
 }
 
-.form_container .success {
+.form_container .success,
+.box .success {
   background: rgba(82, 162, 20, 1.00);
 }
 
-.form_container .hide-message {
+.form_container .hide-message,
+.box .hide-message {
   display: none;
 }
 
-.form_container .show-message {
+.form_container .show-message,
+.box .hide-message {
   display: block;
 }
 
 .form_container #message h3,
+#message p {
+  text-align: center;
+  padding-top: 100px;
+}
+.box #message h3,
 #message p {
   text-align: center;
   padding-top: 100px;
@@ -4398,7 +4412,7 @@ select.form_input option {
   background: rgb(0, 0, 0, 0.4) url('./assets/menu/bg-dark-yellow.jpg') center/cover no-repeat fixed;
   background-blend-mode: overlay;
   color: var(--whiteMain);
-min-height: 100vh;
+  min-height: 100vh;
   overflow: hidden !important;
   overflow-x: hidden !important;
 }
@@ -4524,7 +4538,7 @@ min-height: 100vh;
 .total {
   padding-top: 0.3rem;
   color: #182c5a;
-  color:var(--secondaryColor);
+  color: var(--secondaryColor);
   background-color: var(--tirtiaryColor);
   font-size: 80%;
   text-shadow: var(--smallText);
@@ -4553,9 +4567,11 @@ min-height: 100vh;
     text-align: left;
     vertical-align: middle !important;
   }
-.columns_wrapper{
-   grid-template-columns: 1.2fr 0.8fr;
-}
+
+  .columns_wrapper {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
   .product_image_box {
     padding: 0.6rem;
     width: 100px;
@@ -4632,22 +4648,24 @@ min-height: 100vh;
 
 /* ============================ */
 /* Cookie Policy */
-.title_center{
-    text-align: center;
+.title_center {
+  text-align: center;
   padding: 6rem 1rem 1.5rem;
   margin: 0 auto 1rem;
   color: var(--whiteSilver);
   text-shadow: var(--textShadowTitle);
 
 }
-.h4_cookie{
+
+.h4_cookie {
   color: var(--pink);
-    height: fit-content;
+  height: fit-content;
   margin: 0 auto;
   padding-bottom: 1.5rem;
   text-align: center;
 }
-.p_cookie{
+
+.p_cookie {
 
   color: var(--whiteLess);
   max-width: 95vw;
@@ -4656,24 +4674,29 @@ min-height: 100vh;
   padding-bottom: 2rem;
   text-align: justify;
 }
-.pb_3{
- padding-bottom: 3rem;
+
+.pb_3 {
+  padding-bottom: 3rem;
 }
-.a_style{
-text-transform: none;
-    color: var(--pink);
-    transition: all 0.3 linear;
+
+.a_style {
+  text-transform: none;
+  color: var(--pink);
+  transition: all 0.3 linear;
 }
-.a_style:hover{
-text-transform: none;
-    color: var(--primaryColor-800);
-    transition: all 0.3 linear;
-    cursor: pointer;
+
+.a_style:hover {
+  text-transform: none;
+  color: var(--primaryColor-800);
+  transition: all 0.3 linear;
+  cursor: pointer;
 }
-.a_style small:hover{
-text-transform: none;
-    color: var(--primaryColor-800);
-    transition: all 0.3 linear;
-    cursor: pointer;
+
+.a_style small:hover {
+  text-transform: none;
+  color: var(--primaryColor-800);
+  transition: all 0.3 linear;
+  cursor: pointer;
 }
+
 /* ================== */
