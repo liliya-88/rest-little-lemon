@@ -434,6 +434,10 @@ const OrderOnline = () => {
                   type='hidden'
                   name='_cc'
                   value='888liliya@gmail.com'></input>
+                <input
+                  type='hidden'
+                  name='_url'
+                  value='https://rest-little-lemon.netlify.app/orderOnline'></input>
                 {/*    <input type='hidden' name='orderInfo' value={orderInfo} /> */}
               </div>
               <div className='div_with_button'>
