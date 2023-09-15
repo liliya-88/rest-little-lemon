@@ -189,7 +189,7 @@ const Reservations = () => {
       setPreloader(true)
       //sending the message
       if (preloader && currentTab === 2) {
-        const url = 'https://formspree.io/f/xwkdqbol'
+        const url = 'https://formspree.io/f/mgejzyyw'
         const createMessage = async (url, data) => {
           const response = await fetch(url, {
             method: 'POST',
@@ -261,7 +261,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://formspree.io/f/xwkdqbol'
+            action='https://formspree.io/f/mgejzyyw'
             encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
