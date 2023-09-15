@@ -68,6 +68,7 @@ const Reservations = () => {
   useEffect(() => {
     if (sentMessage && !preloader) {
       setSuccess(false)
+      localStorage.removeItem('formData')
     }
   }, [success, preloader, sentMessage])
   /* end of useEffects */
@@ -190,7 +191,7 @@ const Reservations = () => {
       setPreloader(true)
       //sending the message
       if (preloader && currentTab === 2) {
-        const url = 'https://getform.io/f/90caf201-4de8-4f25-9d8a-659b55484a7d'
+        const url = 'https://usebasin.com/f/6eee2fc7b10c'
         const createMessage = async (url, data) => {
           const response = await fetch(url, {
             method: 'POST',
@@ -212,9 +213,10 @@ const Reservations = () => {
           Occasion: ${inputV.occasion},
           Special Request: ${inputV.special_request},
           Username: ${inputV.username},
-          Password: ${inputV.password}`
+          Password: ${inputV.password }`
+        
+        const createResponse = await createMessage(url, messageForm)
       }
-      const createResponse = await createMessage(url, messageForm)
       /* ------------------------------------- */
       setTimeout(() => {
         setPreloader(false)
@@ -264,7 +266,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://getform.io/f/90caf201-4de8-4f25-9d8a-659b55484a7d'
+            action='https://usebasin.com/f/6eee2fc7b10c'
             encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
