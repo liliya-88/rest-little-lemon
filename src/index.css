@@ -3476,7 +3476,9 @@ tr.color4:nth-of-type(1) {
   background-color: var(--tirtiaryColor);
   background: rgba(0, 0, 0, 0.8);
   text-indent: 1.4em;
-  overflow-y: ellipsis;
+   height:auto;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
 }
 
 .container_specials p.p_specials {
@@ -3595,6 +3597,9 @@ tr.color4:nth-of-type(1) {
   .p_specials {
     width: 100%;
   }
+    .wrapper_specials_section .container_specials p.p_specials{
+ min-height: 34vh !important;
+  }
 }
 
 @media screen and (min-width: 668px) {
@@ -3605,6 +3610,12 @@ tr.color4:nth-of-type(1) {
 
   .p_specials {
     width: 100%;
+  }
+    .wrapper_specials_section .container_specials p.p_specials{
+ min-height: 33.5vh !important;
+  height:auto;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
   }
 
 }
@@ -3619,7 +3630,11 @@ tr.color4:nth-of-type(1) {
     width: 100%;
   }
   .wrapper_specials_section .container_specials p.p_specials{
- min-height: 33vh !important;
+ min-height: 33.5vh !important;
+ height:auto !important;
+ padding-bottom: 0.1rem;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
   }
 }
 

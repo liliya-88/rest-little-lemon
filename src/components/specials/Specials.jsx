@@ -125,7 +125,7 @@ function Specials() {
       title: 'Coffee',
       price: 5,
       pText:
-        'Awaken your senses with our expertly brewed coffee, made from the finest beans sourced from around the world. We have the perfect cup of coffee to satisfy your cravings',
+        'Awaken your senses with our expertly brewed coffee, made from the finest beans sourced from around the world. We have the perfect cup of coffee to satisfy your cravings.',
       meal: 'filterDiv drinks',
       quantity: 1,
     },
