@@ -143,14 +143,7 @@ const OrderOnline = () => {
     Dish:${index + 1}. ${order.title},
     Price:${order.price},
     Quantity:${order.quantity},
-    Id:${order.id},
-
-    `
-      /*       <input type='hidden' name='number' value={index+1} />
-                  <input type='hidden' name='id' value={order.id} />
-                  <input type='hidden' name='title' value={order.title} />
-                  <input type='hidden' name='price' value={order.price} />
-                  <input type='hidden' name='quantity' value={order.quantity} /> */
+    Id:${order.id},`
       // const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
