@@ -4620,13 +4620,17 @@ select.form_input option {
   padding: 1rem 0.05rem;
   color: rgba(4, 18, 81, 0.85);
 }
+.label2 {
+  padding: 1rem 0.05rem;
+  color: rgba(4, 18, 81, 0.85);
+}
 
 .label::before {
   content: '*';
   color: rgb(247, 167, 192);
   padding: 0.1rem;
 }
-.label::before {
+.label2::before {
   content: '';
  padding: 0.1rem;
 }
