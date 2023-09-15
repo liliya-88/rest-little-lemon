@@ -118,7 +118,7 @@ const OrderOnline = () => {
   async function handleSubmit(e) {
     setPreloader2(true)
     if (preloader2) {
-      const url = 'https://usebasin.com/f/6b4480467eeb'
+      const url = 'https://formspree.io/f/xwkdqbvl'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -257,14 +257,13 @@ const OrderOnline = () => {
         <div className='box'>
           <h2 className='title_center order_online'>Order information</h2>
 
-          {/*     https://formspree.io/f/xwkdqbvl */}
           {!!cartProducts?.length && (
             <form
               id='order_info'
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://usebasin.com/f/6b4480467eeb'
+              action='https://formspree.io/f/xwkdqbvl'
               method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
