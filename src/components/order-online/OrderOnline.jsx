@@ -119,7 +119,7 @@ const OrderOnline = () => {
   async function handleSubmit(e) {
     setPreloader2(true)
     if (preloader2) {
-      const url = 'https://formspree.io/f/xwkdqbvl'
+      const url = 'https://formspree.io/f/mbjvkyoy'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -265,7 +265,7 @@ const OrderOnline = () => {
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://formspree.io/f/xwkdqbvl'
+              action='https://formspree.io/f/mbjvkyoy'
               method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
