@@ -89,7 +89,7 @@ const CookiePolicyPage = () => {
               If you have any questions or concerns about our Cookie Policy,
               please contact us at email address:
               <a href='mailto:lipro.ecommerce@gmail.com' className='a_style'>
-                lipro.ecommerce@gmail.com
+                <small>lipro.ecommerce@gmail.com</small>
               </a>
             </p>
           </div>
