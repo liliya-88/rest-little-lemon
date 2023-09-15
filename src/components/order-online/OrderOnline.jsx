@@ -145,7 +145,7 @@ const OrderOnline = () => {
     /* ------------------ */
     setTimeout(() => {
       setPreloaderOrder(false)
-      setSuccess(true)
+      /*  setSuccess(true) */
     }, 3500)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
