@@ -126,18 +126,18 @@ const OrderOnline = () => {
       Id:${order.id},
       `
   }) */
-
-  /* =================================== */
-  async function handleSubmit(e) {
-    const order_information = orderInfo.map((order, index) => {
-      return `
+  const order_information = orderInfo.map((order, index) => {
+    return `
        Quantity_of_dishes:${orderInfo.length},
       Dish:${index + 1}. ${order.title},
       Price:${order.price},
       Quantity:${order.quantity},
       Id:${order.id},
       `
-    })
+  })
+  colsole.log(order_information, 'order_information')
+  /* =================================== */
+  async function handleSubmit(e) {
     setPreloader2(true)
     if (preloader2) {
       const url = 'https://usebasin.com/f/6eee2fc7b10c'
