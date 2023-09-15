@@ -141,7 +141,7 @@ const OrderOnline = () => {
     Order_info:${orderInfo}
     `
 
-      const createResponse = await createMessage(url, messageForm)
+      // const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
     setTimeout(() => {
