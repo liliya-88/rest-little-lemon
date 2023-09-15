@@ -36,6 +36,7 @@ const OrderOnline = () => {
   const [preloader2, setPreloader2] = useState(false)
   const [sentMessage2, setSentMessage2] = useState(false)
   const [success2, setSuccess2] = useState(false)
+  const [minDateOnSubmit, setMinDateOnSubmit] = useState('')
 
   /* -------------------------------------- */
   /* useEffects */
@@ -58,6 +59,7 @@ const OrderOnline = () => {
   useEffect(() => {
     const now = new Date().toISOString().split('T')[0]
     setMinDate2(now)
+    setMinDateOnSubmit(now)
   }, [])
 
   useEffect(() => {
@@ -115,28 +117,7 @@ const OrderOnline = () => {
       comment: prevState.comment,
     }))
   }, [])
-  /* test================================= */
 
-  /*   const order_information = orderInfo.map((order, index) => {
-    return `
-       Quantity_of_dishes:${orderInfo.length},
-      Dish:${index + 1}. ${order.title},
-      Price:${order.price},
-      Quantity:${order.quantity},
-      Id:${order.id},
-      `
-  }) */
-  const order_information = orderInfo.map((order, index) => {
-    return `
-       Quantity_of_dishes:${orderInfo.length},
-      Dish:${index + 1}. ${order.title},
-      Price:${order.price},
-      Quantity:${order.quantity},
-      Id:${order.id},
-      `
-  })
-  console.log(order_information, 'order_information')
-  /* =================================== */
   async function handleSubmit(e) {
     setPreloader2(true)
     if (preloader2) {
@@ -153,17 +134,30 @@ const OrderOnline = () => {
         setSentMessage2(true)
         return await response.json()
       }
-      const messageForm = `Name:${inputOrder.name},
-    Email:${inputOrder.email},
-    City:${inputOrder.city},
-    PostalCode: ${inputOrder.postalCode},
-    Country: ${inputOrder.country},
-    DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment},
-    Quantity_of_dishes:${orderInfo.length},
-    Dish:${order_information}
-    `
-      // const createResponse = await createMessage(url, messageForm)
+      const order_information = orderInfo
+        .map((order, index) => {
+          return `
+        Quantity_of_dishes: ${orderInfo.length},
+        Dish: ${index + 1}. ${order.title},
+        Price: ${order.price},
+        Quantity: ${order.quantity},
+        Id: ${order.id},
+      `
+        })
+        .join('')
+      const messageForm = {
+        Name: inputOrder.name,
+        Email: inputOrder.email,
+        City: inputOrder.city,
+        PostalCode: inputOrder.postalCode,
+        Country: inputOrder.country,
+        DateOfDelivery: inputOrder.dateOfDelivery,
+        Comment: inputOrder.comment,
+        DateOnSubmit: minDateOnSubmit,
+        Quantity_of_dishes: orderInfo.length,
+        Dish: order_information,
+      }
+      const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
     setTimeout(() => {
@@ -188,7 +182,7 @@ const OrderOnline = () => {
         dateOfDelivery: '',
         comment: '',
       })
-      return clearCart()
+      clearCart()
     }, 3900)
     //clear localStorage
     localStorage.removeItem('formDataOrder')
@@ -478,10 +472,16 @@ const OrderOnline = () => {
               {/* orderInfo */}
               <input
                 type='hidden'
-                name='dish'
-                value={JSON.stringify(order_information)}
+                name='order_information'
+                value={order_information}
               />
-              
+              <input
+                type='date'
+                name='date-on-submit'
+                hidden
+                min={minDateOnSubmit}
+                value={minDateOnSubmit}
+              />
             </form>
           )}
           {success2 ? (
@@ -513,3 +513,14 @@ const OrderOnline = () => {
 }
 
 export default OrderOnline
+/*       const messageForm = `Name:${inputOrder.name},
+    Email:${inputOrder.email},
+    City:${inputOrder.city},
+    PostalCode: ${inputOrder.postalCode},
+    Country: ${inputOrder.country},
+    DateOfDelivery: ${inputOrder.dateOfDelivery},
+    Comment: ${inputOrder.comment},
+    Date-on-submit:${minDateOnSubmit},
+    Quantity_of_dishes:${orderInfo.length},
+    Dish:${order_information},
+    ` */
