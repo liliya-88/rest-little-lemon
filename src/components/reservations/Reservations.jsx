@@ -260,7 +260,9 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-            encType='multipart/form-data'>
+            encType='multipart/form-data'
+            target='_blank'
+            rel='noreferrer'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>

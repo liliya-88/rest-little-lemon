@@ -262,7 +262,9 @@ const OrderOnline = () => {
               encType='multipart/form-data'
               onSubmit={handleSubmit}
               action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-              method='POST'>
+              method='POST'
+              target='_blank'
+              rel='noreferrer'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
                   Name:
