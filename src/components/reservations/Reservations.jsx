@@ -71,7 +71,7 @@ const Reservations = () => {
       [name]: value,
     }))
   }
-  console.log(inputV)
+  // console.log(inputV)
 
   const handleInputBlur = useCallback(() => {
     setInputV((prevState) => ({
@@ -236,7 +236,6 @@ const Reservations = () => {
       // Reset the form
     }
   }
-  /* ---------------------- */
 
   /* ----------------------- */
   return (
@@ -258,9 +257,6 @@ const Reservations = () => {
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
             encType='multipart/form-data'>
-            {/*        <input type='hidden' name='form-name' value='reservation' />
-            <input type='hidden' name='bot-field' /> */}
-
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
@@ -298,6 +294,7 @@ const Reservations = () => {
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     autoCapitalize='true'
+                    max='2023-12-30'
                     required
                   />
                 </label>
@@ -447,6 +444,7 @@ const Reservations = () => {
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     autoComplete='true'
+                    maxLength={15}
                     required
                   />
                 </label>
@@ -473,6 +471,7 @@ const Reservations = () => {
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     autoComplete='true'
+                    maxLength={15}
                     required
                   />
                 </label>

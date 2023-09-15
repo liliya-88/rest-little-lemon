@@ -86,6 +86,7 @@ export default function CartContextProvider({ children }) {
   function clearCart() {
     setCartProducts([])
     setProductIds([])
+    
   }
   return (
     <CartContext.Provider

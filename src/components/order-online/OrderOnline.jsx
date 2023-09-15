@@ -1,34 +1,77 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-extra-semi */
 /* eslint-disable no-unused-vars */
 
-import { useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const OrderOnline = () => {
   const {
     cartProducts,
-    addProduct,
     productIds,
     increaseQuantity,
     removeProduct,
     clearCart,
   } = useContext(CartContext)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [city, setCity] = useState('')
-  const [postalCode, setPostalCode] = useState('')
-  const [streetAddress, setStreetAddress] = useState('')
-  const [country, setCountry] = useState('')
-  const [dateOfDelivery, setDateOfDelivery] = useState('')
-  const [comment, setComment] = useState('')
+  /* --- */
+  const localSt = typeof window !== 'undefined' ? window.localStorage : null
+  const [inputOrder, setInputOrder] = useState(() => {
+    const formDataOrder = localSt
+      ? JSON.parse(localSt.getItem('formDataOrder'))
+      : null
+    return {
+      name: formDataOrder ? formDataOrder.name || '' : '',
+      email: formDataOrder ? formDataOrder.email || '' : '',
+      city: formDataOrder ? formDataOrder.city || '' : '',
+      postalCode: formDataOrder ? formDataOrder.postalCode || '' : '',
+      streetAddress: formDataOrder ? formDataOrder.streetAddress || '' : '',
+      country: formDataOrder ? formDataOrder.country || '' : '',
+      dateOfDelivery: formDataOrder ? formDataOrder.dateOfDelivery || '' : '',
+      comment: formDataOrder ? formDataOrder.comment || '' : '',
+    }
+  })
   const [isSuccess, setIsSuccess] = useState(false)
+  const [minDate, setMinDate] = useState('')
+  const [preloaderOrder, setPreloaderOrder] = useState(false)
+  const [sentMessageOrder, setSentMessageOrder] = useState(false)
+  const [success, setSuccess] = useState(false)
   /* -------------------------------------- */
+  /* useEffects */
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    if (inputOrder && localSt) {
+      localStorage.setItem('formDataOrder', JSON.stringify(inputOrder))
+    }
+  }, [inputOrder, localSt])
+
+  useEffect(() => {
+    if (localSt && localStorage.getItem('formDataOrder')) {
+      setInputOrder(JSON.parse(localSt.getItem('formDataOrder')))
+    }
+  }, [localSt])
+  /*  limit the minimum date of an input field based on the current date and time */
+  useEffect(() => {
+    const now = new Date().toISOString().slice(0, 16)
+    setMinDate(now)
+  }, [])
+  useEffect(() => {
+    if (cartProducts.length === 0) {
+      localStorage.removeItem('formDataOrder')
+    }
+  }, [cartProducts, localSt])
+  /* ------------- */
   function moreOfThisProduct(id) {
     increaseQuantity(id)
   }
   function lessOfThisProduct(id) {
     // removeProduct(id)
     removeProduct(id)
+    if (cartProducts.length === 0) {
+      //clear localStorage
+    }
   }
   let total = 0
   /* Object.keys() */
@@ -40,10 +83,81 @@ const OrderOnline = () => {
       total += price * quantity
     }
   }
+  /* ----- */
+  function handleChange(event) {
+    const { name, value } = event.target
+    setInputOrder((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
 
+  const handleInputBlur = useCallback(() => {
+    setInputOrder((prevState) => ({
+      ...prevState,
+      name: prevState.name,
+      email: prevState.email,
+      city: prevState.city,
+      postalCode: prevState.postalCode,
+      streetAddress: prevState.streetAddress,
+      country: prevState.country,
+      dateOfDelivery: prevState.dateOfDelivery,
+      comment: prevState.comment,
+    }))
+  }, [])
+
+  async function handleSubmit(e) {
+    setPreloaderOrder(true)
+    if (preloaderOrder) {
+      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      const createMessage = async (url, data) => {
+        const response = await fetch(url, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(data),
+        })
+        setSentMessageOrder(true)
+        return await response.json()
+      }
+      const messageForm = `Name:${inputOrder.name},
+    Email:${inputOrder.email},
+    City:${inputOrder.city},
+    PostalCode: ${inputOrder.postalCode},
+    Country: ${inputOrder.country},
+    DateOfDelivery: ${inputOrder.dateOfDelivery},
+    Comment: ${inputOrder.comment}`
+
+      const createResponse = await createMessage(url, messageForm)
+    }
+    /* ------------------ */
+    setTimeout(() => {
+      setPreloaderOrder(false)
+      setIsSuccess(true)
+    }, 3000)
+    setTimeout(async () => {
+      const createResponse = await createMessage(url, messageForm)
+      setSuccess(false)
+      setInputOrder({
+        name: '',
+        email: '',
+        city: '',
+        postalCode: '',
+        country: '',
+        dateOfDelivery: '',
+        comment: '',
+      })
+      return clearCart()
+    }, 5500)
+    //clear localStorage
+    localStorage.removeItem('formDataOrder')
+  }
+  /* ----- */
   return (
     <section className='wrapper_order_online'>
-      <div className='columns_wrapper'>
+      <div className='columns_wrapper flashIn'>
         {/* first box */}
         <div className='box'>
           <div className='title_center order_online '>
@@ -126,7 +240,13 @@ const OrderOnline = () => {
           <h2 className='title_center order_online'>Order information</h2>
 
           {!!cartProducts?.length && (
-            <form action='' method='POST'>
+            <form
+              id='order_info'
+              name='order_info'
+              encType='multipart/form-data'
+              onSubmit={handleSubmit}
+              action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+              method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
                   Name:
@@ -135,10 +255,15 @@ const OrderOnline = () => {
                   type='text'
                   className='input'
                   name='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  style={{ backgroundColor: name ? '#E8F0FE' : 'white' }}
-                  placeholder='Mary'
+                  value={inputOrder.name}
+                  onChange={handleChange}
+                  onBlur={handleInputBlur}
+                  style={{
+                    backgroundColor: inputOrder.name ? '#E8F0FE' : 'white',
+                  }}
+                  placeholder='Mary Smith'
+                  maxLength={30}
+                  autoComplete='true'
                   required
                 />
               </div>
@@ -150,11 +275,14 @@ const OrderOnline = () => {
                   type='email'
                   className='input'
                   name='email'
-                  value={email}
+                  value={inputOrder.email}
                   placeholder='example@gmail.com'
                   pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{ backgroundColor: email ? '#E8F0FE' : 'white' }}
+                  onChange={handleChange}
+                  onBlur={handleInputBlur}
+                  style={{
+                    backgroundColor: inputOrder.email ? '#E8F0FE' : 'white',
+                  }}
                   required
                 />
               </div>
@@ -168,10 +296,15 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='city'
-                      value={city}
+                      value={inputOrder.city}
                       placeholder='London'
-                      onChange={(e) => setCity(e.target.value)}
-                      style={{ backgroundColor: city ? '#E8F0FE' : 'white' }}
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
+                      style={{
+                        backgroundColor: inputOrder.city ? '#E8F0FE' : 'white',
+                      }}
+                      maxLength={20}
+                      autoComplete='true'
                       required
                     />
                   </div>
@@ -183,12 +316,17 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='postalCode'
-                      value={postalCode}
+                      value={inputOrder.postalCode}
                       placeholder='EC1A 1AA'
-                      onChange={(e) => setPostalCode(e.target.value)}
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
                       style={{
-                        backgroundColor: postalCode ? '#E8F0FE' : 'white',
+                        backgroundColor: inputOrder.postalCode
+                          ? '#E8F0FE'
+                          : 'white',
                       }}
+                      maxLength={10}
+                      autoComplete='true'
                       required
                     />
                   </div>
@@ -202,10 +340,17 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='country'
-                      value={country}
+                      value={inputOrder.country}
                       placeholder='UK'
-                      onChange={(e) => setCountry(e.target.value)}
-                      style={{ backgroundColor: country ? '#E8F0FE' : 'white' }}
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
+                      style={{
+                        backgroundColor: inputOrder.country
+                          ? '#E8F0FE'
+                          : 'white',
+                      }}
+                      maxLength={25}
+                      autoComplete='true'
                       required
                     />
                   </div>
@@ -217,12 +362,17 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='streetAddress'
-                      value={streetAddress}
+                      value={inputOrder.streetAddress}
                       placeholder='22aB Baker Street'
-                      onChange={(e) => setStreetAddress(e.target.value)}
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
                       style={{
-                        backgroundColor: streetAddress ? '#E8F0FE' : 'white',
+                        backgroundColor: inputOrder.streetAddress
+                          ? '#E8F0FE'
+                          : 'white',
                       }}
+                      maxLength={55}
+                      autoComplete='true'
                       required
                     />
                   </div>
@@ -234,14 +384,19 @@ const OrderOnline = () => {
                     Date of Delivery:
                   </label>
                   <input
-                    type='date'
+                    type='datetime-local'
                     className='input'
                     name='dateOfDelivery'
-                    value={dateOfDelivery}
-                    onChange={(e) => setDateOfDelivery(e.target.value)}
+                    value={inputOrder.dateOfDelivery}
+                    onChange={handleChange}
+                    onBlur={handleInputBlur}
                     style={{
-                      backgroundColor: dateOfDelivery ? '#E8F0FE' : 'white',
+                      backgroundColor: inputOrder.dateOfDelivery
+                        ? '#E8F0FE'
+                        : 'white',
                     }}
+                    max='2023-12-30'
+                    min={minDate}
                     required
                   />
                 </div>
@@ -249,25 +404,50 @@ const OrderOnline = () => {
                   <label htmlFor='comment' className='label'>
                     Comment:
                   </label>
-                  <input
+                  <textarea
                     type='text'
                     className='input'
                     name='comment'
-                    value={comment}
+                    value={inputOrder.comment}
                     placeholder='some details'
-                    onChange={(e) => setComment(e.target.value)}
+                    onChange={handleChange}
+                    onBlur={handleInputBlur}
                     style={{
-                      backgroundColor: comment ? '#E8F0FE' : 'white',
+                      backgroundColor: inputOrder.comment ? '#E8F0FE' : 'white',
+                      resize: 'vertical',
+                      maxHeight: '5rem',
                     }}
+                    maxLength={200}
                   />
                 </div>
               </div>
               <div className='div_with_button'>
-                <button type='submit' className='btn btn-hipster2 '>
+                <button
+                  type='submit'
+                  onClick={handleSubmit}
+                  className='btn btn-hipster2'>
                   Continue to payment
                 </button>
               </div>
             </form>
+          )}
+          {success && (
+            <div id='message' className='show-message'>
+              <div className='success'>
+                <h3>Thanks!</h3>
+                <p>
+                  Your reservation has been successfully submitted, and we will
+                  reach out to you soon.
+                </p>
+              </div>
+            </div>
+          )}
+          {preloaderOrder && (
+            <div id='message' className='show-message '>
+              <div className='preloader'>
+                <div className='loading-dot'></div>
+              </div>
+            </div>
           )}
         </div>
 
