@@ -8,6 +8,7 @@ export default function CartContextProvider({ children }) {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
   const [cartProducts, setCartProducts] = useState([])
   const [productIds, setProductIds] = useState([])
+  const [orderInfo, setOrderInfo] = useState([])
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -31,9 +32,11 @@ export default function CartContextProvider({ children }) {
     setCartProducts((prev) => [...prev, product])
     setProductIds((prev) => [...prev, product.id])
   }
-
-  console.log(cartProducts, 'cartProducts')
-  console.log(productIds, 'productIds')
+  useEffect(() => {
+    setOrderInfo(cartProducts)
+  }, [cartProducts])
+  /* console.log(cartProducts, 'cartProducts')
+  console.log(productIds, 'productIds') */
 
   /* to increase */
   const increaseQuantity = (productId) => {
@@ -86,13 +89,13 @@ export default function CartContextProvider({ children }) {
   function clearCart() {
     setCartProducts([])
     setProductIds([])
-    
   }
   return (
     <CartContext.Provider
       value={{
         cartProducts,
         setCartProducts,
+        orderInfo,
         addProduct,
         removeProduct,
         productIds,

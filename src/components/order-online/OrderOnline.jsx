@@ -9,6 +9,7 @@ const OrderOnline = () => {
   const {
     cartProducts,
     productIds,
+    orderInfo,
     increaseQuantity,
     removeProduct,
     clearCart,
@@ -62,6 +63,12 @@ const OrderOnline = () => {
       localStorage.removeItem('formDataOrder')
     }
   }, [cartProducts, localSt])
+
+  useEffect(() => {
+    if (success) {
+      clearCart()
+    }
+  }, [success, clearCart])
   /* ------------- */
   function moreOfThisProduct(id) {
     increaseQuantity(id)
@@ -105,6 +112,7 @@ const OrderOnline = () => {
       comment: prevState.comment,
     }))
   }, [])
+  console.log(JSON.stringify(orderInfo))
 
   async function handleSubmit(e) {
     setPreloaderOrder(true)
@@ -128,15 +136,16 @@ const OrderOnline = () => {
     PostalCode: ${inputOrder.postalCode},
     Country: ${inputOrder.country},
     DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment}`
+    Comment: ${inputOrder.comment}
+    Order Information: ${orderInfo}`
 
       const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
     setTimeout(() => {
       setPreloaderOrder(false)
-      setIsSuccess(true)
-    }, 3000)
+      setSuccess(true)
+    }, 5000)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
       setSuccess(false)
@@ -153,6 +162,7 @@ const OrderOnline = () => {
     }, 5500)
     //clear localStorage
     localStorage.removeItem('formDataOrder')
+    localStorage.removeItem('cartProducts')
   }
   /* ----- */
   return (
@@ -420,6 +430,7 @@ const OrderOnline = () => {
                     maxLength={200}
                   />
                 </div>
+                <input type='hidden' name='orderInfo' value={orderInfo} />
               </div>
               <div className='div_with_button'>
                 <button
@@ -443,7 +454,7 @@ const OrderOnline = () => {
             </div>
           )}
           {preloaderOrder && (
-            <div id='message' className='show-message '>
+            <div id='message' className='show-message'>
               <div className='preloader'>
                 <div className='loading-dot'></div>
               </div>
