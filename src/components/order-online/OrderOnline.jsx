@@ -35,7 +35,7 @@ const OrderOnline = () => {
   const [minDate, setMinDate] = useState('')
   const [preloaderOrder, setPreloaderOrder] = useState(false)
   const [sentMessageOrder, setSentMessageOrder] = useState(false)
-  const [ success, setSuccess ] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   /* -------------------------------------- */
   /* useEffects */
@@ -146,7 +146,7 @@ const OrderOnline = () => {
     setTimeout(() => {
       setPreloaderOrder(false)
       setSuccess(true)
-    }, 5000)
+    }, 3500)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
       setSuccess(false)
