@@ -135,7 +135,7 @@ const OrderOnline = () => {
       Id:${order.id},
       `
   })
-  colsole.log(order_information, 'order_information')
+
   /* =================================== */
   async function handleSubmit(e) {
     setPreloader2(true)
