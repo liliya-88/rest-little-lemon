@@ -56,9 +56,10 @@ const OrderOnline = () => {
   }, [localSt])
   /*  limit the minimum date of an input field based on the current date and time */
   useEffect(() => {
-    const now = new Date().toISOString().slice(0, 16)
+    const now = new Date().toISOString().split('T')[0]
     setMinDate(now)
   }, [])
+
   useEffect(() => {
     if (cartProducts.length === 0) {
       localStorage.removeItem('formDataOrder')
@@ -146,13 +147,13 @@ const OrderOnline = () => {
     /* ------------------ */
     setTimeout(() => {
       setPreloader2(false)
-      setSuccess2(true)
     }, 3500)
     setTimeout(() => {
       if (success2) {
         setSentMessage2(true)
+        setSuccess2(true)
       }
-    }, 3800)
+    }, 3700)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
       setSuccess2(false)
@@ -403,7 +404,7 @@ const OrderOnline = () => {
                     Date of Delivery:
                   </label>
                   <input
-                    type='datetime-local'
+                    type='date'
                     className='input'
                     name='dateOfDelivery'
                     value={inputOrder.dateOfDelivery}

