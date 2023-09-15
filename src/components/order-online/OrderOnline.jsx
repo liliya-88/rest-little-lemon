@@ -31,11 +31,11 @@ const OrderOnline = () => {
       comment: formDataOrder ? formDataOrder.comment || '' : '',
     }
   })
-  const [isSuccess, setIsSuccess] = useState(false)
+  // const [isSuccess, setIsSuccess] = useState(false)
   const [minDate, setMinDate] = useState('')
-  const [preloaderOrder, setPreloaderOrder] = useState(false)
-  const [sentMessageOrder, setSentMessageOrder] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [preloader2, setPreloader2] = useState(false)
+  const [sentMessage2, setSentMessage2] = useState(false)
+  const [success2, setSuccess2] = useState(false)
 
   /* -------------------------------------- */
   /* useEffects */
@@ -66,10 +66,10 @@ const OrderOnline = () => {
   }, [cartProducts, localSt])
 
   useEffect(() => {
-    if (success) {
-      clearCart()
+    if (sentMessage2 && !preloader2) {
+      setSuccess2(false)
     }
-  }, [success, clearCart])
+  }, [success2, preloader2, sentMessage2])
   /* ------------- */
   function moreOfThisProduct(id) {
     increaseQuantity(id)
@@ -116,8 +116,8 @@ const OrderOnline = () => {
   }, [])
 
   async function handleSubmit(e) {
-    setPreloaderOrder(true)
-    if (preloaderOrder) {
+    setPreloader2(true)
+    if (preloader2) {
       const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
@@ -128,7 +128,7 @@ const OrderOnline = () => {
           },
           body: JSON.stringify(data),
         })
-        setSentMessageOrder(true)
+        setSentMessage2(true)
         return await response.json()
       }
       const messageForm = `Name:${inputOrder.name},
@@ -143,12 +143,18 @@ const OrderOnline = () => {
     }
     /* ------------------ */
     setTimeout(() => {
-      setPreloaderOrder(false)
-      /*  setSuccess(true) */
+      setPreloader2(false)
+      setSuccess2(true)
     }, 3500)
+    setTimeout(() => {
+      if (success2) {
+        setSentMessage2(true)
+      }
+    }, 3800)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
-      /*  setSuccess(false) */
+      setSuccess2(false)
+      setSentMessage2(false)
       setInputOrder({
         name: '',
         email: '',
@@ -159,7 +165,7 @@ const OrderOnline = () => {
         comment: '',
       })
       return clearCart()
-    }, 3600)
+    }, 3900)
     //clear localStorage
     localStorage.removeItem('formDataOrder')
     localStorage.removeItem('cartProducts')
@@ -450,7 +456,7 @@ const OrderOnline = () => {
               </div>
             </form>
           )}
-          {/*           {success && (
+          {success2 ? (
             <div id='message' className='show-message'>
               <div className='success'>
                 <h3>Thanks!</h3>
@@ -460,8 +466,10 @@ const OrderOnline = () => {
                 </p>
               </div>
             </div>
-          )} */}
-          {preloaderOrder && (
+          ) : (
+            ''
+          )}
+          {preloader2 && (
             <div id='message' className='show-message'>
               <div className='preloader'>
                 <div className='loading-dot'></div>

@@ -61,7 +61,11 @@ const Reservations = () => {
       setInputV(JSON.parse(ls.getItem('formData')))
     }
   }, [ls])
-
+  useEffect(() => {
+    if (sentMessage && !preloader) {
+      setSuccess(false)
+    }
+  }, [success, preloader,sentMessage])
   /* end of useEffects */
 
   const handleChange = (event) => {
@@ -205,7 +209,7 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-        const createResponse = await createMessage(url, messageForm)
+        // const createResponse = await createMessage(url, messageForm)
       }
       /* ------------------------------------- */
       setTimeout(() => {
