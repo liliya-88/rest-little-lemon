@@ -3619,7 +3619,7 @@ tr.color4:nth-of-type(1) {
     width: 100%;
   }
   .wrapper_specials_section .container_specials p.p_specials{
- min-height: 38.5vh !important;
+ min-height: 36.5vh !important;
   }
 }
 
