@@ -4667,5 +4667,6 @@ text-transform: none;
     color: var(--primaryColor-800);
     transition: all 0.3 linear;
     cursor: pointer;
+    font-size: 90% !important;
 }
 /* ================== */
