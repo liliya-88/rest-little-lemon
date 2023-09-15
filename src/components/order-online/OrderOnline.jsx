@@ -469,7 +469,7 @@ const OrderOnline = () => {
               </div>
               {/* orderInfo */}
 
-              <input type='date' name='dishes' hidden />
+              <input type='text' name='dishes' hidden />
               <input
                 type='date'
                 name='date-on-submit'
