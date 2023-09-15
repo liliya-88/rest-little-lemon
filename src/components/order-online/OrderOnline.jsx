@@ -113,31 +113,6 @@ const OrderOnline = () => {
       comment: prevState.comment,
     }))
   }, [])
-  console.log(orderInfo)
-  /* 
- const [orderOnline,setOrderOnline]=useState([
- {
-      id: 'sp1',
-      src: `${Dish1}`,
-      title: 'Chicken Parmesan',
-      price: 12,
-      pText:
-        'Breaded chicken cutlets topped with marinara sauce, melted cheese, and served over spaghetti or with a side of garlic bread.',
-      meal: 'filterDiv breakfast',
-      quantity: 1,
-    },
-    {
-      id: 'sp2',
-      src: `${Dish2}`,
-      title: 'Baked salmon',
-      price: 18,
-      pText:
-        'Fresh salmon fillets seasoned with lemon, herbs, and olive oil, then baked until tender and flaky. Serve it with a side of steamed asparagus or a green salad.',
-      meal: 'filterDiv breakfast',
-      quantity: 1,
-    },
- ])
-  */
 
   async function handleSubmit(e) {
     setPreloaderOrder(true)
@@ -274,221 +249,227 @@ const OrderOnline = () => {
         <div className='box'>
           <h2 className='title_center order_online'>Order information</h2>
 
-          {!!cartProducts?.length && (
-            <form
-              id='order_info'
-              name='order_info'
-              encType='multipart/form-data'
-              onSubmit={handleSubmit}
-              action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-              method='POST'>
-              <div className='div_with_input'>
-                <label htmlFor='name' className='label'>
-                  Name:
-                </label>
-                <input
-                  type='text'
-                  className='input'
-                  name='name'
-                  value={inputOrder.name}
-                  onChange={handleChange}
-                  onBlur={handleInputBlur}
-                  style={{
-                    backgroundColor: inputOrder.name ? '#E8F0FE' : 'white',
-                  }}
-                  placeholder='Mary Smith'
-                  maxLength={30}
-                  autoComplete='true'
-                  required
-                />
-              </div>
-              <div className='div_with_input'>
-                <label htmlFor='email' className='label'>
-                  Email:
-                </label>
-                <input
-                  type='email'
-                  className='input'
-                  name='email'
-                  value={inputOrder.email}
-                  placeholder='example@gmail.com'
-                  pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-                  onChange={handleChange}
-                  onBlur={handleInputBlur}
-                  style={{
-                    backgroundColor: inputOrder.email ? '#E8F0FE' : 'white',
-                  }}
-                  required
-                />
-              </div>
-              <div className='city_holder'>
-                <div>
-                  <div className='div_with_input'>
-                    <label htmlFor='city' className='label'>
-                      City:
-                    </label>
-                    <input
-                      type='text'
-                      className='input'
-                      name='city'
-                      value={inputOrder.city}
-                      placeholder='London'
-                      onChange={handleChange}
-                      onBlur={handleInputBlur}
-                      style={{
-                        backgroundColor: inputOrder.city ? '#E8F0FE' : 'white',
-                      }}
-                      maxLength={20}
-                      autoComplete='true'
-                      required
-                    />
-                  </div>
-                  <div className='div_with_input'>
-                    <label htmlFor='postalCode' className='label'>
-                      Postal Code:
-                    </label>
-                    <input
-                      type='text'
-                      className='input'
-                      name='postalCode'
-                      value={inputOrder.postalCode}
-                      placeholder='EC1A 1AA'
-                      onChange={handleChange}
-                      onBlur={handleInputBlur}
-                      style={{
-                        backgroundColor: inputOrder.postalCode
-                          ? '#E8F0FE'
-                          : 'white',
-                      }}
-                      maxLength={10}
-                      autoComplete='true'
-                      required
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className='div_with_input'>
-                    <label htmlFor='country' className='label'>
-                      Country:
-                    </label>
-                    <input
-                      type='text'
-                      className='input'
-                      name='country'
-                      value={inputOrder.country}
-                      placeholder='UK'
-                      onChange={handleChange}
-                      onBlur={handleInputBlur}
-                      style={{
-                        backgroundColor: inputOrder.country
-                          ? '#E8F0FE'
-                          : 'white',
-                      }}
-                      maxLength={25}
-                      autoComplete='true'
-                      required
-                    />
-                  </div>
-                  <div className='div_with_input'>
-                    <label htmlFor='streetAddress' className='label'>
-                      Street Address:
-                    </label>
-                    <input
-                      type='text'
-                      className='input'
-                      name='streetAddress'
-                      value={inputOrder.streetAddress}
-                      placeholder='22aB Baker Street'
-                      onChange={handleChange}
-                      onBlur={handleInputBlur}
-                      style={{
-                        backgroundColor: inputOrder.streetAddress
-                          ? '#E8F0FE'
-                          : 'white',
-                      }}
-                      maxLength={55}
-                      autoComplete='true'
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
+          <div className='form_container flashIn'>
+            {!!cartProducts?.length && (
+              <form
+                id='order_info'
+                name='order_info'
+                encType='multipart/form-data'
+                onSubmit={handleSubmit}
+                action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+                method='POST'>
                 <div className='div_with_input'>
-                  <label htmlFor='dateOfDelivery' className='label'>
-                    Date of Delivery:
+                  <label htmlFor='name' className='label'>
+                    Name:
                   </label>
                   <input
-                    type='datetime-local'
+                    type='text'
                     className='input'
-                    name='dateOfDelivery'
-                    value={inputOrder.dateOfDelivery}
+                    name='name'
+                    value={inputOrder.name}
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     style={{
-                      backgroundColor: inputOrder.dateOfDelivery
-                        ? '#E8F0FE'
-                        : 'white',
+                      backgroundColor: inputOrder.name ? '#E8F0FE' : 'white',
                     }}
-                    max='2023-12-30'
-                    min={minDate}
+                    placeholder='Mary Smith'
+                    maxLength={30}
+                    autoComplete='true'
                     required
                   />
                 </div>
                 <div className='div_with_input'>
-                  <label htmlFor='comment' className='label'>
-                    Comment:
+                  <label htmlFor='email' className='label'>
+                    Email:
                   </label>
-                  <textarea
-                    type='text'
+                  <input
+                    type='email'
                     className='input'
-                    name='comment'
-                    value={inputOrder.comment}
-                    placeholder='some details'
+                    name='email'
+                    value={inputOrder.email}
+                    placeholder='example@gmail.com'
+                    pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     style={{
-                      backgroundColor: inputOrder.comment ? '#E8F0FE' : 'white',
-                      resize: 'vertical',
-                      maxHeight: '5rem',
+                      backgroundColor: inputOrder.email ? '#E8F0FE' : 'white',
                     }}
-                    maxLength={200}
+                    required
                   />
                 </div>
-                <input
-                  type='hidden'
-                  name='orderInfo'
-                  value={JSON.stringify(orderInfo)}
-                />
+                <div className='city_holder'>
+                  <div>
+                    <div className='div_with_input'>
+                      <label htmlFor='city' className='label'>
+                        City:
+                      </label>
+                      <input
+                        type='text'
+                        className='input'
+                        name='city'
+                        value={inputOrder.city}
+                        placeholder='London'
+                        onChange={handleChange}
+                        onBlur={handleInputBlur}
+                        style={{
+                          backgroundColor: inputOrder.city
+                            ? '#E8F0FE'
+                            : 'white',
+                        }}
+                        maxLength={20}
+                        autoComplete='true'
+                        required
+                      />
+                    </div>
+                    <div className='div_with_input'>
+                      <label htmlFor='postalCode' className='label'>
+                        Postal Code:
+                      </label>
+                      <input
+                        type='text'
+                        className='input'
+                        name='postalCode'
+                        value={inputOrder.postalCode}
+                        placeholder='EC1A 1AA'
+                        onChange={handleChange}
+                        onBlur={handleInputBlur}
+                        style={{
+                          backgroundColor: inputOrder.postalCode
+                            ? '#E8F0FE'
+                            : 'white',
+                        }}
+                        maxLength={10}
+                        autoComplete='true'
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className='div_with_input'>
+                      <label htmlFor='country' className='label'>
+                        Country:
+                      </label>
+                      <input
+                        type='text'
+                        className='input'
+                        name='country'
+                        value={inputOrder.country}
+                        placeholder='UK'
+                        onChange={handleChange}
+                        onBlur={handleInputBlur}
+                        style={{
+                          backgroundColor: inputOrder.country
+                            ? '#E8F0FE'
+                            : 'white',
+                        }}
+                        maxLength={25}
+                        autoComplete='true'
+                        required
+                      />
+                    </div>
+                    <div className='div_with_input'>
+                      <label htmlFor='streetAddress' className='label'>
+                        Street Address:
+                      </label>
+                      <input
+                        type='text'
+                        className='input'
+                        name='streetAddress'
+                        value={inputOrder.streetAddress}
+                        placeholder='22aB Baker Street'
+                        onChange={handleChange}
+                        onBlur={handleInputBlur}
+                        style={{
+                          backgroundColor: inputOrder.streetAddress
+                            ? '#E8F0FE'
+                            : 'white',
+                        }}
+                        maxLength={55}
+                        autoComplete='true'
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className='div_with_input'>
+                    <label htmlFor='dateOfDelivery' className='label'>
+                      Date of Delivery:
+                    </label>
+                    <input
+                      type='datetime-local'
+                      className='input'
+                      name='dateOfDelivery'
+                      value={inputOrder.dateOfDelivery}
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
+                      style={{
+                        backgroundColor: inputOrder.dateOfDelivery
+                          ? '#E8F0FE'
+                          : 'white',
+                      }}
+                      max='2023-12-30'
+                      min={minDate}
+                      required
+                    />
+                  </div>
+                  <div className='div_with_input'>
+                    <label htmlFor='comment' className='label'>
+                      Comment:
+                    </label>
+                    <textarea
+                      type='text'
+                      className='input'
+                      name='comment'
+                      value={inputOrder.comment}
+                      placeholder='some details'
+                      onChange={handleChange}
+                      onBlur={handleInputBlur}
+                      style={{
+                        backgroundColor: inputOrder.comment
+                          ? '#E8F0FE'
+                          : 'white',
+                        resize: 'vertical',
+                        maxHeight: '5rem',
+                      }}
+                      maxLength={200}
+                    />
+                  </div>
+                  <input
+                    type='hidden'
+                    name='orderInfo'
+                    value={JSON.stringify(orderInfo)}
+                  />
+                </div>
+                <div className='div_with_button'>
+                  <button
+                    type='submit'
+                    onClick={handleSubmit}
+                    className='btn btn-hipster2'>
+                    Continue to payment
+                  </button>
+                </div>
+              </form>
+            )}
+            {success && (
+              <div id='message' className='show-message'>
+                <div className='success'>
+                  <h3>Thanks!</h3>
+                  <p>
+                    Your reservation has been successfully submitted, and we
+                    will reach out to you soon.
+                  </p>
+                </div>
               </div>
-              <div className='div_with_button'>
-                <button
-                  type='submit'
-                  onClick={handleSubmit}
-                  className='btn btn-hipster2'>
-                  Continue to payment
-                </button>
+            )}
+            {preloaderOrder && (
+              <div id='message' className='show-message'>
+                <div className='preloader'>
+                  <div className='loading-dot'></div>
+                </div>
               </div>
-            </form>
-          )}
-          {success && (
-            <div id='message' className='show-message'>
-              <div className='success'>
-                <h3>Thanks!</h3>
-                <p>
-                  Your reservation has been successfully submitted, and we will
-                  reach out to you soon.
-                </p>
-              </div>
-            </div>
-          )}
-          {preloaderOrder && (
-            <div id='message' className='show-message'>
-              <div className='preloader'>
-                <div className='loading-dot'></div>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* ---------------------------------------- */}
