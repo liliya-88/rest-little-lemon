@@ -454,9 +454,6 @@ const OrderOnline = () => {
                   Continue to payment
                 </button>
               </div>
-              <div
-                className='g-recaptcha'
-                data-sitekey='6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy'></div>
             </form>
           )}
           {success2 ? (

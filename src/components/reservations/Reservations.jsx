@@ -748,9 +748,6 @@ const Reservations = () => {
                 className={currentTab === 2 ? 'step active' : 'step'}></span>
             </div>
             {/* +++++++ */}
-            <div
-              class='g-recaptcha'
-              data-sitekey='6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy'></div>
           </form>
 
           {errors && (
