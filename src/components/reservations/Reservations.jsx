@@ -236,7 +236,7 @@ const Reservations = () => {
           special_request: '',
         })
         return setCurrentTab(startAgain)
-      }, 5500)
+      }, 4500)
       //Clear localStorage after form submission
       localStorage.removeItem('formData')
       // Reset the form
