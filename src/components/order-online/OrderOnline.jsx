@@ -118,7 +118,7 @@ const OrderOnline = () => {
   async function handleSubmit(e) {
     setPreloaderOrder(true)
     if (preloaderOrder) {
-      const url = 'https://formsubmit.co/liliya.contactonline@gmail.com'
+      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -137,8 +137,7 @@ const OrderOnline = () => {
     PostalCode: ${inputOrder.postalCode},
     Country: ${inputOrder.country},
     DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment}
-    Order Information: ${orderInfo}`
+    Comment: ${inputOrder.comment}`
 
       const createResponse = await createMessage(url, messageForm)
     }
@@ -256,7 +255,7 @@ const OrderOnline = () => {
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://formsubmit.co/liliya.contactonline@gmail.com'
+              action='https://formsubmit.co/lipro.ecommerce@gmail.com'
               method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
