@@ -255,7 +255,8 @@ const Reservations = () => {
             </h1>
           </div>
         </div>
-
+        {/* 6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy
+         */}
         <div className='form_container flashIn'>
           <form
             id='regForm'
@@ -754,6 +755,9 @@ const Reservations = () => {
               className='input_hidden'
               value='name_of_my_form'
             /> */}
+            <div
+              class='g-recaptcha'
+              data-sitekey='6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy'></div>
           </form>
 
           {errors && (
