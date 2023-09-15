@@ -90,6 +90,7 @@ const OrderOnline = () => {
       total += price * quantity
     }
   }
+
   /* ----- */
   function handleChange(event) {
     const { name, value } = event.target
@@ -112,7 +113,31 @@ const OrderOnline = () => {
       comment: prevState.comment,
     }))
   }, [])
-  console.log(JSON.stringify(orderInfo))
+  console.log(orderInfo)
+  /* 
+ const [orderOnline,setOrderOnline]=useState([
+ {
+      id: 'sp1',
+      src: `${Dish1}`,
+      title: 'Chicken Parmesan',
+      price: 12,
+      pText:
+        'Breaded chicken cutlets topped with marinara sauce, melted cheese, and served over spaghetti or with a side of garlic bread.',
+      meal: 'filterDiv breakfast',
+      quantity: 1,
+    },
+    {
+      id: 'sp2',
+      src: `${Dish2}`,
+      title: 'Baked salmon',
+      price: 18,
+      pText:
+        'Fresh salmon fillets seasoned with lemon, herbs, and olive oil, then baked until tender and flaky. Serve it with a side of steamed asparagus or a green salad.',
+      meal: 'filterDiv breakfast',
+      quantity: 1,
+    },
+ ])
+  */
 
   async function handleSubmit(e) {
     setPreloaderOrder(true)
@@ -430,7 +455,11 @@ const OrderOnline = () => {
                     maxLength={200}
                   />
                 </div>
-                <input type='hidden' name='orderInfo' value={orderInfo} />
+                <input
+                  type='hidden'
+                  name='orderInfo'
+                  value={JSON.stringify(orderInfo)}
+                />
               </div>
               <div className='div_with_button'>
                 <button
