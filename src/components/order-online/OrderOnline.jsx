@@ -115,11 +115,32 @@ const OrderOnline = () => {
       comment: prevState.comment,
     }))
   }, [])
+  /* test================================= */
 
+  /*   const order_information = orderInfo.map((order, index) => {
+    return `
+       Quantity_of_dishes:${orderInfo.length},
+      Dish:${index + 1}. ${order.title},
+      Price:${order.price},
+      Quantity:${order.quantity},
+      Id:${order.id},
+      `
+  }) */
+
+  /* =================================== */
   async function handleSubmit(e) {
+    const order_information = orderInfo.map((order, index) => {
+      return `
+       Quantity_of_dishes:${orderInfo.length},
+      Dish:${index + 1}. ${order.title},
+      Price:${order.price},
+      Quantity:${order.quantity},
+      Id:${order.id},
+      `
+    })
     setPreloader2(true)
     if (preloader2) {
-      const url = 'https://formspree.io/f/mbjvkyoy'
+      const url = 'https://usebasin.com/f/6eee2fc7b10c'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -140,10 +161,8 @@ const OrderOnline = () => {
     DateOfDelivery: ${inputOrder.dateOfDelivery},
     Comment: ${inputOrder.comment},
     Quantity_of_dishes:${orderInfo.length},
-    Dish:${index + 1}. ${order.title},
-    Price:${order.price},
-    Quantity:${order.quantity},
-    Id:${order.id},`
+    Dish:${order_information}
+    `
       // const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
@@ -457,15 +476,14 @@ const OrderOnline = () => {
                 </button>
               </div>
               {/* orderInfo */}
-              {orderInfo.map((order, index) => (
-                <>
-                  <input type='hidden' name='number' value={index + 1} />
-                  <input type='hidden' name='id' value={order.id} />
-                  <input type='hidden' name='title' value={order.title} />
-                  <input type='hidden' name='price' value={order.price} />
-                  <input type='hidden' name='quantity' value={order.quantity} />
-                </>
-              ))}
+              <input
+                type='hidden'
+                name='dish'
+                value={JSON.stringify(order_information)}
+              />
+              <div
+                className='g-recaptcha'
+                data-sitekey='6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy'></div>
             </form>
           )}
           {success2 ? (
