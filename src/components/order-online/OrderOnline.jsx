@@ -118,7 +118,7 @@ const OrderOnline = () => {
   async function handleSubmit(e) {
     setPreloader2(true)
     if (preloader2) {
-      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      const url = 'https://formspree.io/f/xwkdqbvl'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -137,7 +137,9 @@ const OrderOnline = () => {
     PostalCode: ${inputOrder.postalCode},
     Country: ${inputOrder.country},
     DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment}`
+    Comment: ${inputOrder.comment}
+    Order_info:${orderInfo}
+    `
 
       const createResponse = await createMessage(url, messageForm)
     }
@@ -261,7 +263,7 @@ const OrderOnline = () => {
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+              action='https://formspree.io/f/xwkdqbvl'
               method='POST'
               target='_blank'
               rel='noreferrer'>
@@ -440,13 +442,9 @@ const OrderOnline = () => {
                 </div>
                 <input
                   type='hidden'
-                  name='_cc'
-                  value='888liliya@gmail.com'></input>
-                <input
-                  type='hidden'
-                  name='_url'
-                  value='https://rest-little-lemon.netlify.app/orderOnline'></input>
-                {/*    <input type='hidden' name='orderInfo' value={orderInfo} /> */}
+                  name='orderInfo'
+                  value={JSON.stringify(orderInfo)}
+                />
               </div>
               <div className='div_with_button'>
                 <button
