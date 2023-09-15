@@ -138,10 +138,19 @@ const OrderOnline = () => {
     PostalCode: ${inputOrder.postalCode},
     Country: ${inputOrder.country},
     DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment}
-    Order_info:${orderInfo}
-    `
+    Comment: ${inputOrder.comment},
+    Quantity_of_dishes:${orderInfo.length},
+    Dish:${index + 1}. ${order.title},
+    Price:${order.price},
+    Quantity:${order.quantity},
+    Id:${order.id},
 
+    `
+      /*       <input type='hidden' name='number' value={index+1} />
+                  <input type='hidden' name='id' value={order.id} />
+                  <input type='hidden' name='title' value={order.title} />
+                  <input type='hidden' name='price' value={order.price} />
+                  <input type='hidden' name='quantity' value={order.quantity} /> */
       // const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
@@ -454,6 +463,16 @@ const OrderOnline = () => {
                   Continue to payment
                 </button>
               </div>
+              {/* orderInfo */}
+              {orderInfo.map((order, index) => (
+                <>
+                  <input type='hidden' name='number' value={index + 1} />
+                  <input type='hidden' name='id' value={order.id} />
+                  <input type='hidden' name='title' value={order.title} />
+                  <input type='hidden' name='price' value={order.price} />
+                  <input type='hidden' name='quantity' value={order.quantity} />
+                </>
+              ))}
             </form>
           )}
           {success2 ? (
