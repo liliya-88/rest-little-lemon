@@ -171,6 +171,7 @@ const Reservations = () => {
       }
       if (currentTab < number) setHide(true)
     }
+    /*  'Content-Type': 'application/x-www-form-urlencoded' */
     /* validation of the second section - last step before submitting */
     if (
       currentTab === 2 &&
@@ -189,13 +190,13 @@ const Reservations = () => {
       setPreloader(true)
       //sending the message
       if (preloader && currentTab === 2) {
-        const url = 'https://formspree.io/f/mgejzyyw'
+        const url = 'https://usebasin.com/f/6eee2fc7b10c'
         const createMessage = async (url, data) => {
           const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
             headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
           })
@@ -261,7 +262,7 @@ const Reservations = () => {
             onSubmit={handleSubmit}
             method='POST'
             name='reservation'
-            action='https://formspree.io/f/mgejzyyw'
+            action='https://usebasin.com/f/6eee2fc7b10c'
             encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
