@@ -137,7 +137,6 @@ const OrderOnline = () => {
       const order_information = orderInfo
         .map((order, index) => {
           return `
-        Quantity_of_dishes: ${orderInfo.length},
         Dish: ${index + 1}. ${order.title},
         Price: ${order.price},
         Quantity: ${order.quantity},
@@ -155,7 +154,7 @@ const OrderOnline = () => {
         Comment: inputOrder.comment,
         DateOnSubmit: minDateOnSubmit,
         Quantity_of_dishes: orderInfo.length,
-        Dish: order_information,
+        Dishes: order_information,
       }
       const createResponse = await createMessage(url, messageForm)
     }
@@ -470,7 +469,7 @@ const OrderOnline = () => {
                 </button>
               </div>
               {/* orderInfo */}
-            
+
               <input
                 type='date'
                 name='date-on-submit'
