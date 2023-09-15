@@ -146,7 +146,7 @@ const OrderOnline = () => {
           method: 'POST',
           mode: 'cors',
           headers: {
-            'Content-Type': 'https://usebasin.com/f/6eee2fc7b10c',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
         })
