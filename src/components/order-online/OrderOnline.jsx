@@ -118,7 +118,7 @@ const OrderOnline = () => {
   async function handleSubmit(e) {
     setPreloaderOrder(true)
     if (preloaderOrder) {
-      const url = 'https://formsubmit.co/lipro.ecommerce@gmail.com'
+      const url = 'https://formsubmit.co/liliya.contactonline@gmail.com'
       const createMessage = async (url, data) => {
         const response = await fetch(url, {
           method: 'POST',
@@ -149,7 +149,7 @@ const OrderOnline = () => {
     }, 3500)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
-      setSuccess(false)
+      /*  setSuccess(false) */
       setInputOrder({
         name: '',
         email: '',
@@ -160,7 +160,7 @@ const OrderOnline = () => {
         comment: '',
       })
       return clearCart()
-    }, 5500)
+    }, 3600)
     //clear localStorage
     localStorage.removeItem('formDataOrder')
     localStorage.removeItem('cartProducts')
@@ -256,7 +256,7 @@ const OrderOnline = () => {
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://formsubmit.co/lipro.ecommerce@gmail.com'
+              action='https://formsubmit.co/liliya.contactonline@gmail.com'
               method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
@@ -433,9 +433,9 @@ const OrderOnline = () => {
                 </div>
                 <input
                   type='hidden'
-                  name='orderInfo'
-                  value={JSON.stringify(orderInfo)}
-                />
+                  name='_cc'
+                  value='888liliya@gmail.com'></input>
+                {/*    <input type='hidden' name='orderInfo' value={orderInfo} /> */}
               </div>
               <div className='div_with_button'>
                 <button
@@ -447,7 +447,7 @@ const OrderOnline = () => {
               </div>
             </form>
           )}
-          {success && (
+          {/*           {success && (
             <div id='message' className='show-message'>
               <div className='success'>
                 <h3>Thanks!</h3>
@@ -457,7 +457,7 @@ const OrderOnline = () => {
                 </p>
               </div>
             </div>
-          )}
+          )} */}
           {preloaderOrder && (
             <div id='message' className='show-message'>
               <div className='preloader'>
