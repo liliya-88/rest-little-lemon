@@ -141,7 +141,7 @@ const OrderOnline = () => {
     Order_info:${orderInfo}
     `
 
-      const createResponse = await createMessage(url, messageForm)
+      // const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
     setTimeout(() => {
@@ -264,9 +264,7 @@ const OrderOnline = () => {
               encType='multipart/form-data'
               onSubmit={handleSubmit}
               action='https://formspree.io/f/xwkdqbvl'
-              method='POST'
-              target='_blank'
-              rel='noreferrer'>
+              method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
                   Name:

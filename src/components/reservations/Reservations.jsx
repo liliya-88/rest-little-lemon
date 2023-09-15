@@ -65,7 +65,7 @@ const Reservations = () => {
     if (sentMessage && !preloader) {
       setSuccess(false)
     }
-  }, [success, preloader,sentMessage])
+  }, [success, preloader, sentMessage])
   /* end of useEffects */
 
   const handleChange = (event) => {
@@ -209,7 +209,7 @@ const Reservations = () => {
           Username: ${inputV.username},
           Password: ${inputV.password}`
 
-        // const createResponse = await createMessage(url, messageForm)
+        const createResponse = await createMessage(url, messageForm)
       }
       /* ------------------------------------- */
       setTimeout(() => {
@@ -260,9 +260,7 @@ const Reservations = () => {
             method='POST'
             name='reservation'
             action='https://formsubmit.co/lipro.ecommerce@gmail.com'
-            encType='multipart/form-data'
-            target='_blank'
-            rel='noreferrer'>
+            encType='multipart/form-data'>
             <h1 className='form_title'>Find a table for any occasion</h1>
             {/* images */}
             <div className='img_containter_form'>
