@@ -4668,4 +4668,10 @@ text-transform: none;
     transition: all 0.3 linear;
     cursor: pointer;
 }
+.a_style small:hover{
+text-transform: none;
+    color: var(--primaryColor-800);
+    transition: all 0.3 linear;
+    cursor: pointer;
+}
 /* ================== */
