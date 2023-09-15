@@ -4438,12 +4438,12 @@ min-height: 100vh;
   overflow: hidden;
   height: fit-content !important;
 }
-/* .form_container {
+ .form_container_order {
   width: 100vw !important;
-  min-height: 100vw;
+ height: fit-content;
   padding: 0;
   margin: 0 auto !important;
-} */
+} 
 /* styles for table in cart */
 .table_cart {
   max-width: 100%;

@@ -249,7 +249,7 @@ const OrderOnline = () => {
         <div className='box'>
           <h2 className='title_center order_online'>Order information</h2>
 
-          <div className='form_container flashIn'>
+          <div className='form_container_order flashIn'>
             {!!cartProducts?.length && (
               <form
                 id='order_info'
