@@ -154,7 +154,7 @@ const OrderOnline = () => {
         Comment: inputOrder.comment,
         DateOnSubmit: minDateOnSubmit,
         Quantity_of_dishes: orderInfo.length,
-        Dishes: order_information,
+        Dish: order_information,
       }
       const createResponse = await createMessage(url, messageForm)
     }
