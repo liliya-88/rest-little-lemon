@@ -160,13 +160,13 @@ const OrderOnline = () => {
     /* ------------------ */
     setTimeout(() => {
       setPreloader2(false)
+      setSuccess2(true)
     }, 3500)
     setTimeout(() => {
       if (success2) {
         setSentMessage2(true)
-        setSuccess2(true)
       }
-    }, 3700)
+    }, 4000)
     setTimeout(async () => {
       const createResponse = await createMessage(url, messageForm)
       setSuccess2(false)
@@ -181,7 +181,7 @@ const OrderOnline = () => {
         comment: '',
       })
       clearCart()
-    }, 3900)
+    }, 4500)
     //clear localStorage
     localStorage.removeItem('formDataOrder')
     localStorage.removeItem('cartProducts')
