@@ -76,7 +76,11 @@ const Footer = () => {
       <div className='section-center copyright'>
         <small>
           <p className='copyright'>
-            © Little Lemon <span id='date'> {date} </span>All rights Reserved.
+            © Little Lemon <span id='date'> {date} </span>
+            <Link to={'/cookie'} onClick={() => window.scrollTo(0, 0)} style={{color:'inherit',cursor:'pointer'}}>
+              All rights Reserved
+            </Link>
+            .
           </p>
         </small>
       </div>

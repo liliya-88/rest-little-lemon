@@ -4629,3 +4629,43 @@ select.form_input option {
 }
 
 /* ============================ */
+/* Cookie Policy */
+.title_center{
+    text-align: center;
+  padding: 6rem 1rem 1.5rem;
+  margin: 0 auto 1rem;
+  color: var(--whiteSilver);
+  text-shadow: var(--textShadowTitle);
+
+}
+.h4_cookie{
+  color: var(--pink);
+    height: fit-content;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+.p_cookie{
+
+  color: var(--whiteLess);
+  max-width: 95vw;
+  height: fit-content;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  text-align: justify;
+}
+.pb_3{
+ padding-bottom: 3rem;
+}
+.a_style{
+text-transform: none;
+    color: var(--pink);
+    transition: all 0.3 linear;
+}
+.a_style:hover{
+text-transform: none;
+    color: var(--primaryColor-800);
+    transition: all 0.3 linear;
+    cursor: pointer;
+}
+/* ================== */

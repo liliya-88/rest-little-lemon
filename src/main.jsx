@@ -11,6 +11,7 @@ import OrderOnline from './routes/orderOnline'
 import Specials from './routes/specials'
 import About from './routes/about'
 import CartContextProvider from './components/context/CartContext'
+import Cookie from './routes/cookie'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/specials',
     element: <Specials />,
+  },
+  {
+    path: '/cookie',
+    element: <Cookie />,
   },
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
