@@ -1,8 +1,12 @@
+import { useEffect } from 'react'
 import NavCookie from '../components/cookie/NavCookie'
 import Footer from '../components/general/Footer'
 import ArrowPhantom from '../hooks/ArrowPhantom'
 
 const CookiePolicyPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
       <NavCookie />
@@ -83,7 +87,7 @@ const CookiePolicyPage = () => {
             <h4 className='h4_cookie'>Contact Us</h4>
             <p className='p_cookie'>
               If you have any questions or concerns about our Cookie Policy,
-              please contact us at email address: 
+              please contact us at email address:
               <a href='mailto:lipro.ecommerce@gmail.com' className='a_style'>
                 lipro.ecommerce@gmail.com
               </a>
