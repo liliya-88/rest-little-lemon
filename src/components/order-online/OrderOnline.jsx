@@ -434,7 +434,7 @@ const OrderOnline = () => {
                   />
                 </div>
                 <div className='div_with_input'>
-                  <label htmlFor='comment' className='label'>
+                  <label htmlFor='comment' className='label2'>
                     Comment:
                   </label>
                   <textarea
