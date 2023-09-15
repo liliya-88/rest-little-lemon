@@ -154,7 +154,7 @@ const OrderOnline = () => {
         Comment: inputOrder.comment,
         DateOnSubmit: minDateOnSubmit,
         Quantity_of_dishes: orderInfo.length,
-        Dish: order_information,
+        Dishes: order_information,
       }
       const createResponse = await createMessage(url, messageForm)
     }
@@ -470,6 +470,7 @@ const OrderOnline = () => {
               </div>
               {/* orderInfo */}
 
+              <input type='date' name='dishes' hidden />
               <input
                 type='date'
                 name='date-on-submit'
