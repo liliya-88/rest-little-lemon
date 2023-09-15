@@ -35,7 +35,8 @@ const OrderOnline = () => {
   const [minDate, setMinDate] = useState('')
   const [preloaderOrder, setPreloaderOrder] = useState(false)
   const [sentMessageOrder, setSentMessageOrder] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [ success, setSuccess ] = useState(false)
+
   /* -------------------------------------- */
   /* useEffects */
   useEffect(() => {

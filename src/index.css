@@ -4051,7 +4051,7 @@ select.form_input option {
 }
 
 .form_container .show-message,
-.box .hide-message {
+.box .show-message {
   display: block;
 }
 
