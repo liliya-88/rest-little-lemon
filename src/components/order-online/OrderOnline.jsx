@@ -32,7 +32,7 @@ const OrderOnline = () => {
     }
   })
   // const [isSuccess, setIsSuccess] = useState(false)
-  const [minDate, setMinDate] = useState('')
+  const [minDate2, setMinDate2] = useState('')
   const [preloader2, setPreloader2] = useState(false)
   const [sentMessage2, setSentMessage2] = useState(false)
   const [success2, setSuccess2] = useState(false)
@@ -57,7 +57,7 @@ const OrderOnline = () => {
   /*  limit the minimum date of an input field based on the current date and time */
   useEffect(() => {
     const now = new Date().toISOString().split('T')[0]
-    setMinDate(now)
+    setMinDate2(now)
   }, [])
 
   useEffect(() => {
@@ -416,7 +416,7 @@ const OrderOnline = () => {
                         : 'white',
                     }}
                     max='2023-12-30'
-                    min={minDate}
+                    min={minDate2}
                     required
                   />
                 </div>

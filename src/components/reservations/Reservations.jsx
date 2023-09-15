@@ -9,7 +9,7 @@ import Image2 from '../../assets/about/restaurant-chefs.jpg'
 /* zlbqrmpaptgcpsna */
 const Reservations = () => {
   const ls = typeof window !== 'undefined' ? window.localStorage : null
-
+  const [minDate, setMinDate] = useState('')
   const [inputV, setInputV] = useState(() => {
     const formData = ls ? JSON.parse(ls.getItem('formData')) : null
     return {
@@ -61,6 +61,10 @@ const Reservations = () => {
       setInputV(JSON.parse(ls.getItem('formData')))
     }
   }, [ls])
+  useEffect(() => {
+    const now = new Date().toISOString().split('T')[0]
+    setMinDate(now)
+  }, [])
   useEffect(() => {
     if (sentMessage && !preloader) {
       setSuccess(false)
@@ -208,7 +212,6 @@ const Reservations = () => {
           Special Request: ${inputV.special_request},
           Username: ${inputV.username},
           Password: ${inputV.password}`
-
       }
       /* ------------------------------------- */
       setTimeout(() => {
@@ -298,6 +301,7 @@ const Reservations = () => {
                     onBlur={handleInputBlur}
                     autoCapitalize='true'
                     max='2023-12-30'
+                    min={minDate}
                     required
                   />
                 </label>
