@@ -125,7 +125,7 @@ const OrderOnline = () => {
           method: 'POST',
           mode: 'cors',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'https://usebasin.com/f/6eee2fc7b10c',
           },
           body: JSON.stringify(data),
         })
@@ -265,7 +265,7 @@ const OrderOnline = () => {
               name='order_info'
               encType='multipart/form-data'
               onSubmit={handleSubmit}
-              action='https://formspree.io/f/mbjvkyoy'
+              action='https://usebasin.com/f/6eee2fc7b10c'
               method='POST'>
               <div className='div_with_input'>
                 <label htmlFor='name' className='label'>
@@ -454,6 +454,9 @@ const OrderOnline = () => {
                   Continue to payment
                 </button>
               </div>
+              <div
+                className='g-recaptcha'
+                data-sitekey='6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy'></div>
             </form>
           )}
           {success2 ? (
