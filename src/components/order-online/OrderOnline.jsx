@@ -135,7 +135,7 @@ const OrderOnline = () => {
       Id:${order.id},
       `
   })
-
+  console.log(order_information, 'order_information')
   /* =================================== */
   async function handleSubmit(e) {
     setPreloader2(true)
