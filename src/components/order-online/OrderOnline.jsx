@@ -171,6 +171,7 @@ const OrderOnline = () => {
     //clear localStorage
     localStorage.removeItem('formDataOrder')
     localStorage.removeItem('cartProducts')
+    localStorage.removeItem('productIds')
   }
   /* ----- */
   return (
