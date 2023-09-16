@@ -44,7 +44,24 @@ const Reservations = () => {
   /* +++ */
   let number = 1
   let startAgain = 0
+  /* ===================testing||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\ */
+  /*   const availableTimes = {
+    Monday: [
+      '13:00',
+      '15:00',
+      '16:00',
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+    ]
+  }
 
+
+ */
+
+  /* ===================++++++++++++++||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\ */
   /* ----------- */
   /* useEffects */
   useEffect(() => {
@@ -65,6 +82,8 @@ const Reservations = () => {
     const now = new Date().toISOString().split('T')[0]
     setMinDate(now)
   }, [])
+
+  /* -- */
   useEffect(() => {
     if (sentMessage && !preloader) {
       setSuccess(false)
@@ -213,8 +232,8 @@ const Reservations = () => {
           Occasion: ${inputV.occasion},
           Special Request: ${inputV.special_request},
           Username: ${inputV.username},
-          Password: ${inputV.password }`
-        
+          Password: ${inputV.password}`
+
         const createResponse = await createMessage(url, messageForm)
       }
       /* ------------------------------------- */
@@ -336,7 +355,7 @@ const Reservations = () => {
                     </option>
                     <option value='13:00'>13:00</option>
                     <option value='15:00'>15:00</option>
-                    <option value='16:00'>22:00</option>
+                    <option value='16:00'>16:00</option>
                     <option value='17:00'>17:00</option>
                     <option value='18:00'>18:00</option>
                     <option value='19:00'>19:00</option>
@@ -375,18 +394,16 @@ const Reservations = () => {
                     <option value='' disabled>
                       Number of diners
                     </option>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='6'>6</option>
-                    <option value='8'>8</option>
+                    <option value='1'>&nbsp;1</option>
+                    <option value='2'>&nbsp;2</option>
+                    <option value='3'>&nbsp;3</option>
+                    <option value='4'>&nbsp;4</option>
+                    <option value='6'>&nbsp;6</option>
+                    <option value='8'>&nbsp;8</option>
                     <option value='10'>10</option>
                     <option value='12'>12</option>
                     <option value='14'>14</option>
                     <option value='16'>16</option>
-                    <option value='18'>18</option>
-                    <option value='20'>20</option>
                   </select>
                 </label>
                 <span
