@@ -513,14 +513,4 @@ const OrderOnline = () => {
 }
 
 export default OrderOnline
-/*       const messageForm = `Name:${inputOrder.name},
-    Email:${inputOrder.email},
-    City:${inputOrder.city},
-    PostalCode: ${inputOrder.postalCode},
-    Country: ${inputOrder.country},
-    DateOfDelivery: ${inputOrder.dateOfDelivery},
-    Comment: ${inputOrder.comment},
-    Date-on-submit:${minDateOnSubmit},
-    Quantity_of_dishes:${orderInfo.length},
-    Dish:${order_information},
-    ` */
+
