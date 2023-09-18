@@ -31,6 +31,7 @@ const router = createBrowserRouter([
     path: '/reservations',
     element: <Reservations />,
   },
+
   {
     path: '/orderOnline',
     element: <OrderOnline />,

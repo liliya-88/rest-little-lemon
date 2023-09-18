@@ -34,275 +34,6 @@ const Reservations = () => {
   const [hide, setHide] = useState(false)
   const [notValid, setNotValid] = useState(true)
   /* +++ */
-  /* for date and time functionality */
-  const [chosenTime, setChosenTime] = useState('')
-  const [chosenId, setChosenId] = useState('')
-  const [indexOfChosenSlot, setIndexOfChosenSlot] = useState(null)
-  const [availableDatesAndTimes, setAvailableDatesAndTimes] = useState(() => {
-    const storedData = ls
-      ? JSON.parse(ls.getItem('availableDatesAndTimes'))
-      : null
-    return storedData
-      ? storedData
-      : [
-          {
-            id: '2023-09-18',
-            availableTimes: [
-              { time: '13:00', chosen: true },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: true },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-19',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: true },
-              { time: '15:00', chosen: true },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-20',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: true },
-              { time: '17:00', chosen: true },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-21',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: true },
-              { time: '20:00', chosen: true },
-              { time: '21:00', chosen: true },
-            ],
-          },
-          {
-            id: '2023-09-22',
-            availableTimes: [
-              { time: '13:00', chosen: true },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: true },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-23',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: true },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: true },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: true },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-24',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-25',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: true },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-26',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: true },
-              { time: '17:00', chosen: true },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: true },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-27',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-28',
-            availableTimes: [
-              { time: '13:00', chosen: true },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: true },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: true },
-            ],
-          },
-          {
-            id: '2023-09-29',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: true },
-              { time: '19:00', chosen: true },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-09-30',
-            availableTimes: [
-              { time: '13:00', chosen: true },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: true },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-10-01',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: true },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-10-02',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-10-03',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: true },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: true },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-10-04',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: true },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: false },
-              { time: '19:00', chosen: true },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: false },
-            ],
-          },
-          {
-            id: '2023-10-05',
-            availableTimes: [
-              { time: '13:00', chosen: false },
-              { time: '14:00', chosen: false },
-              { time: '15:00', chosen: false },
-              { time: '16:00', chosen: false },
-              { time: '17:00', chosen: false },
-              { time: '18:00', chosen: true },
-              { time: '19:00', chosen: false },
-              { time: '20:00', chosen: false },
-              { time: '21:00', chosen: true },
-            ],
-          },
-        ]
-  })
-
-  const [chosenObj, setChosenObj] = useState(null)
-  const [test, setTest] = useState(false)
-  /* -----------end of for date and time functionality---------------- */
   const [errors, setErrors] = useState(false)
   const [errors1, setErrors1] = useState(false)
   const [errors2, setErrors2] = useState(false)
@@ -332,83 +63,18 @@ const Reservations = () => {
       setInputV(JSON.parse(ls.getItem('formData')))
     }
   }, [ls])
-  /* +++for date and time useEffects */
-  useEffect(() => {
-    if (availableDatesAndTimes && ls) {
-      localStorage.setItem(
-        'availableDatesAndTimes',
-        JSON.stringify(availableDatesAndTimes)
-      )
-    }
-  }, [availableDatesAndTimes, ls])
-
-  useEffect(() => {
-    if (ls && ls.getItem('availableDatesAndTimes')) {
-      setAvailableDatesAndTimes(
-        JSON.parse(ls.getItem('availableDatesAndTimes'))
-      )
-    }
-  }, [ls])
-
-  useEffect(() => {
-    if (chosenTime && test && preloader) {
-      setAvailableDatesAndTimes((prevState) => {
-        return prevState.map((dateObj) => {
-          if (dateObj.id === inputV) {
-            return {
-              id: dateObj.id,
-              availableTimes: dateObj.availableTimes.map((timeObj) => {
-                if (timeObj.time === chosenTime) {
-                  return { time: timeObj.time, chosen: true }
-                }
-              }),
-            }
-          }
-          return dateObj
-        })
-      })
-    }
-  }, [inputV, chosenTime, test, preloader])
-  useEffect(() => {})
-  /* +++end of for date and time useEffects */
-  /* +++ */
   useEffect(() => {
     const now = new Date().toISOString().split('T')[0]
     setMinDate(now)
-  }, [inputV])
+  }, [])
 
   /* -- */
   useEffect(() => {
     if (sentMessage && !preloader) {
       setSuccess(false)
       localStorage.removeItem('formData')
-      setTest(false)
     }
   }, [success, preloader, sentMessage])
-  /*  setInputV((prev) => {
-        return { ...prev, time: chosenTime }
-      }) */
-  /* function for date and time */
-  function handleTimeChange(e) {
-    setChosenTime(e.target.value)
-    setInputV((prev) => {
-      return { ...prev, time: chosenTime }
-    })
-  }
-  /* end of function for date and time */
-  useEffect(() => {
-    if (inputV.date) {
-      const chosenObj = availableDatesAndTimes.find(
-        (obj) => obj.id === inputV.date
-      )
-      setChosenObj(chosenObj)
-    }
-    if (chosenObj) {
-      const index = availableDatesAndTimes.indexOf(chosenObj)
-      setIndexOfChosenSlot(index)
-      setChosenId(chosenObj.id)
-    }
-  }, [availableDatesAndTimes, inputV.date, chosenObj])
   /* end of useEffects */
 
   const handleChange = (event) => {
@@ -435,12 +101,7 @@ const Reservations = () => {
       confirm_password: prevState.confirm_password,
       special_request: prevState.special_request,
     }))
-    setInputV((prev) => {
-      return { ...prev, time: prev.date }
-    })
-    setChosenTime((prevTime) => prevTime)
   }, [])
-
   function handlePrev() {
     setCurrentTab(currentTab - number)
     if (currentTab < number) {
@@ -457,7 +118,6 @@ const Reservations = () => {
     if (
       currentTab === 0 &&
       inputV.date !== '' &&
-      currentTab !== '' &&
       inputV.time !== '' &&
       inputV.number_of_diners !== '' &&
       inputV.occasion !== ''
@@ -601,6 +261,8 @@ const Reservations = () => {
             </h1>
           </div>
         </div>
+        {/* 6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy
+         */}
         <div className='form_container flashIn'>
           <form
             id='regForm'
@@ -646,12 +308,20 @@ const Reservations = () => {
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     autoCapitalize='true'
-                    max='2023-10-05'
+                    max='2023-12-30'
                     min={minDate}
                     required
                   />
                 </label>
-                <span className='clear_input'>📅</span>
+                <span
+                  className='clear_input'
+                  onClick={() =>
+                    setInputV((prev) => {
+                      return { ...prev, date: '' }
+                    })
+                  }>
+                  X
+                </span>
               </p>
               <p>
                 <label htmlFor='time'>
@@ -659,25 +329,33 @@ const Reservations = () => {
                   <br />{' '}
                   <select
                     name='time'
+                    value={inputV.time}
                     className='form_input'
-                    onChange={handleTimeChange}
-                    onBeforeInput={handleInputBlur}
+                    onChange={handleChange}
+                    onBlur={handleInputBlur}
                     required>
-                {/*     <option value=''>Time</option> */}
-                    {!inputV.date && <option value=''>Time</option>}
-                    {availableDatesAndTimes[
-                      indexOfChosenSlot
-                    ]?.availableTimes.map((chosen) => (
-                      <option
-                        key={chosen.time + Math.random}
-                        value={chosen.time}
-                        disabled={chosen.chosen}>
-                        {chosen.time}
-                      </option>
-                    ))}
+                    <option value='' disabled>
+                      Time
+                    </option>
+                    <option value='13:00'>13:00</option>
+                    <option value='15:00'>15:00</option>
+                    <option value='16:00'>16:00</option>
+                    <option value='17:00'>17:00</option>
+                    <option value='18:00'>18:00</option>
+                    <option value='19:00'>19:00</option>
+                    <option value='20:00'>20:00</option>
+                    <option value='21:00'>21:00</option>
                   </select>
                 </label>
-                <span className='clear_input'>🕒</span>
+                <span
+                  className='clear_input'
+                  onClick={() =>
+                    setInputV((prev) => {
+                      return { ...prev, time: '' }
+                    })
+                  }>
+                  X
+                </span>
               </p>
             </div>
 

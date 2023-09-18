@@ -5,11 +5,11 @@ import useMediaQuery from '../../hooks/useMediaQuery'
 import Logo from '../../assets/svg-logo.svg'
 import { CartContext } from '../context/CartContext'
 
-const NavReservations = () => {
+const NavReservations2 = () => {
   const [mobileNavActive, setMobileNavActive] = useState(false)
   const [activeLink, setActiveLink] = useState(4)
   const Desktop = useMediaQuery('(min-width: 930px)')
- const { cartProducts } = useContext(CartContext)
+  const { cartProducts } = useContext(CartContext)
   const handleLinkClick = (linkId) => {
     setActiveLink(linkId)
   }
@@ -135,4 +135,4 @@ const NavReservations = () => {
   )
 }
 
-export default NavReservations
+export default NavReservations2
