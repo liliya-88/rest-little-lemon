@@ -331,6 +331,7 @@ const Reservations2 = () => {
           action='https://usebasin.com/f/6eee2fc7b10c'
           encType='multipart/form-data'>
           <h1 className='form_title'>Find a table for any occasion</h1>
+          {/*    onBlur={handleInputBlur} */}
           <div className='tab sign'>
             <p>
               <label htmlFor='date'>
@@ -342,7 +343,6 @@ const Reservations2 = () => {
                   onBeforeInput={handleInputBlur}
                   className='form_input'
                   placeholder='username'
-                  autoCapitalize='true'
                   onChange={handleDateChange}
                   max='2023-10-05'
                   min={minDate}
