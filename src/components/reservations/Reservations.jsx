@@ -577,7 +577,7 @@ const Reservations = () => {
             },
             body: JSON.stringify(data),
           })
-          setSentMessage(true)
+         /*  setSentMessage(true) */
           setTest(true)
           localStorage.removeItem('formData')
           return await response.json()
@@ -603,6 +603,7 @@ const Reservations = () => {
       setTimeout(async () => {
         /*  const createResponse = await createMessage(url, messageForm) */
         setSuccess(false)
+         setSentMessage(true)
         setInputV({
           first_name: '',
           last_name: '',
