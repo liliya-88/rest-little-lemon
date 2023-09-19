@@ -632,13 +632,11 @@ const Reservations = () => {
       <section className='main_wrapper_form pt-4 flashIn'>
         <div className='title_wrapper'>
           <div className='title-hero '>
-            <h1 className='h1_title'>
+            <h2 className='h1_title'>
               Little Lemon<span className='h1_span'>Chicago</span>
-            </h1>
+            </h2>
           </div>
         </div>
-        {/* 6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy
-         */}
         <div className='form_container'>
           <form
             id='regForm'
