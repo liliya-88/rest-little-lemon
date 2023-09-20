@@ -1099,7 +1099,6 @@ const Reservations = () => {
                     type='submit'
                     id='nextBtn2'
                     className='btn'
-                    data-testid='Submit'
                     onClick={handleSubmit}>
                     Submit
                   </button>
