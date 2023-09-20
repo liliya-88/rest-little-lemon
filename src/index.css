@@ -1896,7 +1896,10 @@ section.main .scroll .card-inner {
   left: 0;
   right: 0;
 }
-
+.main_container-about #about{
+  text-shadow: var(--textShadowTitle);
+  color:  var(--greyDark);
+}
 .yellow {
   color: var(--primaryColor);
   text-shadow: var(--shadow-1);

@@ -7,7 +7,7 @@ function AboutP() {
   return (
     <>
       <div className='title_center' id='about'>
-        <h1 className='h1_about'>About us</h1>
+        <h2 className='h1_about'>About us</h2>
       </div>
       <section className='section-center grid-2 flashIn'>
         {/* left part  */}
