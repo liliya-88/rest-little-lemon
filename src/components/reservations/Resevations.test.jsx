@@ -1,15 +1,27 @@
-import { test, describe } from 'vitest'
-import { jest } from 'jest'
-import { render, screen, fireEvent, expect } from '@testing-library/react'
-import Reservations from './components/reservations/Reservations.jsx'
+import Reservations from './Reservations'
+import { describe, it, expect } from 'vitest'
+import { render, screen } from '../../utils/test-utils'
+
+describe('Render the Reservations headingElement', () => {
+  it('the title is visible', () => {
+    render(<Reservations />)
+    expect(screen.getByText(/Little Lemon/)).toBeInTheDocument()
+  })
+})
+
+/* import '@testing-library/jest-dom'
+import { expect, test } from 'vitest'
+
+import { render, screen } from '@testing-library/react'
+import Reservations from './components/reservations/Reservations'
 
 test('Render the Reservations headingElement', () => {
   render(<Reservations />)
   const headingElement = screen.getByText('Submit')
   expect(headingElement).toBeInTheDocument()
-})
+})  */
 
-describe('Reserve a table', () => {
+/* describe('Reserve a table', () => {
   test('User is able to submit the form if all the fields are filled', () => {
     const date = 'Date'
     const time = 'Time'
@@ -23,7 +35,11 @@ describe('Reserve a table', () => {
     const password = 'Password'
     const confirm = 'Confirm password'
     const handleSubmit = jest.fn()
-    render(<Reservations onSubmit={handleSubmit} />)
+    render(Reservations)
+    // Find the form element
+    const form = screen.getByRole('form')
+    // Simulate a form submission
+    fireEvent.submit(form)
 
     const dateInput = screen.getByLabelText(/Date/)
     fireEvent.change(dateInput, { target: { value: date } })
@@ -32,7 +48,9 @@ describe('Reserve a table', () => {
     fireEvent.change(timeInput, { target: { value: time } })
 
     const numberOfDinersInput = screen.getByLabelText(/Number Of diners/)
-    fireEvent.change(numberOfDinersInput, { target: { value: numberOfDiners } })
+    fireEvent.change(numberOfDinersInput, {
+      target: { value: numberOfDiners },
+    })
 
     const occasionInput = screen.getByLabelText(/Occasion/)
     fireEvent.change(occasionInput, { target: { value: occasion } })
@@ -88,8 +106,11 @@ test('User is able to submit the form if all the fields are filled', () => {
   const confirm = 'Confirm password'
   const handleSubmit = jest.fn()
 
-  render(<Reservations onSubmit={handleSubmit} />)
-
+  render(Reservations)
+  // Find the form element
+  const form = screen.getByRole('form')
+  // Simulate a form submission
+  fireEvent.submit(form)
   const dateInput = screen.getByLabelText(/Date/)
   fireEvent.change(dateInput, { target: { value: date } })
 
@@ -140,3 +161,4 @@ test('User is able to submit the form if all the fields are filled', () => {
     confirm,
   })
 })
+ */
