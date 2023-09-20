@@ -3852,6 +3852,11 @@ tr.color4:nth-of-type(1) {
   margin-right: 0.3rem;
 
 }
+#nextBtn2 {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+
+}
 
 label sup {
   color: var(--pink);

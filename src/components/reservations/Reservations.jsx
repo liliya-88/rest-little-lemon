@@ -480,10 +480,11 @@ const Reservations = () => {
     }
   }, [chosenDate, chosenTime, test])
   /* ##### end of functions for for date and time #####  */
-  console.log(chosenDate, inputV.date, '- date')
-  console.log(chosenTime, inputV.time, '- time')
+/*   console.log(chosenDate, inputV.date, '- date')
+  console.log(chosenTime, inputV.time, '- time') */
   /* ======================================================= */
   /* !!!!async function for sending data to email */
+
   async function handleSubmit(e) {
     /* validation of the first section */
     if (
@@ -577,7 +578,7 @@ const Reservations = () => {
             },
             body: JSON.stringify(data),
           })
-         /*  setSentMessage(true) */
+          /*  setSentMessage(true) */
           setTest(true)
           localStorage.removeItem('formData')
           return await response.json()
@@ -603,7 +604,7 @@ const Reservations = () => {
       setTimeout(async () => {
         /*  const createResponse = await createMessage(url, messageForm) */
         setSuccess(false)
-         setSentMessage(true)
+        setSentMessage(true)
         setInputV({
           first_name: '',
           last_name: '',
@@ -626,6 +627,7 @@ const Reservations = () => {
       // Reset the form
     }
   }
+
   /* ----end of async function for sending data to email ------ */
   return (
     <>
@@ -677,6 +679,7 @@ const Reservations = () => {
                     type='date'
                     value={chosenDate}
                     name='date'
+                    id='date'
                     className='form_input'
                     onBlur={handleInputBlurDateTime}
                     onBeforeInput={handleInputBlurDateTime}
@@ -690,11 +693,12 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='time'>
-                  <sup>*</sup>Time
+                  <sup>*</sup>Time:
                   <br />{' '}
                   <select
                     name='time'
                     className='form_input'
+                    id='time'
                     onBlur={handleInputBlurDateTime}
                     onBeforeInput={handleInputBlurDateTime}
                     onChange={handleTimeChange}
@@ -724,17 +728,18 @@ const Reservations = () => {
               style={{ display: currentTab === 0 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='number_of_diners'>
-                  <sup>*</sup>Number of diners <br />
+                  <sup>*</sup>Number of diners: <br />
                   <select
                     value={inputV.number_of_diners}
                     name='number_of_diners'
+                    id='number_of_diners'
                     className='form_input'
                     placeholder='number_of_diners'
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     required>
                     <option value='' disabled>
-                      Number of diners
+                      Number of diners:
                     </option>
                     <option value='1'>&nbsp;1</option>
                     <option value='2'>&nbsp;2</option>
@@ -760,17 +765,18 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='occasion'>
-                  <sup>*</sup>Occasion
+                  <sup>*</sup>Occasion:
                   <br />
                   <select
                     value={inputV.occasion}
                     className='form_input'
                     name='occasion'
+                    id='occasion'
                     onChange={handleChange}
                     onBlur={handleInputBlur}
                     required>
                     <option value='' disabled>
-                      Occasion
+                      Occasion:
                     </option>
                     <option value='🎉  Party'>🎉 Party</option>
                     <option value='🎂  Birthday'>🎂 Birthday</option>
@@ -805,11 +811,12 @@ const Reservations = () => {
               style={{ display: currentTab === 1 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='first_name'>
-                  <sup>*</sup>Name <br />
+                  <sup>*</sup>First Name: <br />
                   <input
                     type='text'
                     value={inputV.first_name}
                     name='first_name'
+                    id='first_name'
                     className='form_input'
                     placeholder='John'
                     onChange={handleChange}
@@ -831,13 +838,14 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='last_name'>
-                  <sup>*</sup>Last Name
+                  <sup>*</sup>Last Name:
                   <br />
                   <input
                     type='text'
                     value={inputV.last_name}
                     className='form_input'
                     name='last_name'
+                    id='last_name'
                     placeholder='Doe'
                     onChange={handleChange}
                     onBlur={handleInputBlur}
@@ -864,12 +872,13 @@ const Reservations = () => {
               style={{ display: currentTab === 1 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='email'>
-                  <sup>*</sup>Email <br />
+                  <sup>*</sup>Email: <br />
                   <input
                     type='email'
                     value={inputV.email}
                     className='form_input'
                     name='email'
+                    id='email'
                     placeholder='example@gmail.com'
                     onChange={handleChange}
                     onBlur={handleInputBlur}
@@ -889,12 +898,13 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='phone'>
-                  <sup>*</sup>Phone <br />
+                  <sup>*</sup>Phone: <br />
                   <input
                     type='tel'
                     value={inputV.phone}
                     className='form_input'
                     name='phone'
+                    id='phone'
                     pattern='[0-9]{1,2}[0-9]{3}[0-9]{3}[0-9]{4}'
                     placeholder='X(910)-XXX-XXXX'
                     onChange={handleChange}
@@ -923,11 +933,12 @@ const Reservations = () => {
               style={{ display: currentTab === 2 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='username'>
-                  <sup>*</sup>Username <br />
+                  <sup>*</sup>Username: <br />
                   <input
                     type='text'
                     value={inputV.username}
                     name='username'
+                    id='username'
                     className='form_input'
                     placeholder='username'
                     onChange={handleChange}
@@ -948,14 +959,15 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='password'>
-                  <sup>*</sup>Password
+                  <sup>*</sup>Passwоrd:
                   <br />
                   <input
+                    name='password'
+                    id='password'
                     type={showPassword ? 'text' : 'password'}
                     title='minimum 6-character password is required'
                     value={inputV.password}
                     className='form_input'
-                    name='password'
                     placeholder='********'
                     minLength={6}
                     maxLength={12}
@@ -998,11 +1010,12 @@ const Reservations = () => {
               style={{ display: currentTab === 2 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='confirm_password'>
-                  <sup>*</sup>Confirm password <br />
+                  <sup>*</sup>Confirm password: <br />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     value={inputV.confirm_password}
                     name='confirm_password'
+                    id='confirm_password'
                     className='form_input'
                     placeholder='confirm password'
                     onChange={handleChange}
@@ -1038,14 +1051,15 @@ const Reservations = () => {
               </p>
               <p>
                 <label htmlFor='special_request'>
-                  Special request
+                  Special request:
                   <br />
                   <textarea
                     type='text'
                     title='minimum 6-character password is required'
                     value={inputV.special_request}
                     className='form_input resizable'
-                    name='text'
+                    name='special_request'
+                    id='special_request'
                     placeholder='Add a special request (optional)'
                     onChange={(e) =>
                       setInputV((prev) => ({
@@ -1083,8 +1097,9 @@ const Reservations = () => {
                 {currentTab >= 2 ? (
                   <button
                     type='submit'
-                    id='nextBtn'
+                    id='nextBtn2'
                     className='btn'
+                    data-testid='Submit'
                     onClick={handleSubmit}>
                     Submit
                   </button>
