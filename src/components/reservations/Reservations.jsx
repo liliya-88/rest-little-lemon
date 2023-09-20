@@ -724,7 +724,7 @@ const Reservations = () => {
               style={{ display: currentTab === 0 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='number_of_diners'>
-                  <sup>*</sup>Number of diners: <br />
+                  <sup>*</sup>Number of diners <br />
                   <select
                     value={inputV.number_of_diners}
                     name='number_of_diners'
@@ -805,7 +805,7 @@ const Reservations = () => {
               style={{ display: currentTab === 1 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='first_name'>
-                  <sup>*</sup>Name: <br />
+                  <sup>*</sup>Name <br />
                   <input
                     type='text'
                     value={inputV.first_name}
@@ -864,7 +864,7 @@ const Reservations = () => {
               style={{ display: currentTab === 1 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='email'>
-                  <sup>*</sup>Email: <br />
+                  <sup>*</sup>Email <br />
                   <input
                     type='email'
                     value={inputV.email}
@@ -923,7 +923,7 @@ const Reservations = () => {
               style={{ display: currentTab === 2 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='username'>
-                  <sup>*</sup>Username: <br />
+                  <sup>*</sup>Username <br />
                   <input
                     type='text'
                     value={inputV.username}
@@ -998,7 +998,7 @@ const Reservations = () => {
               style={{ display: currentTab === 2 ? 'grid' : 'none' }}>
               <p>
                 <label htmlFor='confirm_password'>
-                  <sup>*</sup>Confirm password: <br />
+                  <sup>*</sup>Confirm password <br />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     value={inputV.confirm_password}
