@@ -127,7 +127,7 @@ const OrderOnline = () => {
           method: 'POST',
           mode: 'cors',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: JSON.stringify(data),
         })
@@ -432,8 +432,8 @@ const OrderOnline = () => {
                         ? '#E8F0FE'
                         : 'white',
                     }}
-                    max='2023-12-30'
                     min={minDate2}
+                    max='2023-12-30'
                     required
                   />
                 </div>
@@ -518,4 +518,3 @@ const OrderOnline = () => {
 }
 
 export default OrderOnline
-
