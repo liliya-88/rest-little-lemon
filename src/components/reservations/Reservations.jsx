@@ -1099,6 +1099,7 @@ const Reservations = () => {
                     type='submit'
                     id='nextBtn2'
                     className='btn'
+                    aria-label='On Click'
                     onClick={handleSubmit}>
                     Submit
                   </button>

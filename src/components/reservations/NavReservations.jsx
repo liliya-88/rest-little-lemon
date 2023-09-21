@@ -56,7 +56,8 @@ const NavReservations = () => {
                   onClick={() => {
                     setMobileNavActive(false)
                     handleLinkClick(2)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>specials</li>
                 </Link>
                 <Link
@@ -67,7 +68,8 @@ const NavReservations = () => {
                     setMobileNavActive(false)
                     handleLinkClick(1)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>menu </li>
                 </Link>
                 <Link
@@ -78,7 +80,8 @@ const NavReservations = () => {
                     setMobileNavActive(false)
                     handleLinkClick(1)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>reservations</li>
                 </Link>
                 <Link
@@ -88,7 +91,8 @@ const NavReservations = () => {
                     setMobileNavActive(false)
                     handleLinkClick(5)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd'>
                     order online
                     <small className='small_cart'>
@@ -103,7 +107,8 @@ const NavReservations = () => {
                     setMobileNavActive(false)
                     handleLinkClick(1)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd'>login</li>
                 </Link>
               </ul>

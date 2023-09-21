@@ -22,7 +22,10 @@ const Footer = () => {
         </div>
         <div>
           <ul>
-            <Link to={'/menu'} onClick={() => window.scrollTo(0, 0)}>
+            <Link
+              to={'/menu'}
+              onClick={() => window.scrollTo(0, 0)}
+              aria-label='On Click'>
               <li className='a_link_footer'>menu</li>
             </Link>
             <Link to='/about' smooth={true} duration={500}>
@@ -34,13 +37,22 @@ const Footer = () => {
                 about
               </li>
             </Link>
-            <Link to={'/reservations'} onClick={() => window.scrollTo(0, 0)}>
+            <Link
+              to={'/reservations'}
+              onClick={() => window.scrollTo(0, 0)}
+              aria-label='On Click'>
               <li className='a_link_footer'>reservations</li>
             </Link>
-            <Link to={'/orderOnline'} onClick={() => window.scrollTo(0, 0)}>
+            <Link
+              to={'/orderOnline'}
+              onClick={() => window.scrollTo(0, 0)}
+              aria-label='On Click'>
               <li className='a_link_footer'>order online</li>
             </Link>
-            <Link to={'/login'} onClick={() => window.scrollTo(0, 0)}>
+            <Link
+              to={'/login'}
+              onClick={() => window.scrollTo(0, 0)}
+              aria-label='On Click'>
               <li className='a_link_footer'>login</li>
             </Link>
           </ul>
@@ -77,7 +89,11 @@ const Footer = () => {
         <small>
           <p className='copyright'>
             © Little Lemon <span id='date'> {date} </span>
-            <Link to={'/cookie'} onClick={() => window.scrollTo(0, 0)} style={{color:'inherit',cursor:'pointer'}}>
+            <Link
+              to={'/cookie'}
+              onClick={() => window.scrollTo(0, 0)}
+              style={{ color: 'inherit', cursor: 'pointer' }}
+              aria-label='On Click'>
               All rights Reserved
             </Link>
             .

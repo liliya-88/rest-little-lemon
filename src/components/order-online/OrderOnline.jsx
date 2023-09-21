@@ -462,6 +462,7 @@ const OrderOnline = () => {
               <div className='div_with_button'>
                 <button
                   type='submit'
+                  aria-label='On Click'
                   onClick={handleSubmit}
                   className='btn btn-hipster2'>
                   Continue to payment

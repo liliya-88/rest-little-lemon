@@ -71,7 +71,8 @@ const Nav = () => {
                     setMobileNavActive(false)
                     handleLinkClick(1)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd'>home</li>
                 </Link>
                 <Link
@@ -83,7 +84,8 @@ const Nav = () => {
                   onClick={() => {
                     setMobileNavActive(false)
                     handleLinkClick(2)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>about </li>
                 </Link>
 
@@ -95,7 +97,8 @@ const Nav = () => {
                     setMobileNavActive(false)
                     handleLinkClick(3)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>menu </li>
                 </Link>
 
@@ -107,7 +110,8 @@ const Nav = () => {
                     setMobileNavActive(false)
                     handleLinkClick(4)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd others'>reservations</li>
                 </Link>
                 <Link
@@ -117,7 +121,8 @@ const Nav = () => {
                     setMobileNavActive(false)
                     handleLinkClick(5)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd'>
                     order online
                     <small className='small_cart'>
@@ -132,7 +137,8 @@ const Nav = () => {
                     setMobileNavActive(false)
                     handleLinkClick(6)
                     window.scrollTo(0, 0)
-                  }}>
+                  }}
+                  aria-label='On Click'>
                   <li className='odd'>login</li>
                 </Link>
               </ul>
