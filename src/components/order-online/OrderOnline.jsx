@@ -288,6 +288,7 @@ const OrderOnline = () => {
                   type='text'
                   className='input'
                   name='name'
+                  id='name'
                   value={inputOrder.name}
                   onChange={handleChange}
                   onBlur={handleInputBlur}
@@ -308,6 +309,7 @@ const OrderOnline = () => {
                   type='email'
                   className='input'
                   name='email'
+                  id='email'
                   value={inputOrder.email}
                   placeholder='example@gmail.com'
                   pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
@@ -329,6 +331,7 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='city'
+                      id='city'
                       value={inputOrder.city}
                       placeholder='London'
                       onChange={handleChange}
@@ -349,6 +352,7 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='postalCode'
+                      id='postalCode'
                       value={inputOrder.postalCode}
                       placeholder='EC1A 1AA'
                       onChange={handleChange}
@@ -373,6 +377,7 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='country'
+                      id='country'
                       value={inputOrder.country}
                       placeholder='UK'
                       onChange={handleChange}
@@ -395,6 +400,7 @@ const OrderOnline = () => {
                       type='text'
                       className='input'
                       name='streetAddress'
+                      id='streetAddress'
                       value={inputOrder.streetAddress}
                       placeholder='22aB Baker Street'
                       onChange={handleChange}
@@ -420,6 +426,7 @@ const OrderOnline = () => {
                     type='date'
                     className='input'
                     name='dateOfDelivery'
+                    id='dateOfDelivery'
                     value={inputOrder.dateOfDelivery}
                     onChange={handleChange}
                     onBlur={handleInputBlur}
@@ -441,6 +448,7 @@ const OrderOnline = () => {
                     type='text'
                     className='input'
                     name='comment'
+                    id='comment'
                     value={inputOrder.comment}
                     placeholder='some details'
                     onChange={handleChange}
