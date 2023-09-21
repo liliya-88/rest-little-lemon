@@ -127,7 +127,7 @@ const OrderOnline = () => {
           method: 'POST',
           mode: 'cors',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
         })
@@ -155,20 +155,20 @@ const OrderOnline = () => {
         DateOnSubmit: minDateOnSubmit,
         Dishes: order_information,
       }
+
       const createResponse = await createMessage(url, messageForm)
     }
     /* ------------------ */
     setTimeout(() => {
       setPreloader2(false)
+      setSuccess2(true)
     }, 3500)
-    setTimeout(() => {
+    setTimeout(async () => {
       if (success2) {
-        setSuccess2(true)
         setSentMessage2(true)
       }
     }, 3700)
     setTimeout(async () => {
-      const createResponse = await createMessage(url, messageForm)
       setSuccess2(false)
       setSentMessage2(false)
       setInputOrder({
@@ -459,7 +459,8 @@ const OrderOnline = () => {
                   />
                 </div>
                 <input
-                  type='hidden'
+                  type='text'
+                  hidden
                   name='orderInfo'
                   value={JSON.stringify(orderInfo)}
                 />
