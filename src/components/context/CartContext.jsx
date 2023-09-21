@@ -35,8 +35,6 @@ export default function CartContextProvider({ children }) {
   useEffect(() => {
     setOrderInfo(cartProducts)
   }, [cartProducts])
-  /* console.log(cartProducts, 'cartProducts')
-  console.log(productIds, 'productIds') */
 
   /* to increase */
   const increaseQuantity = (productId) => {
@@ -50,20 +48,7 @@ export default function CartContextProvider({ children }) {
       return updatedCart
     })
   }
-  //to remove
-  /*   const removeProduct = (productId) => {
-    setCartProducts((prev) => {
-      const updatedCart = prev.map((item) => {
-        if (item.id === productId) {
-          return { ...item, quantity: item.quantity - 1 }
-        }
-        return item
-      })
-      
-      return updatedCart
-    })
-  }
-   */
+
   const removeProduct = (productId) => {
     setCartProducts((prev) => {
       const updatedCart = prev.map((item) => {
@@ -76,6 +61,7 @@ export default function CartContextProvider({ children }) {
 
       // Remove items with quantity 0
       const filteredCart = updatedCart.filter((item) => item.quantity !== 0)
+      
       // Update productIds by filtering out the removed product
       const updatedProductIds = updatedCart
         .filter((item) => item.quantity > 0)

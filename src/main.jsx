@@ -55,15 +55,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <RouterProvider router={router} />
     </CartContextProvider>
   </React.StrictMode>
-) /* example of the nested routes */
-
-/*  {
-    path: 'page/:pageId',
-    element: <Page />,
-    children: [
-      {
-        path: '/page/:pageId/post',
-        element: <Post />,
-      },
-    ],
-  }, */
+)

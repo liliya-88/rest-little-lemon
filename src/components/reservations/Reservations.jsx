@@ -480,9 +480,7 @@ const Reservations = () => {
     }
   }, [chosenDate, chosenTime, test])
   /* ##### end of functions for for date and time #####  */
-/*   console.log(chosenDate, inputV.date, '- date')
-  console.log(chosenTime, inputV.time, '- time') */
-  /* ======================================================= */
+
   /* !!!!async function for sending data to email */
 
   async function handleSubmit(e) {
@@ -522,9 +520,6 @@ const Reservations = () => {
         setErrors(true)
         setTimeout(() => {
           setErrors(false)
-          /*       setInputV((prev) => {
-            return { ...prev, email: '' }
-          }) */
         }, 2000)
         return
       }
@@ -602,7 +597,6 @@ const Reservations = () => {
         setSuccess(true)
       }, 3500)
       setTimeout(async () => {
-        /*  const createResponse = await createMessage(url, messageForm) */
         setSuccess(false)
         setSentMessage(true)
         setInputV({
@@ -622,9 +616,7 @@ const Reservations = () => {
         return setCurrentTab(startAgain)
       }, 5500)
       //Clear localStorage after form submission
-      /*   localStorage.removeItem('availableDatesAndTimes') */
       localStorage.removeItem('formData')
-      // Reset the form
     }
   }
 
@@ -926,7 +918,6 @@ const Reservations = () => {
             </div>
             {/* END OF ONE BLOCK WITH 4 INPUTS */}
 
-            {/* =============================================================== */}
             {/* Username & Password*/}
             <div
               className='tab sign'
@@ -1093,7 +1084,6 @@ const Reservations = () => {
                     ⁫←Prev
                   </button>
                 )}
-                {/*  disabled={inputV.password !== inputV.confirm_password} */}
                 {currentTab >= 2 ? (
                   <button
                     type='submit'
@@ -1115,8 +1105,6 @@ const Reservations = () => {
               </div>
             </div>
             {/* ++++++ */}
-            {/*  */}
-            {/* circles which indicates the steps of the form */}
             <div style={{ textAlign: 'center' }} className='steps'>
               <span
                 className={currentTab === 0 ? 'step active' : 'step'}></span>

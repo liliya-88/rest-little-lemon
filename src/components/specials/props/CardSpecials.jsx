@@ -18,7 +18,6 @@ const CardSpecials = (props) => {
       setClicked(true)
     } else {
       setMessage(true)
-      /*   alert('You have already added this product to the cart') */
       setClicked(false)
     }
   }

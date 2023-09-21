@@ -233,11 +233,8 @@ const OrderOnline = () => {
                           –
                         </button>
                         <span className='quantity_label'>
-                          {/*   {productIds.filter((id) => id === product.id).length}  */}
-                          {/* {productIds.filter((id) => id === product.id).length} */}
                           {productIds.filter((id) => id === product.id).length *
                             product.quantity}
-                          {/*  {product.quantity} */}
                         </span>
                         <div>
                           <button
@@ -514,7 +511,6 @@ const OrderOnline = () => {
             </div>
           )}
         </div>
-
         {/* ---------------------------------------- */}
       </div>
     </section>

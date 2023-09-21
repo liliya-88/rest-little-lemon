@@ -349,8 +349,6 @@ const Menu = () => {
   /* -------------- */
   const [otherPage, setOtherPage] = useState(true)
 
-  /* - */
-
   useEffect(() => {
     window.scrollTo(0, 0)
     setOtherPage(true)
@@ -367,8 +365,6 @@ const Menu = () => {
         navbar.classList.remove('sticky')
       }
     }
-
-    /* handleStickyTabs() */ // Call it initially to set the sticky class if necessary
 
     window.addEventListener('scroll', handleStickyTabs)
 

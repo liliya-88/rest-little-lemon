@@ -1,5 +1,4 @@
 import Image1 from '../../assets/about/restaurant-manager.jpg'
-// import Image2 from '../../assets/about/restaurant-chefs.jpg'
 import Image3 from '../../assets/about/interior-of-the-restaurant.jpg'
 
 function About() {
